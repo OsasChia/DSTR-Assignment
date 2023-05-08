@@ -1,0 +1,557 @@
+﻿  Customer.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(11,25): error C2511: 'Customer *CustomerList::CreateNewNode(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(17,7): message : see declaration of 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(14,11): error C2039: 'custEmail': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(15,11): error C2039: 'custName': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(16,11): error C2039: 'custPassword': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(17,11): error C2039: 'custContactNo': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(18,11): error C2039: 'logoutTime': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(25,20): error C2511: 'void CustomerList::InsertToEndList(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(17,7): message : see declaration of 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(28,22): error C2660: 'CustomerList::CreateNewNode': function does not take 5 arguments
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,12): message : see declaration of 'CustomerList::CreateNewNode'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(28,22): message : while trying to match the argument list '(std::string, std::string, std::string, std::string, std::string)'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(31,18): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(31,18): error C3867: 'CustomerList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(31,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(33,3): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(19,12): message : see declaration of 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(37,23): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(19,12): message : see declaration of 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(37,21): error C2440: 'initializing': cannot convert from 'unknown' to 'Customer *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(37,21): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(55,42): error C2039: 'custEmail': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(56,41): error C2039: 'custName': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(57,51): error C2039: 'custContactNo': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(58,47): error C2039: 'logoutTime': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(76,16): error C2039: 'custEmail': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(87,56): error C2039: 'custEmail': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(92,12): error C2039: 'custContactNo': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(103,20): error C2511: 'bool CustomerList::DeleteCust(std::string)': overloaded member function not found in 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(17,7): message : see declaration of 'CustomerList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(106,18): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(106,18): error C3867: 'CustomerList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(106,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(113,20): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(19,12): message : see declaration of 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(113,18): error C2440: 'initializing': cannot convert from 'unknown' to 'Customer *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(113,18): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(121,19): error C2597: illegal reference to non-static member 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(19,12): message : see declaration of 'CustomerList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(121,17): error C2440: 'initializing': cannot convert from 'unknown' to 'Customer *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(121,17): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(123,16): error C2039: 'custEmail': is not a member of 'Customer'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(6,8): message : see declaration of 'Customer'
+  Favourite.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(10,27): error C2511: 'Favourite *FavouriteList::CreateNewNode(std::string,std::string,std::string)': overloaded member function not found in 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(126,7): message : see declaration of 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(14,11): error C2039: 'favID': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(15,11): error C2039: 'custEmail': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(16,11): error C2039: 'universityID': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(23,21): error C2511: 'void FavouriteList::InsertToEndList(std::string,std::string,std::string)': overloaded member function not found in 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(126,7): message : see declaration of 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(26,23): error C2660: 'FavouriteList::CreateNewNode': function does not take 3 arguments
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,13): message : see declaration of 'FavouriteList::CreateNewNode'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(26,23): message : while trying to match the argument list '(std::string, std::string, std::string)'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(29,18): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(29,18): error C3867: 'FavouriteList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(29,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(31,3): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(128,13): message : see declaration of 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(35,24): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(128,13): message : see declaration of 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(35,22): error C2440: 'initializing': cannot convert from 'unknown' to 'Favourite *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(35,22): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(54,40): error C2039: 'favID': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(55,42): error C2039: 'custEmail': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(56,41): error C2039: 'universityID': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(63,21): error C2511: 'bool FavouriteList::DeleteFav(std::string)': overloaded member function not found in 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(126,7): message : see declaration of 'FavouriteList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(66,18): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(66,18): error C3867: 'FavouriteList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(66,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(73,21): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(128,13): message : see declaration of 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(73,19): error C2440: 'initializing': cannot convert from 'unknown' to 'Favourite *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(73,19): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(81,20): error C2597: illegal reference to non-static member 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(128,13): message : see declaration of 'FavouriteList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(81,18): error C2440: 'initializing': cannot convert from 'unknown' to 'Favourite *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(81,18): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Favourite.cpp(83,16): error C2039: 'favID': is not a member of 'Favourite'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(117,8): message : see declaration of 'Favourite'
+  Feedback.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(10,25): error C2511: 'Feedback *FeedbackList::CreateNewNode(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'FeedbackList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(161,7): message : see declaration of 'FeedbackList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(14,11): error C2039: 'feedbackID': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(15,11): error C2039: 'custEmail': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(16,11): error C2039: 'universityID': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(17,11): error C2039: 'feedback': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(18,11): error C2039: 'reply': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(25,20): error C2511: 'void FeedbackList::InsertToEndList(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'FeedbackList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(161,7): message : see declaration of 'FeedbackList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(28,22): error C2660: 'FeedbackList::CreateNewNode': function does not take 5 arguments
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,12): message : see declaration of 'FeedbackList::CreateNewNode'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(28,22): message : while trying to match the argument list '(std::string, std::string, std::string, std::string, std::string)'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(31,18): error C2597: illegal reference to non-static member 'FeedbackList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(31,18): error C3867: 'FeedbackList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(31,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(33,3): error C2597: illegal reference to non-static member 'FeedbackList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(163,12): message : see declaration of 'FeedbackList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(37,23): error C2597: illegal reference to non-static member 'FeedbackList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(163,12): message : see declaration of 'FeedbackList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(37,21): error C2440: 'initializing': cannot convert from 'unknown' to 'Feedback *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(37,21): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(56,40): error C2039: 'feedbackID': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(57,42): error C2039: 'custEmail': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(58,41): error C2039: 'universityID': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(59,36): error C2039: 'feedback': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(60,33): error C2039: 'reply': is not a member of 'Feedback'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(150,8): message : see declaration of 'Feedback'
+  Guest.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+  Ranking.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(11,23): error C2511: 'Ranking *RankingList::CreateNewNode(std::string,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)': overloaded member function not found in 'RankingList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(97,7): message : see declaration of 'RankingList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(15,11): error C2039: 'universityID': is not a member of 'Ranking'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(73,8): message : see declaration of 'Ranking'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(39,19): error C2511: 'void RankingList::InsertToEndList(std::string,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)': overloaded member function not found in 'RankingList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(97,7): message : see declaration of 'RankingList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(42,21): error C2660: 'RankingList::CreateNewNode': function does not take 18 arguments
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,11): message : see declaration of 'RankingList::CreateNewNode'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(42,21): message : while trying to match the argument list '(std::string, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double)'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(45,18): error C2597: illegal reference to non-static member 'RankingList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(45,18): error C3867: 'RankingList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(45,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(47,3): error C2597: illegal reference to non-static member 'RankingList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(99,11): message : see declaration of 'RankingList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(51,22): error C2597: illegal reference to non-static member 'RankingList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(99,11): message : see declaration of 'RankingList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(51,20): error C2440: 'initializing': cannot convert from 'unknown' to 'Ranking *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(51,20): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(70,42): error C2039: 'universityID': is not a member of 'Ranking'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(73,8): message : see declaration of 'Ranking'
+  Main.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+  University.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,9): error C3646: 'custName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(9,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,9): error C3646: 'custPassword': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(10,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,9): error C3646: 'custContactNo': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(11,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,9): error C3646: 'logoutTime': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(12,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(27,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(29,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(35,18): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(42,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,9): error C3646: 'ranking': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(43,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,9): error C3646: 'universityName': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(44,23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,9): error C3646: 'locationCode': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(45,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,9): error C3646: 'location': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(46,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,28): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(63,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(67,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(75,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(107,25): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(109,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,9): error C3646: 'favID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(119,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(120,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(121,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(136,27): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(138,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(144,17): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,9): error C3646: 'feedbackID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(152,19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,9): error C3646: 'custEmail': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(153,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,9): error C3646: 'universityID': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(154,21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,9): error C3646: 'feedback': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(155,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,9): error C3646: 'reply': unknown override specifier
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(156,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(171,26): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(173,23): error C2061: syntax error: identifier 'string'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(11,29): error C2511: 'University *UniversityList::CreateNewNode(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(51,7): message : see declaration of 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(15,11): error C2039: 'universityID': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(16,11): error C2039: 'ranking': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(17,11): error C2039: 'universityName': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(18,11): error C2039: 'locationCode': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(19,11): error C2039: 'location': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(26,22): error C2511: 'void UniversityList::InsertToEndList(std::string,std::string,std::string,std::string,std::string)': overloaded member function not found in 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(51,7): message : see declaration of 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(29,24): error C2660: 'UniversityList::CreateNewNode': function does not take 5 arguments
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(61,14): message : see declaration of 'UniversityList::CreateNewNode'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(29,24): message : while trying to match the argument list '(std::string, std::string, std::string, std::string, std::string)'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(32,18): error C2597: illegal reference to non-static member 'UniversityList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(32,18): error C3867: 'UniversityList::head': non-standard syntax; use '&' to create a pointer to member
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(32,18): error C2568: '==': unable to resolve function overload
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(34,3): error C2597: illegal reference to non-static member 'UniversityList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(53,14): message : see declaration of 'UniversityList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(38,25): error C2597: illegal reference to non-static member 'UniversityList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(53,14): message : see declaration of 'UniversityList::head'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(38,23): error C2440: 'initializing': cannot convert from 'unknown' to 'University *'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(38,23): message : There is no context in which this conversion is possible
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(58,41): error C2039: 'universityID': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(59,35): error C2039: 'ranking': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(60,43): error C2039: 'universityName': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(61,41): error C2039: 'locationCode': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(62,36): error C2039: 'location': is not a member of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(40,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(68,22): error C2511: 'void UniversityList::SearchUniDetail(std::string)': overloaded member function not found in 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\TURS.h(51,7): message : see declaration of 'UniversityList'
+  Generating Code...
