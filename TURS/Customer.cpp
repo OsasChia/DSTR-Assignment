@@ -1,12 +1,11 @@
+#include <fstream>
 #include <iostream>
 #include <string>
-#include <fstream>
-//#include "TURS.h"
+// #include "TURS.h"
 
 using namespace std;
 
-struct Customer
-{
+struct Customer {
 	string custEmail;
 	string custName;
 	string custPassword;
@@ -16,21 +15,21 @@ struct Customer
 	Customer* prevAddress;
 };
 
-class CustomerList
-{
+class CustomerList {
 	Customer* head = NULL;
 	Customer* tail = NULL;
 
-public:
-	//Constructor
+	public:
+	// Constructor
 	CustomerList();
 
-	//Methods
-	Customer* CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
+	// Methods
+	Customer*
+	CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
 
 	void InsertToEndList(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
 
-	void DisplayAllCustInfo(); //Big O - O(n)
+	void DisplayAllCustInfo(); // Big O - O(n)
 
 	void ModifyCustInfo();
 
@@ -40,8 +39,9 @@ public:
 CustomerList::CustomerList() {}
 
 
-Customer* CustomerList::CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime){
-	//create a empty new node first
+Customer* CustomerList::CreateNewNode(
+	string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
+	// create a empty new node first
 	Customer* newnode = new Customer;
 	newnode->custEmail = custEmail;
 	newnode->custName = custName;
@@ -50,51 +50,49 @@ Customer* CustomerList::CreateNewNode(string custEmail, string custName, string 
 	newnode->logoutTime = logoutTime;
 	newnode->nextAddress = NULL;
 
-	//newnode address
+	// newnode address
 	return newnode;
 }
 
-void CustomerList::InsertToEndList(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime)
-{
-	//call the create function to build a new single node first
+void CustomerList::InsertToEndList(
+	string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
+	// call the create function to build a new single node first
 	Customer* newnode = CreateNewNode(custEmail, custName, custPassword, custContactNo, logoutTime);
 
-	//attach your node to the end of the list
-	if (head == NULL) //list is the empty, always the newnode will be first node in list
+	// attach your node to the end of the list
+	if (head == NULL) // list is the empty, always the newnode will be first node in list
 	{
 		head = newnode;
-	}
-	else //if not empty list, just bring to the end of the list.
+	} else // if not empty list, just bring to the end of the list.
 	{
 		Customer* current = head; // to help us find the last item in the list
 
-		while (current->nextAddress != NULL) //if not yet last node, move to next point again
+		while (current->nextAddress != NULL) // if not yet last node, move to next point again
 		{
-			current = current->nextAddress; //Big O - O(n)
+			current = current->nextAddress; // Big O - O(n)
 		}
 
-		//if found the last node, attach the new node after the last node
+		// if found the last node, attach the new node after the last node
 		current->nextAddress = newnode;
 	}
 }
 
-void CustomerList::DisplayAllCustInfo() //Big O - O(n)
+void CustomerList::DisplayAllCustInfo() // Big O - O(n)
 {
 	Customer* current = head;
 
-	while (current != NULL) //means still not the end of the list
+	while (current != NULL) // means still not the end of the list
 	{
 		cout << "Customer Email: " << current->custEmail << endl;
 		cout << "Customer Name: " << current->custName << endl;
 		cout << "Customer Contact Number: " << current->custContactNo << endl;
 		cout << "Customer logoutTime: " << current->logoutTime << endl << endl;
-		current = current->nextAddress; //if you forgot this, will become a infinity loop
+		current = current->nextAddress; // if you forgot this, will become a infinity loop
 	}
 	cout << "List is ended here! " << endl;
 }
 
-void CustomerList::ModifyCustInfo()
-{
+void CustomerList::ModifyCustInfo() {
 	string custEmail;
 	cout << "Enter customer email to modify: ";
 	cin >> custEmail;
@@ -103,18 +101,15 @@ void CustomerList::ModifyCustInfo()
 	bool isFound = false;
 
 	///////////////////can used the other search algorithm instead of this linear search
-	while (current != NULL)
-	{
-		if (current->custEmail == custEmail)
-		{
+	while (current != NULL) {
+		if (current->custEmail == custEmail) {
 			isFound = true;
 			break;
 		}
 		current = current->nextAddress;
 	}
 
-	if (isFound)
-	{
+	if (isFound) {
 		string newCustEmail, newCustName, newCustPassword, newCustContactNo, newLogoutTime;
 		cout << "The chosen customer email is: " << current->custEmail << endl;
 		cout << "Please write the updated customer details:" << endl;
@@ -124,16 +119,12 @@ void CustomerList::ModifyCustInfo()
 		current->custContactNo = newCustContactNo;
 
 		cout << "Customer information updated successfully." << endl;
-	}
-	else
-	{
+	} else {
 		cout << "Customer with email " << custEmail << " not found." << endl;
 	}
-
 }
 
-bool CustomerList::DeleteCust(string email)
-{
+bool CustomerList::DeleteCust(string email) {
 	// check if list is empty
 	if (head == NULL) {
 		cout << "List is empty!" << endl;
@@ -166,7 +157,7 @@ bool CustomerList::DeleteCust(string email)
 	return false;
 }
 
-//int main()
+// int main()
 //{
 //	//Call object and constructor
 //	CustomerList custList;
@@ -229,10 +220,4 @@ bool CustomerList::DeleteCust(string email)
 //	custList.DisplayAllCustInfo();
 //	cout << endl << string(50, '=') << endl;
 //	return 0;
-//}
-
-
-
-
-
-
+// }

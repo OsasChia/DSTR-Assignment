@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-
 	// import all csv files here
 
 	bool validOption = false;
@@ -13,13 +12,14 @@ int main() {
 	while (!validOption) {
 		int option = 0;
 		// Display login menu
-		cout << "Choose a number for further action:\n1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
+		cout
+			<< "Choose a number for further action:\n1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
 		cin >> option;
 		switch (option) {
 		case 1:
 			// 1. View as guest
 			validOption = true;
-			//create a Guest object
+			// create a Guest object
 			guest.GuestMenu(); // call the GuestMenu() function
 			break;
 		case 2:
