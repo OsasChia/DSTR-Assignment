@@ -65,3 +65,4 @@ Thumbs.db
 # Project specific
 test.cpp
 TestUni.csv
+/x64*
