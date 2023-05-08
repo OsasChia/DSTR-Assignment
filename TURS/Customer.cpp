@@ -1,9 +1,41 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "TURS.h"
+//#include "TURS.h"
 
 using namespace std;
+
+struct Customer
+{
+	string custEmail;
+	string custName;
+	string custPassword;
+	string custContactNo;
+	string logoutTime;
+	Customer* nextAddress;
+	Customer* prevAddress;
+};
+
+class CustomerList
+{
+	Customer* head = NULL;
+	Customer* tail = NULL;
+
+public:
+	//Constructor
+	CustomerList();
+
+	//Methods
+	Customer* CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
+
+	void InsertToEndList(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
+
+	void DisplayAllCustInfo(); //Big O - O(n)
+
+	void ModifyCustInfo();
+
+	bool DeleteCust(string email);
+};
 
 CustomerList::CustomerList() {}
 

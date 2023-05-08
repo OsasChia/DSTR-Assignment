@@ -1,9 +1,4 @@
-//#include "Customer.cpp"
-//# include "Favourite.cpp"
-//#include "Feedback.cpp"
-//#include "Ranking.cpp"
-//#include "University.cpp"
-//#include "TURS.h"
+
 #include "Guest.cpp"
 #include <iostream>
 
@@ -25,7 +20,7 @@ int main() {
 			// 1. View as guest
 			validOption = true;
 			//create a Guest object
-			//guest.GuestMenu(); // call the GuestMenu() function
+			guest.GuestMenu(); // call the GuestMenu() function
 			break;
 		case 2:
 			// 2. Login

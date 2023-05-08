@@ -1,11 +1,26 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "TURS.h"
+// #include "TURS.h"
 
 using namespace std;
+struct Favourite {
+	string favID;
+	string custEmail;
+	string universityID;
+	Favourite* nextAddress;
+	Favourite* prevAddress;
 
-FavouriteList::FavouriteList() {}
+};
+class FavouriteList {
+	Favourite* head = NULL;
+	Favourite* tail = NULL;
+	public:
+	Favourite * CreateNewNode(string favID, string custEmail, string universityID);
+	void InsertToEndList(string favID, string custEmail, string universityID);
+	void DisplayAllFavInfo();
+	bool DeleteFav(string fav);
+};
 
 Favourite* FavouriteList::CreateNewNode(string favID, string custEmail, string universityID)
 {

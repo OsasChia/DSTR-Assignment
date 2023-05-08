@@ -1,20 +1,21 @@
 #include <iostream>
-#include "TURS.h"
+#include "University.cpp"
+// #include "TURS.h"
 
 using namespace std;
-
-Guest::Guest() {}
-
-void Guest::GuestMenu() {
-    bool validOption = false;
-    UniversityList universityList;
-    while (!validOption) {
-        int option = 0;
-        // Display guest menu
-        cout << "Choose a number for further action:\n1. Display all university information\n2. Search university details\n3. Register an account\nReturn to login menu: ";
-        cin >> option;
-        switch (option) 
-        {
+class Guest {
+public:
+	// Guest();
+	void GuestMenu() {
+        bool validOption = false;
+        UniversityList universityList;
+        while (!validOption) {
+            int option = 0;
+            // Display guest menu
+            cout << "Choose a number for further action:\n1. Display all university information\n2. Search university details\n3. Register an account\nReturn to login menu: ";
+            cin >> option;
+            switch (option)
+            {
             case 1:
                 //// 1. Display all university information
                 validOption = true;
@@ -34,6 +35,8 @@ void Guest::GuestMenu() {
             default:
                 // handle invalid option
                 cout << "Error! Please enter a valid option!\n";
+            }
         }
     }
-}
+    ;
+};

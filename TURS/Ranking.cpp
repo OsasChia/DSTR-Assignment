@@ -1,11 +1,53 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "TURS.h"
+// #include "TURS.h"
 
 using namespace std;
 
-RankingList::RankingList() {}
+struct Ranking
+{
+	string universityID;
+	double ArScore;
+	double ArRank;
+	double ErScore;
+	double ErRank;
+	double FsrScore;
+	double FsrRank;
+	double CpfScore;
+	double CpfRank;
+	double IfrScore;
+	double IfrRank;
+	double IsrScore;
+	double IsrRank;
+	double IrnScore;
+	double IrnRank;
+	double GerScore;
+	double GerRank;
+	double ScoreScaled;
+	Ranking* nextAddress;
+	Ranking* prevAddress;
+};
+
+class RankingList
+{
+	Ranking* head = NULL;
+	Ranking* tail = NULL;
+
+public:
+	//Constructor
+	RankingList();
+
+	//Methods
+	Ranking* CreateNewNode(string universityID, double ArScore, double ArRank, double ErScore, double ErRank, double FsrScore, double FsrRank, double CpfScore, double CpfRank, double IfrScore, double IfrRank, double IsrScore, double IsrRank, double IrnScore, double IrnRank, double GerScore, double GerRank, double ScoreScaled);
+
+	void InsertToEndList(string universityID, double ArScore, double ArRank, double ErScore, double ErRank, double FsrScore, double FsrRank, double CpfScore, double CpfRank, double IfrScore, double IfrRank, double IsrScore, double IsrRank, double IrnScore, double IrnRank, double GerScore, double GerRank, double ScoreScaled);
+
+	//additional feature
+	void DisplayAllRankingInfo(); //Big O - O(n)
+};
+
+RankingList::RankingList() {};
 
 //Methods
 Ranking* RankingList::CreateNewNode(string universityID, double ArScore, double ArRank, double ErScore, double ErRank, double FsrScore, double FsrRank, double CpfScore, double CpfRank, double IfrScore, double IfrRank, double IsrScore, double IsrRank, double IrnScore, double IrnRank, double GerScore, double GerRank, double ScoreScaled)

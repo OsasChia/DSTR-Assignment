@@ -1,8 +1,41 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "TURS.h"
+// #include "TURS.h"
 using namespace std;
+
+struct Feedback
+{
+	string feedbackID;
+	string custEmail;
+	string universityID;
+	string feedback;
+	string reply;
+	Feedback* nextAddress;
+	Feedback* prevAddress;
+};
+
+class FeedbackList
+{
+	Feedback* head = NULL;
+	Feedback* tail = NULL;
+
+public:
+	//Constructor
+	FeedbackList();
+
+	//Methods
+	Feedback* CreateNewNode(string feedbackID, string custEmail, string universityID, string feedback, string reply);
+
+	void InsertToEndList(string feedbackID, string custEmail, string universityID, string feedback, string reply);
+
+	//additional feature
+	void DisplayAllFeedbackInfo(); //Big O - O(n)
+
+	//additional feature
+	void ReplylFeedback(); //Big O - O(n)
+};
+
 
 FeedbackList::FeedbackList() {}
 
