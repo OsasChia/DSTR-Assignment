@@ -1,2 +1,8 @@
-﻿  University.cpp
-  TURS.vcxproj -> C:\Users\cylin\Desktop\APU\APU2F2209SE\Semester 2\DSTR\Tutorial\TURS1\x64\Debug\TURS.exe
+﻿  Main.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(7,19): error C2011: 'University': 'struct' type redefinition
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(7,8): message : see declaration of 'University'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(17,22): error C2011: 'UniversityList': 'class' type redefinition
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(17,7): message : see declaration of 'UniversityList'
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Main.cpp(14,17): error C2079: 'universityList' uses undefined class 'UniversityList'
+  University.cpp
+  Generating Code...

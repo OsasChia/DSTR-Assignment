@@ -1,14 +1,17 @@
 
 #include "Guest.cpp"
+#include "University.cpp"
+#include <fstream>
 #include <iostream>
 
 using namespace std;
 
 int main() {
 	// import all csv files here
-
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
+	UniversityList universityList;
+	universityList.importUniversity();
 	while (!validOption) {
 		int option = 0;
 		// Display login menu

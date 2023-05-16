@@ -1,14 +1,10 @@
-#include "University.cpp"
 #include <iostream>
-// #include "TURS.h"
 
 using namespace std;
 class Guest {
 	public:
-	// Guest();
 	void GuestMenu() {
 		bool validOption = false;
-		UniversityList universityList;
 		while (!validOption) {
 			int option = 0;
 			// Display guest menu

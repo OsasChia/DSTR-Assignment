@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-// #include "TURS.h"
 
 using namespace std;
 
@@ -55,8 +54,8 @@ class UniversityList {
 
 			// if found the last node, attach the new node after the last node
 			current->nextAddress = newNode;
-		};
-	}
+		}
+	};
 
 	void DisplayAllUniversityInfo() {
 		University* current = head;
@@ -75,6 +74,32 @@ class UniversityList {
 
 	void SearchUniDetail(string universityName){};
 
-	//2023 QS World University Rankings
+	void importUniversity() {
+		string file_universityID;
+		string file_ranking;
+		string file_universityName;
+		string file_locationCode;
+		string file_location;
+		int IDcounter = 0;
+		ifstream file("2023 QS World University Rankings");
+		// skip the first line
+		string str;
+		getline(file, str);
+		str.clear();
+		while (file.good()) {
+			file_universityID = "U" + to_string(IDcounter);
+			getline(file, file_ranking, ',');
+			getline(file, file_universityName, ',');
+			getline(file, file_locationCode, ',');
+			getline(file, file_location);
+			if (file_ranking == "Rank") {
+				continue;
+			} else if (file_ranking == "") {
+				break;
+			}
+			InsertToEndList(file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
+		}
+		DisplayAllUniversityInfo();
+	};
 
 };
