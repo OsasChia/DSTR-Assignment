@@ -20,9 +20,6 @@ class UniversityList {
 	University* tail = NULL;
 
 	public:
-	// Constructor
-	//  UniversityList();
-
 	// Methods
 	University*
 	CreateNewNode(string universityID, string ranking, string universityName, string locationCode, string location) {
@@ -77,4 +74,7 @@ class UniversityList {
 	}; // Big O - O(n)
 
 	void SearchUniDetail(string universityName){};
+
+	//2023 QS World University Rankings
+
 };
