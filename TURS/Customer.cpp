@@ -20,142 +20,182 @@ class CustomerList {
 	Customer* tail = NULL;
 
 	public:
-	// Constructor
-	CustomerList();
-
 	// Methods
 	Customer*
-	CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
+	CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
+		// create a empty new node first
+		Customer* newnode = new Customer;
+		newnode->custEmail = custEmail;
+		newnode->custName = custName;
+		newnode->custPassword = custPassword;
+		newnode->custContactNo = custContactNo;
+		newnode->logoutTime = logoutTime;
+		newnode->nextAddress = NULL;
 
-	void InsertToEndList(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime);
+		// newnode address
+		return newnode;
+	};
 
-	void DisplayAllCustInfo(); // Big O - O(n)
+	void InsertToEndList(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
+		// call the create function to build a new single node first
+		Customer* newnode = CreateNewNode(custEmail, custName, custPassword, custContactNo, logoutTime);
 
-	void ModifyCustInfo();
-
-	bool DeleteCust(string email);
-};
-
-CustomerList::CustomerList() {}
-
-
-Customer* CustomerList::CreateNewNode(
-	string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
-	// create a empty new node first
-	Customer* newnode = new Customer;
-	newnode->custEmail = custEmail;
-	newnode->custName = custName;
-	newnode->custPassword = custPassword;
-	newnode->custContactNo = custContactNo;
-	newnode->logoutTime = logoutTime;
-	newnode->nextAddress = NULL;
-
-	// newnode address
-	return newnode;
-}
-
-void CustomerList::InsertToEndList(
-	string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
-	// call the create function to build a new single node first
-	Customer* newnode = CreateNewNode(custEmail, custName, custPassword, custContactNo, logoutTime);
-
-	// attach your node to the end of the list
-	if (head == NULL) // list is the empty, always the newnode will be first node in list
-	{
-		head = newnode;
-	} else // if not empty list, just bring to the end of the list.
-	{
-		Customer* current = head; // to help us find the last item in the list
-
-		while (current->nextAddress != NULL) // if not yet last node, move to next point again
+		// attach your node to the end of the list
+		if (head == NULL) // list is the empty, always the newnode will be first node in list
 		{
-			current = current->nextAddress; // Big O - O(n)
+			head = tail = newnode;
+		} else // if not empty list, just bring to the end of the list.
+		{
+			newnode->prevAddress = tail;
+			tail->nextAddress = newnode;
+			tail = newnode;
 		}
-
-		// if found the last node, attach the new node after the last node
-		current->nextAddress = newnode;
-	}
-}
-
-void CustomerList::DisplayAllCustInfo() // Big O - O(n)
-{
-	Customer* current = head;
-
-	while (current != NULL) // means still not the end of the list
+	};
+	
+	void DisplayAllCustInfo() // Big O - O(n)
 	{
-		cout << "Customer Email: " << current->custEmail << endl;
-		cout << "Customer Name: " << current->custName << endl;
-		cout << "Customer Contact Number: " << current->custContactNo << endl;
-		cout << "Customer logoutTime: " << current->logoutTime << endl << endl;
-		current = current->nextAddress; // if you forgot this, will become a infinity loop
-	}
-	cout << "List is ended here! " << endl;
-}
+		Customer* current = head;
 
-void CustomerList::ModifyCustInfo() {
-	string custEmail;
-	cout << "Enter customer email to modify: ";
-	cin >> custEmail;
-
-	Customer* current = head;
-	bool isFound = false;
-
-	///////////////////can used the other search algorithm instead of this linear search
-	while (current != NULL) {
-		if (current->custEmail == custEmail) {
-			isFound = true;
-			break;
+		while (current != NULL) // means still not the end of the list
+		{
+			cout << "Customer Email: " << current->custEmail << endl;
+			cout << "Customer Name: " << current->custName << endl;
+			cout << "Customer Contact Number: " << current->custContactNo << endl;
+			cout << "Customer logoutTime: " << current->logoutTime << endl << endl;
+			current = current->nextAddress; // if you forgot this, will become a infinity loop
 		}
-		current = current->nextAddress;
-	}
+		cout << "List is ended here! " << endl;
+	};
 
-	if (isFound) {
-		string newCustEmail, newCustName, newCustPassword, newCustContactNo, newLogoutTime;
-		cout << "The chosen customer email is: " << current->custEmail << endl;
-		cout << "Please write the updated customer details:" << endl;
+	void ModifyCustInfo() {
+		string custEmail;
+		cout << "Enter customer email to modify: ";
+		cin >> custEmail;
 
-		cout << "Customer Contact Number: ";
-		cin >> newCustContactNo;
-		current->custContactNo = newCustContactNo;
+		Customer* current = head;
+		bool isFound = false;
 
-		cout << "Customer information updated successfully." << endl;
-	} else {
-		cout << "Customer with email " << custEmail << " not found." << endl;
-	}
-}
+		///////////////////can used the other search algorithm instead of this linear search
+		while (current != NULL) {
+			if (current->custEmail == custEmail) {
+				isFound = true;
+				break;
+			}
+			current = current->nextAddress;
+		}
 
-bool CustomerList::DeleteCust(string email) {
-	// check if list is empty
-	if (head == NULL) {
-		cout << "List is empty!" << endl;
-		return false;
-	}
+		if (isFound) {
+			string newCustEmail, newCustName, newCustPassword, newCustContactNo, newLogoutTime;
+			cout << "The chosen customer email is: " << current->custEmail << endl;
+			cout << "Please write the updated customer details:" << endl;
 
-	// check if head node needs to be deleted
-	if (head->custEmail == email) {
-		Customer* temp = head;
-		head = head->nextAddress;
-		delete temp;
-		return true;
-	}
+			cout << "Customer Contact Number: ";
+			cin >> newCustContactNo;
+			current->custContactNo = newCustContactNo;
 
-	// find node to delete
-	Customer* current = head->nextAddress;
-	Customer* prev = head;
-	while (current != NULL) {
-		if (current->custEmail == email) {
-			prev->nextAddress = current->nextAddress;
-			delete current;
+			cout << "Customer information updated successfully." << endl;
+		} else {
+			cout << "Customer with email " << custEmail << " not found." << endl;
+		}
+	};
+
+	bool DeleteCust(string email) {
+		// check if list is empty
+		if (head == NULL) {
+			cout << "List is empty!" << endl;
+			return false;
+		}
+
+		// check if head node needs to be deleted
+		if (head->custEmail == email) {
+			Customer* temp = head;
+			head = head->nextAddress;
+			delete temp;
 			return true;
 		}
-		prev = current;
-		current = current->nextAddress;
-	}
 
-	// node not found
-	cout << "Customer with email " << email << " not found in list." << endl;
-	return false;
-}
+		// find node to delete
+		Customer* current = head->nextAddress;
+		Customer* prev = head;
+		while (current != NULL) {
+			if (current->custEmail == email) {
+				prev->nextAddress = current->nextAddress;
+				delete current;
+				return true;
+			}
+			prev = current;
+			current = current->nextAddress;
+		}
+
+		// node not found
+		cout << "Customer with email " << email << " not found in list." << endl;
+		return false;
+	};
+
+	void importCustomer() {
+		CustomerList allCustomerList;
+		string file_custEmail;
+		string file_custName;
+		string file_custPassword;
+		string file_custContactNo;
+		string file_logoutTime;
+		int IDcounter = 1;
+		ifstream file("Customer.csv");
+		// skip the first line
+		string str;
+		getline(file, str);
+		str.clear();
+		while (file.good()) {
+			getline(file, file_custEmail, ',');
+			getline(file, file_custName, ',');
+			getline(file, file_custPassword, ',');
+			getline(file, file_custContactNo, ',');
+			getline(file, file_logoutTime);
+			if (file_custEmail == "custEmail") {
+				continue;
+			} else if (file_custEmail == "") {
+				break;
+			}
+			allCustomerList
+				.InsertToEndList(
+				file_custEmail, file_custName, file_custPassword, file_custContactNo, file_logoutTime);
+		}
+		allCustomerList.InsertToEndList("vivian@gmail.com", "vivian Ho", "vivian", "016789012", "null");
+		allCustomerList.DisplayAllCustInfo();
+		exportCustomer(allCustomerList);
+	};
+
+	void exportCustomer(CustomerList customerList) {
+		ofstream ExportCustomerFile;
+		ExportCustomerFile.open("Customer.csv");
+		Customer* head = customerList.head;
+		if (head == NULL) {
+			return;
+		}
+		ExportCustomerFile << "custEmail,custName,custPassword,custContactNo, logoutTime" << endl;
+
+		Customer* current = head;
+
+		while (current != NULL) {
+			ExportCustomerFile << current->custEmail << "," << current->custName << "," << current->custPassword << ","
+												 << current->custContactNo << "," << current->logoutTime << endl;
+
+			current = current->nextAddress;
+		}
+		ExportCustomerFile.close();
+	}
+};
+
+
+
+
+
+
+
+
+
+
+
 
 // int main()
 //{

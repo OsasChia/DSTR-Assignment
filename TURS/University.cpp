@@ -20,8 +20,7 @@ class UniversityList {
 
 	public:
 	// Methods
-	University*
-	CreateNewNode(string universityID, string ranking, string universityName, string locationCode, string location) {
+	University* CreateNewNode(string universityID, string ranking, string universityName, string locationCode, string location) {
 		University* newnode = new University;
 		newnode->universityID = universityID;
 		newnode->ranking = ranking;
@@ -69,7 +68,7 @@ class UniversityList {
 			cout << "Location: " << current->location << endl << endl;
 			current = current->nextAddress; // if you forgot this, will become a infinity loop
 		}
-		cout << "List is ended here! " << endl;
+		cout << "List is ended ler lahhh" << endl;
 	}; // Big O - O(n)
 
 	void SearchUniDetail(string universityName){};
@@ -80,8 +79,9 @@ class UniversityList {
 		string file_universityName;
 		string file_locationCode;
 		string file_location;
-		int IDcounter = 0;
-		ifstream file("2023 QS World University Rankings");
+		string file_ignoreRanking;
+		int IDcounter = 1;
+		ifstream file("2023 QS World University Rankings.csv");
 		// skip the first line
 		string str;
 		getline(file, str);
@@ -89,14 +89,23 @@ class UniversityList {
 		while (file.good()) {
 			file_universityID = "U" + to_string(IDcounter);
 			getline(file, file_ranking, ',');
-			getline(file, file_universityName, ',');
+			if (file.peek() == '"') {
+				getline(file, file_universityName, '\"'); // Read until the closing quotation mark
+				getline(file, file_universityName, ',');	// Read until the comma after the quotation mark
+			} else {
+				getline(file, file_universityName, ','); // Read normally until the comma
+			}
 			getline(file, file_locationCode, ',');
-			getline(file, file_location);
+			getline(file, file_location, ',');
+			getline(file, file_ignoreRanking);
 			if (file_ranking == "Rank") {
 				continue;
 			} else if (file_ranking == "") {
 				break;
 			}
+			IDcounter = IDcounter + 1;
+			// Remove any extra quotation marks from the university name
+			//file_universityName.erase(remove(file_universityName.begin(), file_universityName.end(), '\"'), file_universityName.end());
 			InsertToEndList(file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
 		}
 		DisplayAllUniversityInfo();

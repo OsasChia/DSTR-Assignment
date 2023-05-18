@@ -1,6 +1,6 @@
-
 #include "Guest.cpp"
 #include "University.cpp"
+#include "Customer.cpp"
 #include <fstream>
 #include <iostream>
 
@@ -11,7 +11,9 @@ int main() {
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	UniversityList universityList;
-	universityList.importUniversity();
+	CustomerList customerList;
+	//universityList.importUniversity();
+	customerList.importCustomer();
 	while (!validOption) {
 		int option = 0;
 		// Display login menu
