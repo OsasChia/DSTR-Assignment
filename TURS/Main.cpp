@@ -12,8 +12,8 @@ int main() {
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	UniversityList universityList;
 	CustomerList customerList;
-	//universityList.importUniversity();
-	customerList.importCustomer();
+	universityList.importUniversity();
+	//customerList.importCustomer();
 	while (!validOption) {
 		int option = 0;
 		// Display login menu
