@@ -166,7 +166,6 @@ class CustomerList {
 		string file_custPassword;
 		string file_custContactNo;
 		string file_logoutTime;
-		int IDcounter = 1;
 		ifstream file("Customer.csv");
 		// skip the first line
 		string str;
@@ -189,7 +188,7 @@ class CustomerList {
 		//allCustomerList.DisplayAllCustInfo();
 		//exportCustomer(allCustomerList);
 		return allCustomerList;
-	};
+	}
 
 	void exportCustomer(CustomerList customerList) {
 		ofstream ExportCustomerFile;

@@ -1,6 +1,7 @@
 #include "Guest.cpp"
 #include "University.cpp"
 #include "Customer.cpp"
+#include "Ranking.cpp"
 #include <fstream>
 #include <iostream>
 
@@ -11,14 +12,11 @@ int main() {
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	UniversityList universityList;
-	//universityList.importUniversity();
 	CustomerList customerList;
-<<<<<<< Updated upstream
-	universityList.importUniversity2();
-	//customerList.importCustomer();
-=======
-	customerList = customerList.importCustomer();
->>>>>>> Stashed changes
+	RankingList rankingList;
+	//universityList = universityList.importUniversity();
+	//customerList = customerList.importCustomer();
+	rankingList = rankingList.importRanking();
 	while (!validOption) {
 		//switch case
 		int option = 0;
