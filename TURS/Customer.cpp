@@ -132,7 +132,34 @@ class CustomerList {
 		return false;
 	};
 
-	void importCustomer() {
+	bool loginCustomer(CustomerList customerList, string custEmail, string custPassword) {
+		Customer* current = customerList.head;
+
+		while (current != NULL) {
+			if (current->custEmail == custEmail && current->custPassword == custPassword) {
+				// Login successful
+				cout << "Login successful." << endl;
+				return true;
+			}
+			current = current->nextAddress;
+		}
+
+		// Login failed
+		cout << "Login failed. Invalid email or password." << endl;
+		return false;
+	}
+
+	void registerAccount(
+		CustomerList customerList,
+		string custEmail,
+		string custName,
+		string custPassword,
+		string custContactNo,
+		string logoutTime) {
+		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, "null");
+	}
+
+	CustomerList importCustomer() {
 		CustomerList allCustomerList;
 		string file_custEmail;
 		string file_custName;
@@ -156,13 +183,12 @@ class CustomerList {
 			} else if (file_custEmail == "") {
 				break;
 			}
-			allCustomerList
-				.InsertToEndList(
-				file_custEmail, file_custName, file_custPassword, file_custContactNo, file_logoutTime);
+			allCustomerList.InsertToEndList(file_custEmail, file_custName, file_custPassword, file_custContactNo, file_logoutTime);
 		}
-		allCustomerList.InsertToEndList("vivian@gmail.com", "vivian Ho", "vivian", "016789012", "null");
-		allCustomerList.DisplayAllCustInfo();
-		exportCustomer(allCustomerList);
+		//allCustomerList.InsertToEndList("vivian@gmail.com", "vivian Ho", "vivian", "016789012", "null");
+		//allCustomerList.DisplayAllCustInfo();
+		//exportCustomer(allCustomerList);
+		return allCustomerList;
 	};
 
 	void exportCustomer(CustomerList customerList) {
@@ -177,8 +203,7 @@ class CustomerList {
 		Customer* current = head;
 
 		while (current != NULL) {
-			ExportCustomerFile << current->custEmail << "," << current->custName << "," << current->custPassword << ","
-												 << current->custContactNo << "," << current->logoutTime << endl;
+			ExportCustomerFile << current->custEmail << "," << current->custName << "," << current->custPassword << "," << current->custContactNo << "," <<current->logoutTime << endl;
 
 			current = current->nextAddress;
 		}

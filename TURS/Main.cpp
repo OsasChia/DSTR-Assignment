@@ -11,14 +11,23 @@ int main() {
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	UniversityList universityList;
+	//universityList.importUniversity();
 	CustomerList customerList;
+<<<<<<< Updated upstream
 	universityList.importUniversity2();
 	//customerList.importCustomer();
+=======
+	customerList = customerList.importCustomer();
+>>>>>>> Stashed changes
 	while (!validOption) {
+		//switch case
 		int option = 0;
+		//login variables
+		string emailTxt;
+		string passwordTxt;
+		bool loginStatus;
 		// Display login menu
-		cout
-			<< "Choose a number for further action:\n1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
+		cout<< "Choose a number for further action:\n1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
 		cin >> option;
 		switch (option) {
 		case 1:
@@ -30,6 +39,13 @@ int main() {
 		case 2:
 			// 2. Login
 			validOption = true;
+			// login function
+			// Display login menu
+			cout << "Please enter your login details:\nEmail: ";
+			cin >> emailTxt;
+			cout << "Password: ";
+			cin >> passwordTxt;
+			loginStatus = customerList.loginCustomer(customerList, emailTxt, passwordTxt);
 			break;
 		case 3:
 			// 3. Register an account
