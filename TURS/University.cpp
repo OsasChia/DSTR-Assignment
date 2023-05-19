@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <Windows.h>
 
 using namespace std;
 
@@ -33,8 +34,7 @@ class UniversityList {
 		return newnode;
 	};
 
-	void
-	InsertToEndList(string universityID, string ranking, string universityName, string locationCode, string location) {
+	void InsertToEndList(string universityID, string ranking, string universityName, string locationCode, string location) {
 		// call the create function to build a new single node first
 		University* newNode = CreateNewNode(universityID, ranking, universityName, locationCode, location);
 
@@ -59,6 +59,7 @@ class UniversityList {
 	void DisplayAllUniversityInfo() {
 		University* current = head;
 
+		SetConsoleOutputCP(CP_UTF8);
 		while (current != NULL) // means still not the end of the list
 		{
 			cout << "University ID: " << current->universityID << endl;
@@ -80,32 +81,94 @@ class UniversityList {
 		string file_locationCode;
 		string file_location;
 		string file_ignoreRanking;
+
 		int IDcounter = 1;
 		ifstream file("2023 QS World University Rankings.csv");
+
 		// skip the first line
 		string str;
 		getline(file, str);
 		str.clear();
+
 		while (file.good()) {
 			file_universityID = "U" + to_string(IDcounter);
 			getline(file, file_ranking, ',');
+
 			if (file.peek() == '"') {
 				getline(file, file_universityName, '\"'); // Read until the closing quotation mark
 				getline(file, file_universityName, ',');	// Read until the comma after the quotation mark
 			} else {
 				getline(file, file_universityName, ','); // Read normally until the comma
 			}
+
 			getline(file, file_locationCode, ',');
 			getline(file, file_location, ',');
 			getline(file, file_ignoreRanking);
+
 			if (file_ranking == "Rank") {
 				continue;
 			} else if (file_ranking == "") {
 				break;
 			}
+
 			IDcounter = IDcounter + 1;
-			// Remove any extra quotation marks from the university name
-			//file_universityName.erase(remove(file_universityName.begin(), file_universityName.end(), '\"'), file_universityName.end());
+			InsertToEndList(file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
+		}
+		DisplayAllUniversityInfo();
+	};
+
+
+	void importUniversity2() {
+		string file_universityID;
+		string file_ranking;
+		string file_universityName;
+		string file_locationCode;
+		string file_location;
+		string file_ignoreRanking;
+
+		int IDcounter = 1;
+		ifstream file("2023 QS World University Rankings.csv");
+
+		// skip the first line
+		string str;
+		getline(file, str);
+		str.clear();
+
+		while (file.good()) {
+			int commaCount = 0;
+			string remainingData;
+
+			file_universityID = "U" + to_string(IDcounter);
+
+			getline(file, file_ranking, ',');
+
+			// errr ask me bah idk how to explain XDDD
+			getline(file, remainingData);
+			for (int i = remainingData.size() - 1; i >= 0; i--) {
+				if (remainingData[i] == ',') {
+					commaCount++;
+
+					if (commaCount == 19) {
+						file_universityName = remainingData.substr(0, i);
+						remainingData.erase(0, file_universityName.size() + 1);
+
+						file_locationCode = remainingData.substr(0, remainingData.find(","));
+						remainingData.erase(0, file_locationCode.size() + 1);
+
+						file_location = remainingData.substr(0, remainingData.find(","));
+						remainingData.erase(0, file_location.size() + 1);
+
+						// Break if we have scanned all required substrings
+						break;
+					}
+				}
+			}
+
+			if (file_ranking.empty()) {
+				break;
+			}
+
+			IDcounter = IDcounter + 1;
 			InsertToEndList(file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
 		}
 		DisplayAllUniversityInfo();
