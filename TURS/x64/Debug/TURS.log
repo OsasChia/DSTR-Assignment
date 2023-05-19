@@ -5,8 +5,14 @@
   ImportExportFiles.cpp
   Ranking.cpp
   Main.cpp
+<<<<<<< Updated upstream
 C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(159,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   University.cpp
 C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(159,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
   TURS.vcxproj -> C:\Users\Admin\source\repos\DSTR-Assignment\x64\Debug\TURS.exe
+=======
+  University.cpp
+  Generating Code...
+  TURS.vcxproj -> C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\vc143.pdb
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\vc143.idb
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\university.obj
@@ -17,3 +18,24 @@ c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\turs.tlog\cl.write.1.
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\turs.tlog\link.command.1.tlog
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\turs.tlog\link.read.1.tlog
 c:\users\admin\source\repos\dstr-assignment\turs\x64\debug\turs.tlog\link.write.1.tlog
+=======
+c:\users\cylin\documents\github\dstr\turs\x64\debug\vc143.pdb
+c:\users\cylin\documents\github\dstr\turs\x64\debug\vc143.idb
+c:\users\cylin\documents\github\dstr\turs\x64\debug\university.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\main.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\ranking.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\importexportfiles.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\guest.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\feedback.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\favourite.obj
+c:\users\cylin\documents\github\dstr\turs\x64\debug\customer.obj
+c:\users\cylin\documents\github\dstr\x64\debug\turs.exe
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.ilk
+c:\users\cylin\documents\github\dstr\x64\debug\turs.pdb
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\cl.command.1.tlog
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\cl.read.1.tlog
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\cl.write.1.tlog
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\link.command.1.tlog
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\link.read.1.tlog
+c:\users\cylin\documents\github\dstr\turs\x64\debug\turs.tlog\link.write.1.tlog
+>>>>>>> Stashed changes
