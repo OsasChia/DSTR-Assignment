@@ -228,67 +228,67 @@ class RankingList {
 
 						// Extract the ArScore
 						file_ArScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_ArScore.size() + 1);
+						remainingData.erase(0, to_string(file_ArScore).size() + 1);
 
 						// Extract the ArRank
 						file_ArRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_ArRank.size() + 1);
+						remainingData.erase(0, to_string(file_ArRank).size() + 1);
 
 						// Extract the ErScore
 						file_ErScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_ErScore.size() + 1);
+						remainingData.erase(0, to_string(file_ErScore).size() + 1);
 
 						// Extract the ErRank
 						file_ErRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_ErRank.size() + 1);
+						remainingData.erase(0, to_string(file_ErRank).size() + 1);
 
 						// Extract the FsrScore
 						file_FsrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_FsrScore.size() + 1);
+						remainingData.erase(0, to_string(file_FsrScore).size() + 1);
 
 						// Extract the FsrRank
 						file_FsrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_FsrRank.size() + 1);
+						remainingData.erase(0, to_string(file_FsrRank).size() + 1);
 
 						// Extract the CpfScore
 						file_CpfScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_CpfScore.size() + 1);
+						remainingData.erase(0, to_string(file_CpfScore).size() + 1);
 
 						// Extract the CpfRank
 						file_CpfRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_CpfRank.size() + 1);
+						remainingData.erase(0, to_string(file_CpfRank).size() + 1);
 
 						// Extract the IfrScore
 						file_IfrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IfrScore.size() + 1);
+						remainingData.erase(0, to_string(file_IfrScore).size() + 1);
 
 						// Extract the IfrRank
 						file_IfrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IfrRank.size() + 1);
+						remainingData.erase(0, to_string(file_IfrRank).size() + 1);
 
 						// Extract the IsrScore
 						file_IsrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IsrScore.size() + 1);
+						remainingData.erase(0, to_string(file_IsrScore).size() + 1);
 
 						// Extract the IsrRank
 						file_IsrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IsrRank.size() + 1);
+						remainingData.erase(0, to_string(file_IsrRank).size() + 1);
 
 						// Extract the IrnScore
 						file_IrnScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IrnScore.size() + 1);
+						remainingData.erase(0, to_string(file_IrnScore).size() + 1);
 
 						// Extract the IrnRank
 						file_IrnRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_IrnRank.size() + 1);
+						remainingData.erase(0, to_string(file_IrnRank).size() + 1);
 
 						// Extract the GerScore
 						file_GerScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_GerScore.size() + 1);
+						remainingData.erase(0, to_string(file_GerScore).size() + 1);
 
 						// Extract the GerRank
 						file_GerRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, file_GerRank.size() + 1);
+						remainingData.erase(0, to_string(file_GerRank).size() + 1);
 
 						// Extract the ScoreScaled
 						file_ScoreScaled = stod(remainingData);

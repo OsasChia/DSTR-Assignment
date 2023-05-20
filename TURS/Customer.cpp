@@ -151,12 +151,32 @@ class CustomerList {
 
 	void registerAccount(
 		CustomerList customerList,
-		string custEmail,
-		string custName,
-		string custPassword,
-		string custContactNo,
-		string logoutTime) {
+		string custEmail) {
+		string custName;
+		string custPassword;
+		string custContactNo;
+		string logoutTime;
+
+		// Check if the customer email already exists
+		Customer* current = customerList.head;
+		while (current != NULL) {
+			if (current->custEmail == custEmail) {
+				cout << "Registration failed. Email already exists." << endl;
+				return;
+			}
+			current = current->nextAddress;
+		}
+
+		//enter register info
+		cout << "Customer Name: ";
+		cin >> custName;
+		cout << "Customer Password: ";
+		cin >> custPassword;
+		cout << "Customer Contact Number: ";
+		cin >> custContactNo;
+
 		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, "null");
+		exportCustomer(customerList);
 	}
 
 	CustomerList importCustomer() {

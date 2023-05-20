@@ -2,16 +2,12 @@
   Favourite.cpp
   Feedback.cpp
   Guest.cpp
-  ImportExportFiles.cpp
   Ranking.cpp
 C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(210,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(231,43): error C2228: left of '.size' must have class/struct/union
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(231,43): message : type is 'double'
   Main.cpp
 C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(210,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(231,43): error C2228: left of '.size' must have class/struct/union
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Ranking.cpp(231,43): message : type is 'double'
   University.cpp
 C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
+  TURS.vcxproj -> C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe

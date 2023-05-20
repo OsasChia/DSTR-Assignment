@@ -132,7 +132,6 @@
     <ClCompile Include="Favourite.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="Guest.cpp" />
-    <ClCompile Include="ImportExportFiles.cpp" />
     <ClCompile Include="Ranking.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="University.cpp" />
