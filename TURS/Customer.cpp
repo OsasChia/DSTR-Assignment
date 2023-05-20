@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "University.cpp"
 // #include "TURS.h"
 
 using namespace std;
@@ -132,7 +133,9 @@ class CustomerList {
 		return false;
 	};
 
-	bool loginCustomer(CustomerList customerList, string custEmail, string custPassword) {
+	bool loginCustomer(string custEmail, string custPassword) {
+
+		CustomerList customerList = importCustomer();
 		Customer* current = customerList.head;
 
 		while (current != NULL) {
@@ -150,12 +153,13 @@ class CustomerList {
 	}
 
 	void registerAccount(
-		CustomerList customerList,
 		string custEmail) {
 		string custName;
 		string custPassword;
 		string custContactNo;
 		string logoutTime;
+
+		CustomerList customerList = importCustomer();
 
 		// Check if the customer email already exists
 		Customer* current = customerList.head;
@@ -204,9 +208,6 @@ class CustomerList {
 			}
 			allCustomerList.InsertToEndList(file_custEmail, file_custName, file_custPassword, file_custContactNo, file_logoutTime);
 		}
-		//allCustomerList.InsertToEndList("vivian@gmail.com", "vivian Ho", "vivian", "016789012", "null");
-		//allCustomerList.DisplayAllCustInfo();
-		//exportCustomer(allCustomerList);
 		return allCustomerList;
 	}
 
@@ -228,80 +229,6 @@ class CustomerList {
 		}
 		ExportCustomerFile.close();
 	}
+
+
 };
-
-
-
-
-
-
-
-
-
-
-
-
-// int main()
-//{
-//	//Call object and constructor
-//	CustomerList custList;
-//	//Define variable
-//	string custEmail, custName, custPassword, custContactNo, logoutTime;
-//	//input file
-//	ifstream file("C://Users//cylin//Desktop//APU//APU2F2209SE//Semester 2//DSTR//Assignment//Customer.csv");
-//	//skip the first line
-//	string str;
-//	getline(file, str);
-//	str.clear();
-//	while (file.good())
-//	{
-//		getline(file, custEmail, ',');
-//		getline(file, custName, ',');
-//		getline(file, custPassword, ',');
-//		getline(file, custContactNo, ',');
-//		getline(file, logoutTime, '\n');
-//		if (custEmail == "custEmail")
-//		{
-//			continue;
-//		}
-//		else if (custEmail == "")
-//		{
-//			break;
-//		}
-//		//InsertToTheEndList(custEmail, custName, custPassword, custContactNo);
-//		custList.InsertToTheEndList(custEmail, custName, custPassword, custContactNo, logoutTime);
-//	}
-//	file.close();
-//
-//	cout << "Final Customer List from the CSV file as below: " << endl << string(50, '=') << endl;
-//	custList.DisplayAllCustInfo();
-//	cout << endl << string(50, '=') << endl;
-//
-//	//Modify Customer Details
-//	//custList.ModifyCustInfo();
-//
-//	//Delete Customer
-//	//Ask the user for the email of the customer to delete
-//	string emailToDelete;
-//	cout << "Enter the email of the customer to delete: ";
-//	cin >> emailToDelete;
-//	//call delete method
-//	// call the DeleteCustInfo function to delete the customer
-//	bool deleted = custList.DeleteCust(emailToDelete);
-//
-//	// display the updated list of customers
-//	if (deleted)
-//	{
-//		cout << "Customer with email " << emailToDelete << " deleted successfully." << endl;
-//	}
-//	else
-//	{
-//		cout << "Customer with email " << emailToDelete << " not found." << endl;
-//	}
-//
-//	// Display updated list
-//	cout << "Updated Customer List: " << endl << string(50, '=') << endl;
-//	custList.DisplayAllCustInfo();
-//	cout << endl << string(50, '=') << endl;
-//	return 0;
-// }

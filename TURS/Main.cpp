@@ -1,6 +1,4 @@
 #include "Guest.cpp"
-#include "University.cpp"
-#include "Customer.cpp"
 #include "Ranking.cpp"
 #include <fstream>
 #include <iostream>
@@ -11,13 +9,10 @@ int main() {
 	// import all csv files here
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
-	UniversityList universityList;
 	CustomerList customerList;
 	RankingList rankingList;
-	rankingList.importRanking2();
-	//universityList = universityList.importUniversity();
-	customerList = customerList.importCustomer();
-	//rankingList = rankingList.importRanking();
+	//rankingList.MergeSortAndDisplayUniByOption(1);
+	rankingList.QuickSortAndDisplayUni();
 	while (!validOption) {
 		//switch case
 		int option = 0;
@@ -46,7 +41,7 @@ int main() {
 			cin >> loginEmailTxt;
 			cout << "Password: ";
 			cin >> passwordTxt;
-			loginStatus = customerList.loginCustomer(customerList, loginEmailTxt, passwordTxt);
+			loginStatus = customerList.loginCustomer(loginEmailTxt, passwordTxt);
 			break;
 		case 3:
 			// 3. Register an account
@@ -58,7 +53,7 @@ int main() {
 				cout << "Registration failed. Email must include @gmail.com." << endl;
 				break;
 			}
-			customerList.registerAccount(customerList, regisEmailTxt);
+			customerList.registerAccount(regisEmailTxt);
 			break;
 		default:
 			// handle invalid option
