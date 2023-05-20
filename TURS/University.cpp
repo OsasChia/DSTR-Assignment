@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
-
 using namespace std;
 
 struct University {
@@ -52,19 +51,22 @@ class UniversityList {
 
 	void DisplayAllUniversityInfo() {
 		University* current = head;
-
+		//RankingList rankingList;
 		SetConsoleOutputCP(CP_UTF8);
-		while (current != NULL) // means still not the end of the list
-		{
+		while (current != NULL) {
+			cout << "-------University Details-------" << endl;
 			cout << "University ID: " << current->universityID << endl;
 			cout << "Ranking: " << current->ranking << endl;
 			cout << "University Name: " << current->universityName << endl;
 			cout << "Location Code: " << current->locationCode << endl;
 			cout << "Location: " << current->location << endl << endl;
-			current = current->nextAddress; // if you forgot this, will become a infinity loop
+			cout << "-------University Ranking-------" << endl;
+			//rankingList.DisplayRankingInfo(current->universityID);
+			current = current->nextAddress;
 		}
-		cout << "List is ended ler lahhh" << endl;
-	}; // Big O - O(n)
+		cout << "List is ended here" << endl;
+	}
+
 
 	void SearchUniDetail(string universityName){};
 
@@ -142,12 +144,106 @@ class UniversityList {
 			//U198 university should be from south korea so location is KR not SK
 			if (current->universityID == "U198" && current->locationCode == "SK") {
 				current->locationCode = "KR";
-				cout << "yes";
 			}
 			current = current->nextAddress;
 		}
-		DisplayAllUniversityInfo();
 		return universityList;
 	};
+
+	University* MergeSortAndDisplayUniByOption(int sortOption) {
+		UniversityList universityList;
+		universityList.importUniversity();
+		University* sortedList = MergeSort(universityList.head, sortOption);
+		universityList.head = sortedList;
+		universityList.DisplayAllUniversityInfo();
+		return sortedList;
+	}
+
+	University* Split(University* head) {
+		University *fast = head, *slow = head;
+		while (fast->nextAddress && fast->nextAddress->nextAddress) {
+			fast = fast->nextAddress->nextAddress;
+			slow = slow->nextAddress;
+		}
+		University* temp = slow->nextAddress;
+		slow->nextAddress = NULL;
+		return temp;
+	}
+
+	University* MergeSort(University* head, int sortOption) {
+		if (!head || !head->nextAddress) return head;
+
+		// Split the list into two halves
+		University* second = Split(head);
+
+		// Recursively sort the two halves
+		head = MergeSort(head, sortOption);
+		second = MergeSort(second, sortOption);
+
+		// Merge the sorted halves based on the sort option
+		switch (sortOption) {
+		case 1:
+			return MergeByName(head, second);
+		case 2:
+			return MergeByScore(head, second);
+		case 3:
+			return MergeByRank(head, second);
+		default:
+			return MergeByName(head, second); // Default to sort by name
+		}
+	}
+
+	University* MergeByName(University* first, University* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (first->universityName < second->universityName) {
+			first->nextAddress = MergeByName(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByName(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	University* MergeByScore(University* first, University* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stoi(first->ranking) < stoi(second->ranking)) {
+			first->nextAddress = MergeByScore(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByScore(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	University* MergeByRank(University* first, University* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stoi(first->ranking) < stoi(second->ranking)) {
+			first->nextAddress = MergeByRank(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByRank(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+
 
 };

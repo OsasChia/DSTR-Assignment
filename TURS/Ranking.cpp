@@ -8,6 +8,10 @@ using namespace std;
 
 struct Ranking {
 	string universityID;
+	string ranking;
+	string universityName;
+	string locationCode;
+	string location;
 	string ArScore;
 	string ArRank;
 	string ErScore;
@@ -37,6 +41,10 @@ class RankingList {
 	// Methods
 	Ranking* CreateNewNode(
 		string universityID,
+		string ranking,
+		string universityName,
+		string locationCode,
+		string location,
 		string ArScore,
 		string ArRank,
 		string ErScore,
@@ -57,6 +65,10 @@ class RankingList {
 		// create a empty new node first
 		Ranking* newnode = new Ranking;
 		newnode->universityID = universityID;
+		newnode->ranking = ranking;
+		newnode->universityName = universityName;
+		newnode->locationCode = locationCode;
+		newnode->location = location;
 		newnode->ArScore = ArScore;
 		newnode->ArRank = ArRank;
 		newnode->ErScore = ErScore;
@@ -82,6 +94,10 @@ class RankingList {
 
 	void InsertToEndList(
 		string universityID,
+		string ranking,
+		string universityName,
+		string locationCode,
+		string location,
 		string ArScore,
 		string ArRank,
 		string ErScore,
@@ -102,6 +118,10 @@ class RankingList {
 		// call the create function to build a new single node first
 		Ranking* newnode = CreateNewNode(
 			universityID,
+			ranking,
+			universityName,
+			locationCode,
+			location,
 			ArScore,
 			ArRank,
 			ErScore,
@@ -132,13 +152,16 @@ class RankingList {
 		}
 	}
 
-	// additional feature
-	void DisplayAllRankingInfo() {
+	void DisplayRankingInfo() {
 		Ranking* current = head;
-
-		while (current != NULL) // means still not the end of the list
-		{
-			cout << "Univerisity ID: " << current->universityID << endl;
+		while (current != NULL) {
+			cout << "-----Uni Detail-----" << endl;
+			cout << "University ID: " << current->universityID << endl;
+			cout << "Ranking: " << current->ranking << endl;
+			cout << "University Name: " << current->universityName << endl;
+			cout << "Location Code: " << current->locationCode << endl;
+			cout << "Location: " << current->location << endl;
+			cout << "-----Uni Score-----" << endl;
 			cout << "ArScore: " << current->ArScore << endl;
 			cout << "ArRank: " << current->ArRank << endl;
 			cout << "ErScore: " << current->ErScore << endl;
@@ -156,169 +179,13 @@ class RankingList {
 			cout << "GerScore: " << current->GerScore << endl;
 			cout << "GerRank: " << current->GerRank << endl;
 			cout << "ScoreScaled: " << current->ScoreScaled << endl << endl;
-			current = current->nextAddress; // if you forgot this, will become a infinity loop
+			current = current->nextAddress;
 		}
 		cout << "List is ended here! " << endl;
 	}
 
+
 	RankingList importRanking() {
-		RankingList rankingList;
-		string file_ranking;
-		string file_universityName;
-		string file_locationCode;
-		string file_location;
-		string file_universityID;
-		string file_ArScore;
-		string file_ArRank;
-		string file_ErScore;
-		string file_ErRank;
-		string file_FsrScore;
-		string file_FsrRank;
-		string file_CpfScore;
-		string file_CpfRank;
-		string file_IfrScore;
-		string file_IfrRank;
-		string file_IsrScore;
-		string file_IsrRank;
-		string file_IrnScore;
-		string file_IrnRank;
-		string file_GerScore;
-		string file_GerRank;
-		string file_ScoreScaled;
-
-		int IDcounter = 1;
-		ifstream file("2023 QS World University Rankings.csv");
-
-		// skip the first line
-		string str;
-		getline(file, str);
-		str.clear();
- 
-		while (file.good()) {
-			int commaCount = 0;
-			string remainingData;
-
-			// add university ID started by U
-			file_universityID = "U" + to_string(IDcounter);
-
-			// Read the file_ranking value until a comma is encountered
-			getline(file, file_ranking, ',');
-
-			// Read the remaining data of the line into remainingData
-			getline(file, remainingData);
-			// Iterate over remainingData from right to left
-			for (int i = remainingData.size() - 1; i >= 0; i--) {
-				// Count the number of commas encountered
-				if (remainingData[i] == ',') {
-					commaCount++;
-
-					// If we have encountered the 19th comma, extract the required values
-					if (commaCount == 19) {
-						// Extract the universityName substring
-						file_universityName = remainingData.substr(0, i);
-						remainingData.erase(0, file_universityName.size() + 1);
-
-						// Extract the locationCode substring
-						file_locationCode = remainingData.substr(0, remainingData.find(","));
-						remainingData.erase(0, file_locationCode.size() + 1);
-
-						// Extract the location substring
-						file_location = remainingData.substr(0, remainingData.find(","));
-						remainingData.erase(0, file_location.size() + 1);
-					}
-				}
-			}
-
-			string data[100];
-			int count = 0;
-			string temp = "";
-
-			for (char c : remainingData) {
-				if (c != ',') {
-					temp += c;
-				} else {
-					data[count++] = temp;
-					temp = "";
-				}
-			}
-			data[count++] = temp;
-
-			// Replacing empty strings with "0"
-			for (int i = 0; i < count; i++) {
-				if (data[i].empty()) {
-					data[i] = "0";
-				}
-			}
-
-			// Storing the values into an array
-			string resultArray[20];
-			for (int i = 0; i < count; i++) {
-				resultArray[i] = data[i];
-			}
-
-			file_ArScore = stod(data[0]);
-			file_ArRank = stod(data[1]);
-
-			file_ErScore = stod(data[2]);
-			file_ErRank = stod(data[3]);
-
-			file_FsrScore = stod(data[4]);
-			file_FsrRank = stod(data[5]);
-
-			file_CpfScore = stod(data[6]);
-			file_CpfRank = stod(data[7]);
-
-			file_IfrScore = stod(data[8]);
-			file_IfrRank = stod(data[9]);
-
-			file_IsrScore = stod(data[10]);
-			file_IsrRank = stod(data[11]);
-
-			file_IrnScore = stod(data[12]);
-			file_IrnRank = stod(data[13]);
-
-			file_GerScore = stod(data[14]);
-			file_GerRank = stod(data[15]);
-
-			file_ScoreScaled = stod(data[16]);
-
-			// If the file_ranking is empty, it means we have reached the end of the file, so we break the loop
-			if (file_ranking.empty()) {
-				break;
-			}
-			
-			// Increment the IDcounter
-			IDcounter = IDcounter + 1;
-
-			// Insert the extracted values into the RankingList
-			InsertToEndList(
-				file_universityID,
-				file_ArScore,
-				file_ArRank,
-				file_ErScore,
-				file_ErRank,
-				file_FsrScore,
-				file_FsrRank,
-				file_CpfScore,
-				file_CpfRank,
-				file_IfrScore,
-				file_IfrRank,
-				file_IsrScore,
-				file_IsrRank,
-				file_IrnScore,
-				file_IrnRank,
-				file_GerScore,
-				file_GerRank,
-				file_ScoreScaled
-			);
-		}
-
-		rankingList.DisplayAllRankingInfo();
-
-		return rankingList;
-	}
-
-	RankingList importRanking2() {
 		RankingList rankingList;
 		string file_ranking;
 		string file_universityName;
@@ -443,7 +310,11 @@ class RankingList {
 
 			// Insert the extracted values into the RankingList
 			InsertToEndList(
-				file_universityID,
+				file_universityID, 
+				file_ranking,
+				file_universityName,
+				file_locationCode,
+				file_location,
 				file_ArScore,
 				file_ArRank,
 				file_ErScore,
@@ -462,66 +333,159 @@ class RankingList {
 				file_GerRank,
 				file_ScoreScaled);
 		}
-
-		DisplayAllRankingInfo();
-
 		return rankingList;
+	}
+
+	Ranking* MergeSortAndDisplayUniByOption(int sortOption) {
+		RankingList rankingList;
+		rankingList.importRanking();
+		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
+		rankingList.head = sortedList;
+		rankingList.DisplayRankingInfo();
+		return sortedList;
+	}
+
+	Ranking* Split(Ranking* head) {
+		Ranking *fast = head, *slow = head;
+		while (fast->nextAddress && fast->nextAddress->nextAddress) {
+			fast = fast->nextAddress->nextAddress;
+			slow = slow->nextAddress;
+		}
+		Ranking* temp = slow->nextAddress;
+		slow->nextAddress = NULL;
+		return temp;
+	}
+
+	Ranking* MergeSort(Ranking* head, int sortOption) {
+		if (!head || !head->nextAddress) return head;
+
+		// Split the list into two halves
+		Ranking* second = Split(head);
+
+		// Recursively sort the two halves
+		head = MergeSort(head, sortOption);
+		second = MergeSort(second, sortOption);
+
+		// Merge the sorted halves based on the sort option
+		switch (sortOption) {
+		case 1:
+			return MergeByName(head, second);
+		case 2:
+			return MergeByArScore(head, second);
+		case 3:
+			return MergeByFsrScore(head, second);
+		case 4:
+			return MergeByErScore(head, second);
+		default:
+			return MergeByName(head, second); // Default to sort by name
+		}
+	}
+
+	Ranking* MergeByName(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (first->universityName < second->universityName) {
+			first->nextAddress = MergeByName(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByName(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	Ranking* MergeByArScore(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stoi(first->ArScore) < stoi(second->ArScore)) {
+			first->nextAddress = MergeByArScore(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByArScore(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	Ranking* MergeByFsrScore(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stoi(first->FsrScore) < stoi(second->FsrScore)) {
+			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByFsrScore(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	Ranking* MergeByErScore(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stoi(first->ErScore) < stoi(second->ErScore)) {
+			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByFsrScore(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	void QuickSortAndDisplayUni() {
+		RankingList rankingList;
+		rankingList.importRanking();
+		QuickSort(rankingList.head, rankingList.tail);
+		//rankingList.DisplayRankingInfo();
+	}
+
+	void Swap(string* a, string* b) {
+		string temp = *a;
+		*a = *b;
+		*b = temp;
+	}
+
+	void QuickSort(Ranking* head, Ranking* tail) {
+		if (tail != NULL && head != tail && head != tail->nextAddress) {
+			Ranking* p = Partition(head, tail);
+			QuickSort(head, p->prevAddress);
+			QuickSort(p->nextAddress, tail);
+		}
+	}
+
+	Ranking* Partition(Ranking* head, Ranking* tail) {
+		string x = tail->universityName;
+
+		Ranking* i = head->prevAddress;
+
+		for (Ranking* j = head; j != tail; j = j->nextAddress) {
+			if (j->universityName < x) {
+				i = (i == NULL) ? head : i->nextAddress;
+				Swap(&(i->universityName), &(j->universityName));
+			}
+		}
+
+		i = (i == NULL) ? head : i->nextAddress;
+		Swap(&(i->universityName), &(tail->universityName));
+
+		return 0;
 	}
 };
 
-// int main()
-//{
-//	//Call object and constructor
-//	RankingList rankingList;
-//	//Define variable
-//	string universityID, ArScore, ArRank, ErScore, ErRank, FsrScore, FsrRank, CpfScore, CpfRank, IfrScore, IfrRank,
-//IsrScore, IsrRank, IrnScore, IrnRank, GerScore, GerRank, ScoreScaled;
-//	//input file
-//	ifstream file("C://Users//cylin//Desktop//APU//APU2F2209SE//Semester 2//DSTR//Assignment//Ranking.csv");
-//	//skip the first line
-//	string str;
-//	getline(file, str);
-//	str.clear();
-//	while (file.good())
-//	{
-//		getline(file, universityID, ',');
-//		getline(file, ArScore, ',');
-//		getline(file, ArRank, ',');
-//		getline(file, ErScore, ',');
-//		getline(file, ErRank, ',');
-//		getline(file, FsrScore, ',');
-//		getline(file, FsrRank, ',');
-//		getline(file, CpfScore, ',');
-//		getline(file, CpfRank, ',');
-//		getline(file, IfrScore, ',');
-//		getline(file, IfrRank, ',');
-//		getline(file, IsrScore, ',');
-//		getline(file, IsrRank, ',');
-//		getline(file, IrnScore, ',');
-//		getline(file, IrnRank, ',');
-//		getline(file, GerScore, ',');
-//		getline(file, GerRank, ',');
-//		getline(file, ScoreScaled, '\n');
-//		if (universityID == "universityID")
-//		{
-//			continue;
-//		}
-//		else if (universityID == "")
-//		{
-//			break;
-//		}
-//
-//		rankingList.InsertToEndList(universityID, stod(ArScore), stod(ArRank), stod(ErScore), stod(ErRank),
-//stod(FsrScore), stod(FsrRank), stod(CpfScore), stod(CpfRank), stod(IfrScore), stod(IfrRank), stod(IsrScore),
-//stod(IsrRank), stod(IrnScore), stod(IrnRank), stod(GerScore), stod(GerRank), stod(ScoreScaled));
-//	}
-//	file.close();
-//
-//	cout << "Final Feedback List from the CSV file as below: " << endl << string(50, '=') << endl;
-//	rankingList.DisplayAllRankingInfo();
-//	cout << endl << string(50, '=') << endl;
-//
-//	system("pause");
-//
-//	return 0;
-// }
