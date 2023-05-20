@@ -5,10 +5,6 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TURS", "TURS\TURS.vcxproj", "{B9C9E040-191F-4EA1-8398-8A0DCFFADD47}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TutorialCPlusPlus", "..\..\..\Desktop\APU\APU2F2209SE\Semester 2\DSTR\Tutorial\TutorialCPlusPlus\TutorialCPlusPlus\TutorialCPlusPlus.vcxproj", "{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSTR_Assignment", "..\..\..\Desktop\APU\APU2F2209SE\Semester 2\DSTR\Assignment\Sample\DSTR_Group15_System\DSTR_Assignment\DSTR_Assignment.vcxproj", "{20207BB7-42A5-491E-883B-503B9A3672B8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -25,22 +21,6 @@ Global
 		{B9C9E040-191F-4EA1-8398-8A0DCFFADD47}.Release|x64.Build.0 = Release|x64
 		{B9C9E040-191F-4EA1-8398-8A0DCFFADD47}.Release|x86.ActiveCfg = Release|Win32
 		{B9C9E040-191F-4EA1-8398-8A0DCFFADD47}.Release|x86.Build.0 = Release|Win32
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Debug|x64.ActiveCfg = Debug|x64
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Debug|x64.Build.0 = Debug|x64
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Debug|x86.ActiveCfg = Debug|Win32
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Debug|x86.Build.0 = Debug|Win32
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Release|x64.ActiveCfg = Release|x64
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Release|x64.Build.0 = Release|x64
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Release|x86.ActiveCfg = Release|Win32
-		{00A4E298-DB8C-4EA2-88AF-5EDE0DF1AFEC}.Release|x86.Build.0 = Release|Win32
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Debug|x64.ActiveCfg = Debug|x64
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Debug|x64.Build.0 = Debug|x64
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Debug|x86.ActiveCfg = Debug|Win32
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Debug|x86.Build.0 = Debug|Win32
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Release|x64.ActiveCfg = Release|x64
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Release|x64.Build.0 = Release|x64
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Release|x86.ActiveCfg = Release|Win32
-		{20207BB7-42A5-491E-883B-503B9A3672B8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
