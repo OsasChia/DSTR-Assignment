@@ -14,6 +14,7 @@ int main() {
 	UniversityList universityList;
 	CustomerList customerList;
 	RankingList rankingList;
+	rankingList.importRanking2();
 	//universityList = universityList.importUniversity();
 	customerList = customerList.importCustomer();
 	//rankingList = rankingList.importRanking();

@@ -2,28 +2,29 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <typeinfo>
 
 using namespace std;
 
 struct Ranking {
 	string universityID;
-	double ArScore;
-	double ArRank;
-	double ErScore;
-	double ErRank;
-	double FsrScore;
-	double FsrRank;
-	double CpfScore;
-	double CpfRank;
-	double IfrScore;
-	double IfrRank;
-	double IsrScore;
-	double IsrRank;
-	double IrnScore;
-	double IrnRank;
-	double GerScore;
-	double GerRank;
-	double ScoreScaled;
+	string ArScore;
+	string ArRank;
+	string ErScore;
+	string ErRank;
+	string FsrScore;
+	string FsrRank;
+	string CpfScore;
+	string CpfRank;
+	string IfrScore;
+	string IfrRank;
+	string IsrScore;
+	string IsrRank;
+	string IrnScore;
+	string IrnRank;
+	string GerScore;
+	string GerRank;
+	string ScoreScaled;
 	Ranking* nextAddress;
 	Ranking* prevAddress;
 };
@@ -36,23 +37,23 @@ class RankingList {
 	// Methods
 	Ranking* CreateNewNode(
 		string universityID,
-		double ArScore,
-		double ArRank,
-		double ErScore,
-		double ErRank,
-		double FsrScore,
-		double FsrRank,
-		double CpfScore,
-		double CpfRank,
-		double IfrScore,
-		double IfrRank,
-		double IsrScore,
-		double IsrRank,
-		double IrnScore,
-		double IrnRank,
-		double GerScore,
-		double GerRank,
-		double ScoreScaled) {
+		string ArScore,
+		string ArRank,
+		string ErScore,
+		string ErRank,
+		string FsrScore,
+		string FsrRank,
+		string CpfScore,
+		string CpfRank,
+		string IfrScore,
+		string IfrRank,
+		string IsrScore,
+		string IsrRank,
+		string IrnScore,
+		string IrnRank,
+		string GerScore,
+		string GerRank,
+		string ScoreScaled) {
 		// create a empty new node first
 		Ranking* newnode = new Ranking;
 		newnode->universityID = universityID;
@@ -81,23 +82,23 @@ class RankingList {
 
 	void InsertToEndList(
 		string universityID,
-		double ArScore,
-		double ArRank,
-		double ErScore,
-		double ErRank,
-		double FsrScore,
-		double FsrRank,
-		double CpfScore,
-		double CpfRank,
-		double IfrScore,
-		double IfrRank,
-		double IsrScore,
-		double IsrRank,
-		double IrnScore,
-		double IrnRank,
-		double GerScore,
-		double GerRank,
-		double ScoreScaled) {
+		string ArScore,
+		string ArRank,
+		string ErScore,
+		string ErRank,
+		string FsrScore,
+		string FsrRank,
+		string CpfScore,
+		string CpfRank,
+		string IfrScore,
+		string IfrRank,
+		string IsrScore,
+		string IsrRank,
+		string IrnScore,
+		string IrnRank,
+		string GerScore,
+		string GerRank,
+		string ScoreScaled) {
 		// call the create function to build a new single node first
 		Ranking* newnode = CreateNewNode(
 			universityID,
@@ -154,7 +155,7 @@ class RankingList {
 			cout << "IrnRank: " << current->IrnRank << endl;
 			cout << "GerScore: " << current->GerScore << endl;
 			cout << "GerRank: " << current->GerRank << endl;
-			cout << "ScoreScaled: " << current->ScoreScaled << endl;
+			cout << "ScoreScaled: " << current->ScoreScaled << endl << endl;
 			current = current->nextAddress; // if you forgot this, will become a infinity loop
 		}
 		cout << "List is ended here! " << endl;
@@ -167,23 +168,23 @@ class RankingList {
 		string file_locationCode;
 		string file_location;
 		string file_universityID;
-		double file_ArScore;
-		double file_ArRank;
-		double file_ErScore;
-		double file_ErRank;
-		double file_FsrScore;
-		double file_FsrRank;
-		double file_CpfScore;
-		double file_CpfRank;
-		double file_IfrScore;
-		double file_IfrRank;
-		double file_IsrScore;
-		double file_IsrRank;
-		double file_IrnScore;
-		double file_IrnRank;
-		double file_GerScore;
-		double file_GerRank;
-		double file_ScoreScaled;
+		string file_ArScore;
+		string file_ArRank;
+		string file_ErScore;
+		string file_ErRank;
+		string file_FsrScore;
+		string file_FsrRank;
+		string file_CpfScore;
+		string file_CpfRank;
+		string file_IfrScore;
+		string file_IfrRank;
+		string file_IsrScore;
+		string file_IsrRank;
+		string file_IrnScore;
+		string file_IrnRank;
+		string file_GerScore;
+		string file_GerRank;
+		string file_ScoreScaled;
 
 		int IDcounter = 1;
 		ifstream file("2023 QS World University Rankings.csv");
@@ -205,7 +206,6 @@ class RankingList {
 
 			// Read the remaining data of the line into remainingData
 			getline(file, remainingData);
-
 			// Iterate over remainingData from right to left
 			for (int i = remainingData.size() - 1; i >= 0; i--) {
 				// Count the number of commas encountered
@@ -225,78 +225,213 @@ class RankingList {
 						// Extract the location substring
 						file_location = remainingData.substr(0, remainingData.find(","));
 						remainingData.erase(0, file_location.size() + 1);
-
-						// Extract the ArScore
-						file_ArScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_ArScore).size() + 1);
-
-						// Extract the ArRank
-						file_ArRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_ArRank).size() + 1);
-
-						// Extract the ErScore
-						file_ErScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_ErScore).size() + 1);
-
-						// Extract the ErRank
-						file_ErRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_ErRank).size() + 1);
-
-						// Extract the FsrScore
-						file_FsrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_FsrScore).size() + 1);
-
-						// Extract the FsrRank
-						file_FsrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_FsrRank).size() + 1);
-
-						// Extract the CpfScore
-						file_CpfScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_CpfScore).size() + 1);
-
-						// Extract the CpfRank
-						file_CpfRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_CpfRank).size() + 1);
-
-						// Extract the IfrScore
-						file_IfrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IfrScore).size() + 1);
-
-						// Extract the IfrRank
-						file_IfrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IfrRank).size() + 1);
-
-						// Extract the IsrScore
-						file_IsrScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IsrScore).size() + 1);
-
-						// Extract the IsrRank
-						file_IsrRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IsrRank).size() + 1);
-
-						// Extract the IrnScore
-						file_IrnScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IrnScore).size() + 1);
-
-						// Extract the IrnRank
-						file_IrnRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_IrnRank).size() + 1);
-
-						// Extract the GerScore
-						file_GerScore = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_GerScore).size() + 1);
-
-						// Extract the GerRank
-						file_GerRank = stod(remainingData.substr(0, remainingData.find(",")));
-						remainingData.erase(0, to_string(file_GerRank).size() + 1);
-
-						// Extract the ScoreScaled
-						file_ScoreScaled = stod(remainingData);
 					}
-
-
 				}
 			}
+
+			string data[100];
+			int count = 0;
+			string temp = "";
+
+			for (char c : remainingData) {
+				if (c != ',') {
+					temp += c;
+				} else {
+					data[count++] = temp;
+					temp = "";
+				}
+			}
+			data[count++] = temp;
+
+			// Replacing empty strings with "0"
+			for (int i = 0; i < count; i++) {
+				if (data[i].empty()) {
+					data[i] = "0";
+				}
+			}
+
+			// Storing the values into an array
+			string resultArray[20];
+			for (int i = 0; i < count; i++) {
+				resultArray[i] = data[i];
+			}
+
+			file_ArScore = stod(data[0]);
+			file_ArRank = stod(data[1]);
+
+			file_ErScore = stod(data[2]);
+			file_ErRank = stod(data[3]);
+
+			file_FsrScore = stod(data[4]);
+			file_FsrRank = stod(data[5]);
+
+			file_CpfScore = stod(data[6]);
+			file_CpfRank = stod(data[7]);
+
+			file_IfrScore = stod(data[8]);
+			file_IfrRank = stod(data[9]);
+
+			file_IsrScore = stod(data[10]);
+			file_IsrRank = stod(data[11]);
+
+			file_IrnScore = stod(data[12]);
+			file_IrnRank = stod(data[13]);
+
+			file_GerScore = stod(data[14]);
+			file_GerRank = stod(data[15]);
+
+			file_ScoreScaled = stod(data[16]);
+
+			// If the file_ranking is empty, it means we have reached the end of the file, so we break the loop
+			if (file_ranking.empty()) {
+				break;
+			}
+			
+			// Increment the IDcounter
+			IDcounter = IDcounter + 1;
+
+			// Insert the extracted values into the RankingList
+			InsertToEndList(
+				file_universityID,
+				file_ArScore,
+				file_ArRank,
+				file_ErScore,
+				file_ErRank,
+				file_FsrScore,
+				file_FsrRank,
+				file_CpfScore,
+				file_CpfRank,
+				file_IfrScore,
+				file_IfrRank,
+				file_IsrScore,
+				file_IsrRank,
+				file_IrnScore,
+				file_IrnRank,
+				file_GerScore,
+				file_GerRank,
+				file_ScoreScaled
+			);
+		}
+
+		rankingList.DisplayAllRankingInfo();
+
+		return rankingList;
+	}
+
+	RankingList importRanking2() {
+		RankingList rankingList;
+		string file_ranking;
+		string file_universityName;
+		string file_locationCode;
+		string file_location;
+		string file_universityID;
+		string file_ArScore;
+		string file_ArRank;
+		string file_ErScore;
+		string file_ErRank;
+		string file_FsrScore;
+		string file_FsrRank;
+		string file_CpfScore;
+		string file_CpfRank;
+		string file_IfrScore;
+		string file_IfrRank;
+		string file_IsrScore;
+		string file_IsrRank;
+		string file_IrnScore;
+		string file_IrnRank;
+		string file_GerScore;
+		string file_GerRank;
+		string file_ScoreScaled;
+
+		int IDcounter = 1;
+		ifstream file("2023 QS World University Rankings.csv");
+
+		// skip the first line
+		string str;
+		getline(file, str);
+		str.clear();
+
+		while (file.good()) {
+			// add university ID started by U
+			file_universityID = "U" + to_string(IDcounter);
+
+			string rowData;
+			getline(file, rowData);
+			stringstream iss(rowData);
+			string token;
+
+			getline(iss, token, ',');
+			file_ranking = token;
+
+			getline(iss, token, ',');
+			if ((token[0] == '\"')) {
+				while (token[token.size() - 1] != '\"') {
+					std::string temp;
+					std::getline(iss, temp, ',');
+					token += "," + temp;
+				}
+				file_universityName = token.substr(1, token.size() - 2);
+			} else {
+				file_universityName = token;
+			}
+
+			getline(iss, token, ',');
+			file_locationCode = token;
+
+			getline(iss, token, ',');
+			if ((token[0] == '\"')) {
+				while (token[token.size() - 1] != '\"') {
+					std::string temp;
+					std::getline(iss, temp, ',');
+					token += "," + temp;
+				}
+				file_location = token.substr(1, token.size() - 2);
+			} else {
+				file_location = token;
+			}
+
+			getline(iss, token, ',');
+			file_ArScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_ArRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_ErScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_ErRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_FsrScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_FsrRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_CpfScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_CpfRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_IfrScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_IfrRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_IsrScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_IsrRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_IrnScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_IrnRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_GerScore = token.empty() ? "NULL" : token;
+			getline(iss, token, ',');
+			file_GerRank = token.empty() ? "NULL" : token;
+
+			getline(iss, token, ',');
+			file_ScoreScaled = token.empty() ? "NULL" : token;
 
 			// If the file_ranking is empty, it means we have reached the end of the file, so we break the loop
 			if (file_ranking.empty()) {
@@ -328,13 +463,10 @@ class RankingList {
 				file_ScoreScaled);
 		}
 
-		rankingList.DisplayAllRankingInfo();
+		DisplayAllRankingInfo();
 
 		return rankingList;
 	}
-
-
-
 };
 
 // int main()
