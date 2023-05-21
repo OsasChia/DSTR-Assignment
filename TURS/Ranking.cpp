@@ -86,6 +86,7 @@ class RankingList {
 		newnode->GerScore = GerScore;
 		newnode->GerRank = GerRank;
 		newnode->ScoreScaled = ScoreScaled;
+		newnode->prevAddress = NULL;
 		newnode->nextAddress = NULL;
 
 		// newnode address
@@ -143,6 +144,7 @@ class RankingList {
 		// attach your node to the end of the list
 		if (head == NULL) // list is the empty, always the newnode will be first node in list
 		{
+			newnode->prevAddress = NULL;
 			head = tail = newnode;
 		} else // if not empty list, just bring to the end of the list.
 		{
@@ -341,7 +343,7 @@ class RankingList {
 		rankingList.importRanking();
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		rankingList.DisplayRankingInfo();
+		//rankingList.DisplayRankingInfo();
 		return sortedList;
 	}
 
@@ -402,7 +404,7 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stoi(first->ArScore) < stoi(second->ArScore)) {
+		if (stod(first->ArScore) < stod(second->ArScore)) {
 			first->nextAddress = MergeByArScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
@@ -419,7 +421,7 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stoi(first->FsrScore) < stoi(second->FsrScore)) {
+		if (stod(first->FsrScore) < stod(second->FsrScore)) {
 			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
@@ -436,7 +438,7 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stoi(first->ErScore) < stoi(second->ErScore)) {
+		if (stod(first->ErScore) < stod(second->ErScore)) {
 			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
@@ -449,43 +451,81 @@ class RankingList {
 		}
 	}
 
-	void QuickSortAndDisplayUni() {
+	void QuickSortAndDisplayUni(int sortOption) {
 		RankingList rankingList;
 		rankingList.importRanking();
-		QuickSort(rankingList.head, rankingList.tail);
+		QuickSort(rankingList.head, rankingList.tail, sortOption);
 		//rankingList.DisplayRankingInfo();
 	}
 
-	void Swap(string* a, string* b) {
-		string temp = *a;
-		*a = *b;
-		*b = temp;
+	void Swap(Ranking* a, Ranking* b) { 
+		swap(a->universityID, b->universityID);
+		swap(a->ranking, b->ranking);
+		swap(a->universityName, b->universityName);
+		swap(a->locationCode, b->locationCode);
+		swap(a->location, b->location);
+		swap(a->ArScore, b->ArScore);
+		swap(a->ArRank, b->ArRank);
+		swap(a->ErScore, b->ErScore);
+		swap(a->ErRank, b->ErRank);
+		swap(a->FsrScore, b->FsrScore);
+		swap(a->FsrRank, b->FsrRank);
+		swap(a->CpfScore, b->CpfScore);
+		swap(a->CpfRank, b->CpfRank);
+		swap(a->IfrScore, b->IfrScore);
+		swap(a->IfrRank, b->IfrRank);
+		swap(a->IsrScore, b->IsrScore);
+		swap(a->IsrRank, b->IsrRank);
+		swap(a->IrnScore, b->IrnScore);
+		swap(a->IrnRank, b->IrnRank);
+		swap(a->GerScore, b->GerScore);
+		swap(a->GerRank, b->GerRank);
+		swap(a->ScoreScaled, b->ScoreScaled);
+
 	}
 
-	void QuickSort(Ranking* head, Ranking* tail) {
+	void QuickSort(Ranking* head, Ranking* tail, int sortOption) {
 		if (tail != NULL && head != tail && head != tail->nextAddress) {
-			Ranking* p = Partition(head, tail);
-			QuickSort(head, p->prevAddress);
-			QuickSort(p->nextAddress, tail);
+			Ranking* p = Partition(head, tail, sortOption);
+			QuickSort(head, p->prevAddress, sortOption);
+			QuickSort(p->nextAddress, tail, sortOption);
 		}
 	}
 
-	Ranking* Partition(Ranking* head, Ranking* tail) {
-		string x = tail->universityName;
-
+	Ranking* Partition(Ranking* head, Ranking* tail, int sortOption) {
 		Ranking* i = head->prevAddress;
+		Ranking* pivot = tail;
 
 		for (Ranking* j = head; j != tail; j = j->nextAddress) {
-			if (j->universityName < x) {
-				i = (i == NULL) ? head : i->nextAddress;
-				Swap(&(i->universityName), &(j->universityName));
+			bool shouldSwap = false;
+
+			switch (sortOption) {
+			case 1: // Sort by universityName
+				shouldSwap = (j->universityName <= pivot->universityName);
+				break;
+			case 2: // Sort by ArScore
+				shouldSwap = (stod(j->ArScore) <= stod(pivot->ArScore));
+				break;
+			case 3: // Sort by FsrScore
+				shouldSwap = (stod(j->FsrScore) <= stod(pivot->FsrScore));
+				break;
+			case 4: // Sort by ErScore
+				shouldSwap = (stod(j->ErScore) <= stod(pivot->ErScore));
+				break;
+			default:
+				shouldSwap = (j->universityName <= pivot->universityName);
+				break;
+			}
+
+			if (shouldSwap) {
+				i = (i == nullptr) ? head : i->nextAddress;
+				Swap(i, j);
 			}
 		}
 
-		i = (i == NULL) ? head : i->nextAddress;
-		Swap(&(i->universityName), &(tail->universityName));
-
-		return 0;
+		i = (i == nullptr) ? head : i->nextAddress;
+		Swap(i, tail);
+		return i;
 	}
 };
 

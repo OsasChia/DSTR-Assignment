@@ -1,2 +1,6 @@
-﻿  Ranking.cpp
+﻿  Customer.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(103,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Main.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(103,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   TURS.vcxproj -> C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe
