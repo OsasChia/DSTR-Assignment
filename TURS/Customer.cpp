@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <ctime>
 #include "University.cpp"
 // #include "TURS.h"
 
@@ -68,15 +69,12 @@ class CustomerList {
 		cout << "List is ended here! " << endl;
 	};
 
-	void ModifyCustInfo() {
-		string custEmail;
-		cout << "Enter customer email to modify: ";
-		cin >> custEmail;
+	void ModifyCustInfo(string custEmail) {
+		CustomerList customerList = importCustomer();
 
-		Customer* current = head;
+		Customer* current = customerList.head;
 		bool isFound = false;
 
-		///////////////////can used the other search algorithm instead of this linear search
 		while (current != NULL) {
 			if (current->custEmail == custEmail) {
 				isFound = true;
@@ -94,6 +92,7 @@ class CustomerList {
 			cin >> newCustContactNo;
 			current->custContactNo = newCustContactNo;
 
+			exportCustomer(customerList);
 			cout << "Customer information updated successfully." << endl;
 		} else {
 			cout << "Customer with email " << custEmail << " not found." << endl;
@@ -101,27 +100,29 @@ class CustomerList {
 	};
 
 	bool DeleteCust(string email) {
+		CustomerList customerList = importCustomer();
 		// check if list is empty
-		if (head == NULL) {
+		if (customerList.head == NULL) {
 			cout << "List is empty!" << endl;
 			return false;
 		}
 
 		// check if head node needs to be deleted
-		if (head->custEmail == email) {
-			Customer* temp = head;
-			head = head->nextAddress;
+		if (customerList.head->custEmail == email) {
+			Customer* temp = customerList.head;
+			customerList.head = customerList.head->nextAddress;
 			delete temp;
 			return true;
 		}
 
 		// find node to delete
-		Customer* current = head->nextAddress;
-		Customer* prev = head;
+		Customer* current = customerList.head->nextAddress;
+		Customer* prev = customerList.head;
 		while (current != NULL) {
 			if (current->custEmail == email) {
 				prev->nextAddress = current->nextAddress;
 				delete current;
+				exportCustomer(customerList);
 				return true;
 			}
 			prev = current;
@@ -133,7 +134,7 @@ class CustomerList {
 		return false;
 	};
 
-	bool loginCustomer(string custEmail, string custPassword) {
+	string loginCustomer(string custEmail, string custPassword) {
 
 		CustomerList customerList = importCustomer();
 		Customer* current = customerList.head;
@@ -142,14 +143,49 @@ class CustomerList {
 			if (current->custEmail == custEmail && current->custPassword == custPassword) {
 				// Login successful
 				cout << "Login successful." << endl;
-				return true;
+				return current->custEmail;
 			}
 			current = current->nextAddress;
 		}
 
 		// Login failed
 		cout << "Login failed. Invalid email or password." << endl;
-		return false;
+		return "";
+	}
+
+	void logoutCustomer(string custEmail) {
+
+		CustomerList customerList = importCustomer();
+
+		// Get the current time
+		time_t currentTime;
+		time(&currentTime);
+
+		// Convert the current time to string
+		char timeString[26];
+		ctime_s(timeString, sizeof(timeString), &currentTime);
+
+		// Remove the newline character from timeString
+		size_t len = strlen(timeString);
+		if (len > 0 && timeString[len - 1] == '\n') {
+			timeString[len - 1] = '\0';
+		}
+
+		if (customerList.head == NULL) {
+			return;
+		}
+
+		Customer* current = customerList.head;
+
+		while (current != NULL) {
+			if (current->custEmail == custEmail) {
+				current->logoutTime = timeString;
+				cout << "Successfully logout!";
+			}
+			current = current->nextAddress;
+		}
+
+		exportCustomer(customerList);
 	}
 
 	void registerAccount(
