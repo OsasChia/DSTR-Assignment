@@ -1,4 +1,5 @@
 #include "Guest.cpp"
+#include "Feedback.cpp"
 #include <fstream>
 #include <iostream>
 
@@ -10,6 +11,14 @@ int main() {
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	CustomerList customerList;
 	RankingList rankingList;
+	FeedbackList feedbackList;
+	bool exist = feedbackList.ExistFeedback("1");
+	bool exist1 = feedbackList.ExistFeedback("31");
+	if (exist && !exist1) {
+		cout << "yes";
+	} else {
+		cout << "no";
+	}
 	while (!validOption) {
 		//switch case
 		int mainOption = 0;
