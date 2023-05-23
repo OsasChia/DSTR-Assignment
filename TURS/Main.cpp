@@ -11,6 +11,7 @@ int main() {
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	CustomerList customerList;
 	RankingList rankingList;
+
 	FeedbackList feedbackList;
 	bool exist = feedbackList.ExistFeedback("1");
 	bool exist1 = feedbackList.ExistFeedback("31");
@@ -19,6 +20,10 @@ int main() {
 	} else {
 		cout << "no";
 	}
+
+
+	// guest.startMenu();
+	
 	while (!validOption) {
 		//switch case
 		int mainOption = 0;
@@ -172,8 +177,6 @@ int main() {
 			cout << "Error! Please enter a valid option!\n";
 		}
 	}
-
-	*/
 
 	return 0;
 }

@@ -1,27 +1,16 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-﻿  Main.cpp
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(103,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(55,8): warning C4101: 'existPending': unreferenced local variable
-C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(201): warning C4715: 'FeedbackList::ExistFeedback': not all control paths return a value
-  TURS.vcxproj -> C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe
-=======
-=======
->>>>>>> Stashed changes
 ﻿  Customer.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(100,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Favourite.cpp
   Feedback.cpp
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(55,8): warning C4101: 'existPending': unreferenced local variable
   Guest.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(100,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Ranking.cpp
   Main.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(100,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(55,8): warning C4101: 'existPending': unreferenced local variable
   University.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(100,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
+C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(201): warning C4715: 'FeedbackList::ExistFeedback': not all control paths return a value
   TURS.vcxproj -> C:\Users\Admin\source\repos\DSTR-Assignment\x64\Debug\TURS.exe
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes

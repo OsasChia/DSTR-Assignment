@@ -154,6 +154,23 @@ class RankingList {
 		}
 	}
 
+	string trim(const string& str) {
+		// Find the first non-whitespace character
+		auto start = str.find_first_not_of(" \t\n\r\f\v");
+		
+		// If the string is all whitespace, return an empty string
+		if (start == std::string::npos) return "";
+
+		// Find the last non-whitespace character
+		auto end = str.find_last_not_of(" \t\n\r\f\v");
+
+		// Calculate the length of the trimmed string
+		auto length = end - start + 1;
+
+		// Return the trimmed substring
+		return str.substr(start, length);
+	}
+
 	void DisplayRankingInfo() {
 		Ranking* current = head;
 		while (current != NULL) {
@@ -239,9 +256,9 @@ class RankingList {
 					std::getline(iss, temp, ',');
 					token += "," + temp;
 				}
-				file_universityName = token.substr(1, token.size() - 2);
+				file_universityName = trim(token.substr(1, token.size() - 2));
 			} else {
-				file_universityName = token;
+				file_universityName = trim(token);
 			}
 
 			getline(iss, token, ',');
@@ -343,7 +360,7 @@ class RankingList {
 		rankingList.importRanking();
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		//rankingList.DisplayRankingInfo();
+		rankingList.DisplayRankingInfo();
 		return sortedList;
 	}
 
