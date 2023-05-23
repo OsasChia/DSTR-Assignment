@@ -22,7 +22,7 @@ int main() {
 	}
 
 
-	guest.startMenu();
+	// guest.startMenu();
 	
 	while (!validOption) {
 		//switch case
@@ -177,8 +177,6 @@ int main() {
 			cout << "Error! Please enter a valid option!\n";
 		}
 	}
-
-	*/
 
 	return 0;
 }
