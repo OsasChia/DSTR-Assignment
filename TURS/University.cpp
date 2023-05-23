@@ -67,9 +67,6 @@ class UniversityList {
 		cout << "List is ended here" << endl;
 	}
 
-
-	void SearchUniDetail(string universityName){};
-
 	UniversityList importUniversity() {
 		UniversityList universityList;
 		string file_universityID;
@@ -148,6 +145,41 @@ class UniversityList {
 			current = current->nextAddress;
 		}
 		return universityList;
+	};
+
+	University* SearchUniDetailByName(string universityName) {
+		UniversityList universityList;
+		universityList.importUniversity();
+
+	};
+
+	void SearchUniByName(string searchQuery) { 
+		if (head == NULL) {
+			cout << "Empty University List" << endl << endl;
+		} else {
+			University* current = head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->universityName.find(searchQuery) != string::npos) {
+					cout << "Univerisity ID: " << current->universityID << endl;
+					cout << "Univerisity Name: " << current->universityName << endl;
+					cout << "Univerisity Country Code: " << current->locationCode << endl;
+					cout << "Univerisity Country: " << current->location << endl;
+
+					found = true;
+				}
+				current = current->nextAddress;
+			}
+			if (!found) {
+				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+			}
+		}
+	}
+
+	University* SearchUniDetailByCountry(string universityCountry) {
+		UniversityList universityList;
+		universityList.importUniversity();
 	};
 
 	University* MergeSortAndDisplayUniByOption(int sortOption) {

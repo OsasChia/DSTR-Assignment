@@ -3,12 +3,43 @@
 #include "Ranking.cpp"
 #include <chrono> //time library
 #include <time.h>
+#include <string>
 
 using namespace std;
 using namespace std::chrono;
 
 class Guest {
 	public:
+	void startMenu(){ 
+		int option;
+
+		cout << "1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
+		cin >> option;
+		cout << endl;
+
+		switch (option) {
+		case 1:
+			// 1. View as guest
+			GuestMenu();
+			break;
+
+		case 2:
+			// 2. Login
+			loginMenu();
+			break;
+		case 3:
+			// 3. Register an account
+			registerMenu();
+			break;
+		default:
+			// handle invalid option
+			cout << "Error! Please enter a valid option!" << endl;
+
+			startMenu();
+			break;
+		}
+	};
+
 	void GuestMenu() {
 		// 1. Display all university information
 		RankingList rankingList;
@@ -22,8 +53,9 @@ class Guest {
 			// register variables
 			string regisEmailTxt;
 			// Display guest menu
-			cout << "Choose a number for further action:\n1. Display all university information\n2. Search university details\n3. Register an account\n4. Return to login menu\nSelect your option: ";
+			cout << "1. Display all university information\n2. Search university details\n3. Return to login menu\nSelect your option: ";
 			cin >> guestOption;
+			cout << endl;
 			if (guestOption == 1) {
 				// 1. Display all university information
 				auto start = high_resolution_clock::now();
@@ -36,13 +68,27 @@ class Guest {
 				rankingList.QuickSortAndDisplayUni(1);
 				auto stopp = high_resolution_clock::now();
 				auto durationn = duration_cast<microseconds>(stopp - startt);
-				cout << "Time taken for Quick sort: " << durationn.count() << " microseconds." << endl;
+				cout << "Time taken for Quick sort: " << durationn.count() << " microseconds." << endl << endl;
 
 				validOption = true;
+				
+				GuestMenu();
 				break;
 			} else if (guestOption == 2) {
 				// 2. Search university details
-				validOption = true;
+				string searchQuery;
+
+				UniversityList universityList;
+				universityList.importUniversity();
+
+				cout << "Search University Name: ";
+				cin.ignore();
+				getline(cin, searchQuery);
+
+				cout << searchQuery << endl;
+				cout << endl << endl;
+
+				universityList.SearchUniByName(searchQuery);
 				break;
 			} else if (guestOption == 3) {
 				// 3. Register an account
@@ -67,4 +113,45 @@ class Guest {
 			}
 		}
 	};
+
+	// login function
+	void loginMenu() {
+		CustomerList customerList;
+
+		// login variables
+		string loginEmailTxt;
+		string passwordTxt;
+		string custSession;
+
+		// Display login menu
+		cout << "Please enter your login details:\nEmail: ";
+		cin >> loginEmailTxt;
+		cout << "Password: ";
+		cin >> passwordTxt;
+		cout << endl;
+
+
+		if (loginEmailTxt == "admin" && passwordTxt == "admin") {
+			adminDashboard();
+		} 
+
+		custSession = customerList.loginCustomer(loginEmailTxt, passwordTxt);
+
+		if (!custSession.empty()) {
+			cout << "Hello " + custSession << endl << endl;
+		} else {
+			startMenu();
+		}
+
+	}
+
+	void registerMenu() {
+		
+
+
+	}
+
+	void adminDashboard() {
+
+	}
 };

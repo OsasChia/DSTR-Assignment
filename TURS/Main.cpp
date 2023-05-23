@@ -31,6 +31,7 @@ int main() {
 		// Display main menu
 		cout<< "Choose a number for further action:\n1. View as Guest\n2. Login\n3. Register an account\nEnter your option: ";
 		cin >> mainOption;
+		cout << endl;
 		switch (mainOption) {
 		case 1:
 			// 1. View as guest
@@ -100,6 +101,7 @@ int main() {
 				}
 			} else {
 				custSession = customerList.loginCustomer(loginEmailTxt, passwordTxt);
+				cout << custSession << endl;
 				if (!custSession.empty()) {
 					cout << "Welcome to customer menu! Please enter your option for furher action:\n1. Display all university "
 									"information\n2. Search university detail\n3. View favourtie university\n4. Logout\nSelect your "
@@ -170,6 +172,8 @@ int main() {
 			cout << "Error! Please enter a valid option!\n";
 		}
 	}
+
+	*/
 
 	return 0;
 }

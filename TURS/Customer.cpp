@@ -66,7 +66,7 @@ class CustomerList {
 			cout << "Customer logoutTime: " << current->logoutTime << endl << endl;
 			current = current->nextAddress; // if you forgot this, will become a infinity loop
 		}
-		cout << "List is ended here! " << endl;
+		cout << "List is ended here! " << endl << endl;
 	};
 
 	void ModifyCustInfo(string custEmail) {
@@ -142,14 +142,14 @@ class CustomerList {
 		while (current != NULL) {
 			if (current->custEmail == custEmail && current->custPassword == custPassword) {
 				// Login successful
-				cout << "Login successful." << endl;
+				cout << "Login successful." << endl << endl;
 				return current->custEmail;
 			}
 			current = current->nextAddress;
 		}
 
 		// Login failed
-		cout << "Login failed. Invalid email or password." << endl;
+		cout << "Login failed. Invalid email or password." << endl << endl;
 		return "";
 	}
 
