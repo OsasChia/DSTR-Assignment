@@ -11,7 +11,7 @@ int main() {
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	CustomerList customerList;
 	RankingList rankingList;
-<<<<<<< Updated upstream
+
 	FeedbackList feedbackList;
 	bool exist = feedbackList.ExistFeedback("1");
 	bool exist1 = feedbackList.ExistFeedback("31");
@@ -20,11 +20,10 @@ int main() {
 	} else {
 		cout << "no";
 	}
-=======
+
 
 	guest.startMenu();
-	/*
->>>>>>> Stashed changes
+	
 	while (!validOption) {
 		//switch case
 		int mainOption = 0;
