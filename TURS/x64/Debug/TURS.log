@@ -1,20 +1,6 @@
-﻿  Customer.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Customer.cpp(58,7): warning C4101: 'option': unreferenced local variable
-  Favourite.cpp
-  Feedback.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(56,8): warning C4101: 'existPending': unreferenced local variable
-  Guest.cpp
-  InputHandler.cpp
-  Menu.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Customer.cpp(58,7): warning C4101: 'option': unreferenced local variable
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(56,8): warning C4101: 'existPending': unreferenced local variable
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Ranking.cpp
-  Main.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Customer.cpp(58,7): warning C4101: 'option': unreferenced local variable
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\Feedback.cpp(56,8): warning C4101: 'existPending': unreferenced local variable
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  University.cpp
-C:\Users\Admin\source\repos\DSTR-Assignment\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  TURS.vcxproj -> C:\Users\Admin\source\repos\DSTR-Assignment\x64\Debug\TURS.exe
+﻿  Main.cpp
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Customer.cpp(58,7): warning C4101: 'option': unreferenced local variable
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Feedback.cpp(56,8): warning C4101: 'existPending': unreferenced local variable
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\University.cpp(101,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\cylin\Documents\GitHub\DSTR\TURS\Main.cpp(9,7): warning C4101: 'menu': unreferenced local variable
+  TURS.vcxproj -> C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe

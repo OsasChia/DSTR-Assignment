@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <typeinfo>
+#include <cctype>
 
 using namespace std;
 
@@ -470,7 +471,18 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (first->universityName < second->universityName) {
+		string upperFirst, upperSecond;
+		upperFirst = first->universityName;
+		upperSecond = second->universityName;
+
+		// Convert both strings to lowercase for case-insensitive comparison
+		for (auto& c: upperFirst)
+			c = std::tolower(static_cast<unsigned char>(c));
+		for (auto& c: upperSecond)
+			c = std::tolower(static_cast<unsigned char>(c));
+
+
+		if (upperFirst < upperSecond) {
 			first->nextAddress = MergeByName(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
