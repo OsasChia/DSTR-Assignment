@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-#include "University.cpp"
-// #include "TURS.h"
 
 using namespace std;
 
@@ -57,6 +55,7 @@ class CustomerList {
 	void DisplayAllCustInfo() // Big O - O(n)
 	{
 		Customer* current = head;
+		int option;
 
 		while (current != NULL) // means still not the end of the list
 		{
@@ -201,7 +200,7 @@ class CustomerList {
 		Customer* current = customerList.head;
 		while (current != NULL) {
 			if (current->custEmail == custEmail) {
-				cout << "Registration failed. Email already exists." << endl;
+				cout << endl << "Registration failed. Email already exists." << endl << endl;
 				return;
 			}
 			current = current->nextAddress;
@@ -217,6 +216,9 @@ class CustomerList {
 
 		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, "null");
 		exportCustomer(customerList);
+
+		cout << endl << "Registration successfull. You can login now." << endl << endl;
+		return;
 	}
 
 	CustomerList importCustomer() {

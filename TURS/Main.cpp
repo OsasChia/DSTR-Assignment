@@ -1,28 +1,25 @@
-#include "Guest.cpp"
-#include "Feedback.cpp"
+#include "Menu.cpp"
+
 #include <fstream>
 #include <iostream>
 
 using namespace std;
 
 int main() {
+	Menu menu;
+	menu.startMenu();
+
+
+	/*
 	// import all csv files here
 	bool validOption = false;
 	Guest guest; // declare and initialize the guest object outside the switch statement
 	CustomerList customerList;
 	RankingList rankingList;
 
-	FeedbackList feedbackList;
-	bool exist = feedbackList.ExistFeedback("1");
-	bool exist1 = feedbackList.ExistFeedback("31");
-	if (exist && !exist1) {
-		cout << "yes";
-	} else {
-		cout << "no";
-	}
+	// FeedbackList feedbackList;
+	// feedbackList.importFeedback();
 
-
-	// guest.startMenu();
 	
 	while (!validOption) {
 		//switch case
@@ -97,6 +94,7 @@ int main() {
 					}
 				} else if (adminOption == 2) {
 					//2. Display all feedback
+					// feedbackList.DisplayAllPendingFeedbackInfo();
 				} else if (adminOption == 3) {
 					// 3. Logout
 					cout << "Successfully Logout!\n";
@@ -177,6 +175,6 @@ int main() {
 			cout << "Error! Please enter a valid option!\n";
 		}
 	}
-
+	*/
 	return 0;
 }
