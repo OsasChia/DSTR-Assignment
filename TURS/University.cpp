@@ -148,35 +148,7 @@ class UniversityList {
 		return universityList;
 	};
 
-	int getUniversityListLenght() { 
-		int length = 0;
-		for (University* ptr = head; ptr != NULL; ptr = ptr->nextAddress) {
-			length++;
-		}
-
-		return length;
-	}
-
-	University* getUniversityAtIndex(int index) {
-		University* current = head;
-		int currentIndex = 1;
-
-		while (current != NULL && currentIndex < index) {
-			current = current->nextAddress;
-			currentIndex++;
-		}
-
-		return current;
-	}
-
-	void SearchUniByCountry() {
-		string searchQuery;
-
-		cout << "Search University Country: ";
-		cin.ignore();
-		getline(cin, searchQuery);
-		cout << endl;
-
+	void SearchUniByCountry(string searchQuery) {
 		if (head == NULL) {
 			cout << "Empty University List" << endl << endl;
 		} else {
@@ -223,14 +195,7 @@ class UniversityList {
 		}
 	};
 
-	void SearchUniByName() { 
-		string searchQuery;
-
-		cout << "Search University Name: ";
-		cin.ignore();
-		getline(cin, searchQuery);
-		cout << endl;
-
+	void SearchUniByName(string searchQuery) { 
 		if (head == NULL) {
 			cout << "Empty University List" << endl << endl;
 		} else {
@@ -244,8 +209,6 @@ class UniversityList {
 					cout << "Univerisity Name: " << firstPtr->universityName << endl;
 					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
 					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
-
-
 
 					found = true;
 				}
@@ -277,44 +240,6 @@ class UniversityList {
 			if (!found) {
 				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
 			}
-		}
-	}
-
-	void binarySearchUniByName() {
-		string searchQuery;
-
-		cout << "Binary Search University Name: ";
-		cin.ignore();
-		getline(cin, searchQuery);
-		cout << endl;
-
-		int firstIndex = 1;
-		int lastIndex = getUniversityListLenght();
-		bool found = false;
-
-		while (firstIndex <= lastIndex) {
-			int midIndex = (firstIndex + lastIndex) / 2;
-			University* mid = getUniversityAtIndex(midIndex);
-
-			if (mid->universityName.find(searchQuery) != string::npos) {
-				cout << "University ID: " << mid->universityID << endl;
-				cout << "University Name: " << mid->universityName << endl;
-				cout << "University Country Code: " << mid->locationCode << endl;
-				cout << "University Country: " << mid->location << endl << endl;
-
-				found = true;
-			}
-
-			int compareResult = searchQuery.compare(mid->universityName);
-
-			if (compareResult < 0) {
-				lastIndex = midIndex - 1;
-			} else {
-				firstIndex = midIndex + 1;
-			}
-		}
-		if (!found) {
-			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
 		}
 	}
 

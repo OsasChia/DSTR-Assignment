@@ -154,6 +154,27 @@ class RankingList {
 		}
 	}
 
+	int getUniversityListLenght() {
+		int length = 0;
+		for (Ranking* ptr = head; ptr != NULL; ptr = ptr->nextAddress) {
+			length++;
+		}
+
+		return length;
+	}
+
+	Ranking* getUniversityAtIndex(int index) {
+		Ranking* current = head;
+		int currentIndex = 1;
+
+		while (current != NULL && currentIndex < index) {
+			current = current->nextAddress;
+			currentIndex++;
+		}
+
+		return current;
+	}
+
 	string trim(const string& str) {
 		// Find the first non-whitespace character
 		auto start = str.find_first_not_of(" \t\n\r\f\v");
@@ -171,38 +192,75 @@ class RankingList {
 		return str.substr(start, length);
 	}
 
-	void DisplayRankingInfo() {
+	void DisplayRankingInfo(int currentPage) {
+		int pageSize = 20;
+		int startIndex = (currentPage - 1) * pageSize;
+		int endIndex = startIndex + pageSize;
+		
 		Ranking* current = head;
-		while (current != NULL) {
-			cout << "-----Uni Detail-----" << endl;
-			cout << "University ID: " << current->universityID << endl;
-			cout << "Ranking: " << current->ranking << endl;
-			cout << "University Name: " << current->universityName << endl;
-			cout << "Location Code: " << current->locationCode << endl;
-			cout << "Location: " << current->location << endl;
-			cout << "-----Uni Score-----" << endl;
-			cout << "ArScore: " << current->ArScore << endl;
-			cout << "ArRank: " << current->ArRank << endl;
-			cout << "ErScore: " << current->ErScore << endl;
-			cout << "ErRank: " << current->ErRank << endl;
-			cout << "FsrScore: " << current->FsrScore << endl;
-			cout << "FsrRank: " << current->FsrRank << endl;
-			cout << "CpfScore: " << current->CpfScore << endl;
-			cout << "CpfRank: " << current->CpfRank << endl;
-			cout << "IfrScore: " << current->IfrScore << endl;
-			cout << "IfrRank: " << current->IfrRank << endl;
-			cout << "IsrScore: " << current->IsrScore << endl;
-			cout << "IsrRank: " << current->IsrRank << endl;
-			cout << "IrnScore: " << current->IrnScore << endl;
-			cout << "IrnRank: " << current->IrnRank << endl;
-			cout << "GerScore: " << current->GerScore << endl;
-			cout << "GerRank: " << current->GerRank << endl;
-			cout << "ScoreScaled: " << current->ScoreScaled << endl << endl;
+		int count = 0;
+		while (current != NULL && count < endIndex) {
+			if (count >= startIndex) {
+			
+				cout << "-----Uni Detail-----" << endl;
+				cout << "University ID: " << current->universityID << endl;
+				cout << "Ranking: " << current->ranking << endl;
+				cout << "University Name: " << current->universityName << endl;
+				cout << "Location Code: " << current->locationCode << endl;
+				cout << "Location: " << current->location << endl;
+				cout << "-----Uni Score-----" << endl;
+				cout << "ArScore: " << current->ArScore << endl;
+				cout << "ArRank: " << current->ArRank << endl;
+				cout << "ErScore: " << current->ErScore << endl;
+				cout << "ErRank: " << current->ErRank << endl;
+				cout << "FsrScore: " << current->FsrScore << endl;
+				cout << "FsrRank: " << current->FsrRank << endl;
+				cout << "CpfScore: " << current->CpfScore << endl;
+				cout << "CpfRank: " << current->CpfRank << endl;
+				cout << "IfrScore: " << current->IfrScore << endl;
+				cout << "IfrRank: " << current->IfrRank << endl;
+				cout << "IsrScore: " << current->IsrScore << endl;
+				cout << "IsrRank: " << current->IsrRank << endl;
+				cout << "IrnScore: " << current->IrnScore << endl;
+				cout << "IrnRank: " << current->IrnRank << endl;
+				cout << "GerScore: " << current->GerScore << endl;
+				cout << "GerRank: " << current->GerRank << endl;
+				cout << "ScoreScaled: " << current->ScoreScaled << endl << endl;
+			}
 			current = current->nextAddress;
+			count++;
 		}
-		cout << "List is ended here! " << endl;
-	}
+		if (current == NULL) {
+			cout << "End of the list! " << endl << endl;
+		} else {
+			cout << "Displaying results " << startIndex + 1 << " to " << min(endIndex, count) << endl << endl;
+			cout << "1. Next 20 results" << endl;
+			cout << "2. Previous 20 results" << endl;
+			cout << "3. Exit" << endl << endl;
+			cout << "Choose an option:";
 
+			int option;
+			cin >> option;
+			cout << endl;
+
+			switch (option) {
+			case 1:
+				DisplayRankingInfo(currentPage + 1);
+				break;
+			case 2:
+				if (currentPage > 1) {
+					DisplayRankingInfo(currentPage - 1);
+				} else {
+					DisplayRankingInfo(currentPage);
+				}
+				break;
+			case 3:
+				return;
+			default:
+				cout << "Invalid choice. Exiting..." << endl << endl;
+			}
+		}
+	}
 
 	RankingList importRanking() {
 		RankingList rankingList;
@@ -360,8 +418,16 @@ class RankingList {
 		rankingList.importRanking();
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		rankingList.DisplayRankingInfo();
+		rankingList.DisplayRankingInfo(1);
 		return sortedList;
+	}
+
+	void MergeSortForCompare(int sortOption) {
+		RankingList rankingList;
+		rankingList.importRanking();
+		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
+		rankingList.head = sortedList;
+		return;
 	}
 
 	Ranking* Split(Ranking* head) {
@@ -544,5 +610,78 @@ class RankingList {
 		Swap(i, tail);
 		return i;
 	}
-};
 
+	void binarySearchUniByName(string searchQuery) {
+		int firstIndex = 1;
+		int lastIndex = getUniversityListLenght();
+		bool found = false;
+
+		Ranking* temp = head;
+		MergeSort(temp, 1);
+
+		while (firstIndex <= lastIndex) {
+			int midIndex = (firstIndex + lastIndex) / 2;
+			Ranking* mid = getUniversityAtIndex(midIndex);
+
+			if (mid->universityName.find(searchQuery) != string::npos) {
+				cout << "University ID: " << mid->universityID << endl;
+				cout << "University Name: " << mid->universityName << endl;
+				cout << "University Country Code: " << mid->locationCode << endl;
+				cout << "University Country: " << mid->location << endl << endl;
+
+				found = true;
+			}
+
+			int compareResult = searchQuery.compare(mid->universityName);
+
+			if (compareResult < 0) {
+				lastIndex = midIndex - 1;
+			} else {
+				firstIndex = midIndex + 1;
+			}
+		}
+		if (!found) {
+			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+		}
+	}
+
+	void binarySearchUniByRanking() {
+		string searchQuery;
+
+		cout << "Binary Search University Ranking: ";
+		cin.ignore();
+		getline(cin, searchQuery);
+		cout << endl;
+
+		int firstIndex = 1;
+		int lastIndex = getUniversityListLenght();
+		bool found = false;
+
+		Ranking* temp = head;
+
+		while (firstIndex <= lastIndex) {
+			int midIndex = (firstIndex + lastIndex) / 2;
+			Ranking* mid = getUniversityAtIndex(midIndex);
+
+			if (stod(mid->ranking) == stod(searchQuery)) {
+				cout << "University ID: " << mid->universityID << endl;
+				cout << "University Name: " << mid->universityName << endl;
+				cout << "University Country Code: " << mid->locationCode << endl;
+				cout << "University Country: " << mid->location << endl << endl;
+
+				found = true;
+			}
+
+			int compareResult = searchQuery.compare(mid->universityName);
+
+			if (compareResult < 0) {
+				lastIndex = midIndex - 1;
+			} else {
+				firstIndex = midIndex + 1;
+			}
+		}
+		if (!found) {
+			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+		}
+	}
+};
