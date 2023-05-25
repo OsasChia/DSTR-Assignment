@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+
 using namespace std;
 
 struct University {
@@ -66,9 +67,6 @@ class UniversityList {
 		}
 		cout << "List is ended here" << endl;
 	}
-
-
-	void SearchUniDetail(string universityName){};
 
 	UniversityList importUniversity() {
 		UniversityList universityList;
@@ -149,6 +147,101 @@ class UniversityList {
 		}
 		return universityList;
 	};
+
+	void SearchUniByCountry(string searchQuery) {
+		if (head == NULL) {
+			cout << "Empty University List" << endl << endl;
+		} else {
+			University* firstPtr = head;
+			University* secondPtr = tail;
+			bool found = false;
+
+			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
+				if (firstPtr->location.find(searchQuery) != string::npos) {
+					cout << "Univerisity ID: " << firstPtr->universityID << endl;
+					cout << "Univerisity Name: " << firstPtr->universityName << endl;
+					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
+					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
+
+					found = true;
+				}
+
+				if (secondPtr->location.find(searchQuery) != string::npos) {
+					cout << "University ID: " << secondPtr->universityID << endl;
+					cout << "University Name: " << secondPtr->universityName << endl;
+					cout << "University Country Code: " << secondPtr->locationCode << endl;
+					cout << "University Country: " << secondPtr->location << endl << endl;
+
+					found = true;
+				}
+
+				firstPtr = firstPtr->nextAddress;
+				secondPtr = secondPtr->prevAddress;
+			}
+
+			if (
+				!found && firstPtr != NULL && firstPtr == secondPtr && firstPtr->location.find(searchQuery) != string::npos) {
+				cout << "University ID: " << firstPtr->universityID << endl;
+				cout << "University Name: " << firstPtr->universityName << endl;
+				cout << "University Country Code: " << firstPtr->locationCode << endl;
+				cout << "University Country: " << firstPtr->location << endl << endl;
+
+				found = true;
+			}
+
+			if (!found) {
+				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+			}
+		}
+	};
+
+	void SearchUniByName(string searchQuery) { 
+		if (head == NULL) {
+			cout << "Empty University List" << endl << endl;
+		} else {
+			University* firstPtr = head;
+			University* secondPtr = tail;
+			bool found = false;
+
+			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
+				if (firstPtr->universityName.find(searchQuery) != string::npos) {
+					cout << "Univerisity ID: " << firstPtr->universityID << endl;
+					cout << "Univerisity Name: " << firstPtr->universityName << endl;
+					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
+					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
+
+					found = true;
+				}
+
+				if (secondPtr->universityName.find(searchQuery) != string::npos) {
+					cout << "University ID: " << secondPtr->universityID << endl;
+					cout << "University Name: " << secondPtr->universityName << endl;
+					cout << "University Country Code: " << secondPtr->locationCode << endl;
+					cout << "University Country: " << secondPtr->location << endl << endl;
+
+					found = true;
+				}
+
+				firstPtr = firstPtr->nextAddress;
+				secondPtr = secondPtr->prevAddress;
+			}
+
+			if (
+				!found && firstPtr != NULL && firstPtr == secondPtr
+				&& firstPtr->universityName.find(searchQuery) != string::npos) {
+				cout << "University ID: " << firstPtr->universityID << endl;
+				cout << "University Name: " << firstPtr->universityName << endl;
+				cout << "University Country Code: " << firstPtr->locationCode << endl;
+				cout << "University Country: " << firstPtr->location << endl << endl;
+
+				found = true;
+			}
+
+			if (!found) {
+				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+			}
+		}
+	}
 
 	University* MergeSortAndDisplayUniByOption(int sortOption) {
 		UniversityList universityList;
