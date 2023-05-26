@@ -55,7 +55,6 @@ class CustomerList {
 	void DisplayAllCustInfo() // Big O - O(n)
 	{
 		Customer* current = head;
-		int option;
 
 		while (current != NULL) // means still not the end of the list
 		{
@@ -137,6 +136,8 @@ class CustomerList {
 
 		CustomerList customerList = importCustomer();
 		Customer* current = customerList.head;
+
+		cout << current << endl;
 
 		while (current != NULL) {
 			if (current->custEmail == custEmail && current->custPassword == custPassword) {
@@ -228,11 +229,14 @@ class CustomerList {
 		string file_custPassword;
 		string file_custContactNo;
 		string file_logoutTime;
+
 		ifstream file("Customer.csv");
+
 		// skip the first line
 		string str;
 		getline(file, str);
 		str.clear();
+
 		while (file.good()) {
 			getline(file, file_custEmail, ',');
 			getline(file, file_custName, ',');
@@ -267,6 +271,4 @@ class CustomerList {
 		}
 		ExportCustomerFile.close();
 	}
-
-
 };
