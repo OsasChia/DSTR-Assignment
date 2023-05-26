@@ -1,9 +1,11 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
-// #include "TURS.h"
+#include <typeinfo>
 
 using namespace std;
+
 struct Favourite {
 	string favID;
 	string custEmail;
@@ -16,91 +18,171 @@ class FavouriteList {
 	Favourite* tail = NULL;
 
 	public:
-	Favourite* CreateNewNode(string favID, string custEmail, string universityID);
-	void InsertToEndList(string favID, string custEmail, string universityID);
-	void DisplayAllFavInfo();
-	bool DeleteFav(string fav);
-};
+	Favourite* getHead() { return this->head; }
 
-Favourite* FavouriteList::CreateNewNode(string favID, string custEmail, string universityID) {
-	// create a empty new node first
-	Favourite* newnode = new Favourite;
-	newnode->favID = favID;
-	newnode->custEmail = custEmail;
-	newnode->universityID = universityID;
-	newnode->nextAddress = NULL;
+	Favourite* CreateNewNode(string favID, string custEmail, string universityID){
+		Favourite* newnode = new Favourite;
+		newnode->favID = favID;
+		newnode->custEmail = custEmail;
+		newnode->universityID = universityID;
+		newnode->nextAddress = NULL;
 
-	// newnode address
-	return newnode;
-}
+		return newnode;
+	};
 
-void FavouriteList::InsertToEndList(string favID, string custEmail, string universityID) {
-	// call the create function to build a new single node first
-	Favourite* newnode = CreateNewNode(favID, custEmail, universityID);
+	void InsertToEndList(string favID, string custEmail, string universityID){
+		Favourite* newnode = CreateNewNode(favID, custEmail, universityID);
 
-	// attach your node to the end of the list
-	if (head == NULL) // list is the empty, always the newnode will be first node in list
-	{
-		head = newnode;
-	} else // if not empty list, just bring to the end of the list.
-	{
-		Favourite* current = head; // to help us find the last item in the list
-
-		while (current->nextAddress != NULL) // if not yet last node, move to next point again
+		if (head == NULL)
 		{
-			current = current->nextAddress; // Big O - O(n)
+			head = tail = newnode;
+		} else {
+			newnode->prevAddress = tail;
+			tail->nextAddress = newnode;
+			tail = newnode;
+		}
+	};
+
+	void DisplayAllFavInfo(Favourite* temp, string custEmail){ 
+		Favourite* current = temp;
+		while ((current != NULL) && (current->custEmail == custEmail)) {
+			cout << "Favourite ID: " << current->favID << endl;
+			cout << "Customer Email: " << current->custEmail << endl;
+			cout << "University ID: " << current->universityID << endl;			
+			current = current->nextAddress;
+		}
+		if (current == NULL) {
+			cout << "End of the list! " << endl << endl;
+		} 
+	};
+
+	bool favouriteExists(Favourite* temp, string custEmail) {
+		if (temp != NULL) {
+			DisplayAllFavInfo(temp, custEmail);
+		} else {
+			cout << "No favourite university yet." << endl << endl;
+			return true;
+		}
+	}
+
+	bool DeleteFav(string favID) {
+		// check if list is empty
+		if (head == NULL) {
+			cout << "List is empty!" << endl;
+			return false;
 		}
 
-		// if found the last node, attach the new node after the last node
-		current->nextAddress = newnode;
-	}
-}
+		// check if head node needs to be deleted
+		if (head->favID == favID) {
+			Favourite* temp = head;
+			head = head->nextAddress;
+			delete temp;
+			return true;
+		}
 
-// additional feature
-void FavouriteList::DisplayAllFavInfo() // Big O - O(n)
-{
-	Favourite* current = head;
-
-	while (current != NULL) // means still not the end of the list
-	{
-		cout << "Favourtie ID: " << current->favID << endl;
-		cout << "Customer Email: " << current->custEmail << endl;
-		cout << "University ID: " << current->universityID << endl << endl;
-		current = current->nextAddress; // if you forgot this, will become a infinity loop
-	}
-	cout << "List is ended here! " << endl;
-}
-
-// additional feature
-bool FavouriteList::DeleteFav(string fav) {
-	// check if list is empty
-	if (head == NULL) {
-		cout << "List is empty!" << endl;
-		return false;
-	}
-
-	// check if head node needs to be deleted
-	if (head->favID == fav) {
-		Favourite* temp = head;
-		head = head->nextAddress;
-		delete temp;
-		return true;
-	}
-
-	// find node to delete
-	Favourite* current = head->nextAddress;
-	Favourite* prev = head;
-	while (current != NULL) {
-		if (current->favID == fav) {
+		// find node to delete
+		Favourite* current = head->nextAddress;
+		Favourite* prev = head;
+		while (current != NULL && current->favID == favID) {
 			prev->nextAddress = current->nextAddress;
 			delete current;
 			return true;
+			prev = current;
+			current = current->nextAddress;
 		}
-		prev = current;
-		current = current->nextAddress;
+
+		// node not found
+		cout << "Favourite ID with " << favID << " not found in list." << endl;
+		return false;
 	}
 
-	// node not found
-	cout << "Favourite ID with " << fav << " not found in list." << endl;
-	return false;
-}
+	FavouriteList importFavourite() {
+		FavouriteList favouriteList;
+		string file_favID;
+		string file_custEmail;
+		string file_universityID;
+
+		ifstream file("Favourite.csv");
+		// skip the first line
+		string str;
+		getline(file, str);
+		str.clear();
+
+		while (file.good()) {
+			string rowData;
+			getline(file, rowData);
+			stringstream iss(rowData);
+			string token;
+			getline(iss, token, ',');
+			file_favID = token;
+
+			getline(iss, token, ',');
+			file_custEmail = token;
+
+			getline(iss, token, ',');
+			file_universityID = token;
+
+			if (file_favID.empty()) {
+				break;
+			}
+			favouriteList.InsertToEndList(file_favID, file_custEmail, file_universityID);
+		}
+		return favouriteList;
+	}
+
+	void exportFavourite(FavouriteList favouriteList) {
+		ofstream ExportFavouriteFile;
+		ExportFavouriteFile.open("Favourite.csv");
+		Favourite* head = favouriteList.head;
+		if (head == NULL) {
+			return;
+		}
+		ExportFavouriteFile << "favID,custEmail,universityID" << endl;
+
+		Favourite* current = head;
+
+		while (current != NULL) {
+			ExportFavouriteFile << current->favID << "," << current->custEmail << "," << current->universityID << endl;
+
+			current = current->nextAddress;
+		}
+		ExportFavouriteFile.close();
+	}
+
+	void addFavourite(FavouriteList& favouriteList, string custEmail, string universityID) {
+		string favID;
+		int tail = stoi(favouriteList.tail->favID);
+		favID = to_string(tail + 1);
+
+		favouriteList.InsertToEndList(favID, custEmail, universityID);
+		exportFavourite(favouriteList);
+		cout << "Favourite saved successfully." << endl << endl;
+	}
+
+	bool SearchFavByID(string searchQuery) {
+		if (head == NULL) {
+			cout << "No Favourite Found" << endl << endl;
+		} else {
+			Favourite* current = head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->favID == searchQuery) {
+					cout << "Feedback ID: " << current->favID << endl;
+					cout << "Customer Email: " << current->custEmail << endl;
+					cout << "University ID: " << current->universityID << endl << endl;
+
+					found = true;
+					break;
+				}
+
+				current = current->nextAddress;
+			}
+
+			if (!found) {
+				cout << "No feedback found with ID: '" << searchQuery << "'." << endl << endl;
+			}
+			return found;
+		}
+	}
+};

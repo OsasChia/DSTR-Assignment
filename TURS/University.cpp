@@ -195,6 +195,34 @@ class UniversityList {
 		}
 	};
 
+	bool SearchUniByID(string searchQuery) {
+		if (head == NULL) {
+			cout << "No University Found" << endl << endl;
+		} else {
+			University* current = head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->universityID == searchQuery) {
+					cout << "University ID: " << current->universityID << endl;
+					cout << "University Name: " << current->universityName << endl;
+					cout << "University Country Code: " << current->locationCode << endl;
+					cout << "University Country: " << current->location << endl << endl;
+
+					found = true;
+					break;
+				}
+
+				current = current->nextAddress;
+			}
+
+			if (!found) {
+				cout << "No university found with ID: '" << searchQuery << "'." << endl << endl;
+			}
+			return found;
+		}
+	}
+
 	void SearchUniByName(string searchQuery) { 
 		if (head == NULL) {
 			cout << "Empty University List" << endl << endl;
