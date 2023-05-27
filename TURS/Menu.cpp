@@ -109,8 +109,7 @@ class Menu {
 		cin >> loginEmailTxt;
 		cout << "Password: ";
 		cin >> passwordTxt;
-		cout << endl;
-		cout << endl;
+		cout << endl << endl;
 
 		if (loginEmailTxt == "admin" && passwordTxt == "admin") {
 			adminDashboard();
@@ -273,7 +272,7 @@ class Menu {
 			universityList.SearchUniByName(searchQuery);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
-			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl;
+			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
 
 			auto startt = high_resolution_clock::now();
 			rankingList.binarySearchUniByName(searchQuery);
@@ -426,7 +425,8 @@ class Menu {
 				cout << "Enter Feedback ID: ";
 				cin.ignore();
 				getline(cin, feedbackID);
-				if (feedbackList.SearchFeedbackByID(feedbackID)) {
+
+				if (feedbackList.SearchFeedbackByID(data, feedbackID)) {
 					cout << "Enter your reply: ";
 					getline(cin, reply);
 					cout << endl;
@@ -456,13 +456,16 @@ class Menu {
 	void favoriteMenu() {
 		FavouriteList favouriteList;
 		FavouriteList data = favouriteList.importFavourite();
-		UniversityList universityList;
 
+		UniversityList universityList;
 		universityList.importUniversity();
+
+		string universityID, favID;
+
 		cout << "1. View favorite university\n2. Add favorite university\n3. Remove favorite university\n0. Return to customer menu\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
-		string universityID, favID;
+		
 		switch (option) {
 		case 1:
 			// View favorite university
@@ -489,13 +492,15 @@ class Menu {
 			cout << "Enter favourite ID: ";
 			cin.ignore();
 			getline(cin, favID);
-			if (favouriteList.SearchFavByID(favID)) {
+
+			if (favouriteList.SearchFavByID(data, favID)) {
 				favouriteList.DeleteFav(favID);
 			} else {
 				cout << "Invalid Favourite ID." << endl << endl;
 				favoriteMenu();
 				break;
 			}
+
 			favoriteMenu();
 			break;
 		case 0:

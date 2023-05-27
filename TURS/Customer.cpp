@@ -55,6 +55,7 @@ class CustomerList {
 	void DisplayAllCustInfo() // Big O - O(n)
 	{
 		Customer* current = head;
+		cout << current << endl;
 
 		while (current != NULL) // means still not the end of the list
 		{
@@ -136,8 +137,6 @@ class CustomerList {
 
 		CustomerList customerList = importCustomer();
 		Customer* current = customerList.head;
-
-		cout << current << endl;
 
 		while (current != NULL) {
 			if (current->custEmail == custEmail && current->custPassword == custPassword) {
