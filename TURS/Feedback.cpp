@@ -333,11 +333,11 @@ class FeedbackList {
 		cout << "Replied successfully." << endl << endl;
 	}
 
-	bool SearchFeedbackByID(string searchQuery) {
-		if (head == NULL) {
+	bool SearchFeedbackByID(FeedbackList& feedbackListHead, string searchQuery) {
+		if (feedbackListHead.head == NULL) {
 			cout << "No Feedback Found" << endl << endl;
 		} else {
-			Feedback* current = head;
+			Feedback* current = feedbackListHead.head;
 			bool found = false;
 
 			while (current != NULL) {
@@ -347,8 +347,8 @@ class FeedbackList {
 					cout << "University ID: " << current->universityID << endl;
 					cout << "Feedback: " << current->feedback << endl;
 					cout << "Feedback Date: " << current->feedbackDate << endl;
-					cout << "Reply" << current->reply << endl;
-					cout << "Reply Date" << current->replyDate << endl << endl;
+					cout << "Reply: " << current->reply << endl;
+					cout << "Reply Date: " << current->replyDate << endl << endl;
 
 					found = true;
 					break;
