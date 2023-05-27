@@ -499,7 +499,7 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stod(first->ArScore) < stod(second->ArScore)) {
+		if (stod(first->ArScore) > stod(second->ArScore)) {
 			first->nextAddress = MergeByArScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
@@ -516,7 +516,7 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stod(first->FsrScore) < stod(second->FsrScore)) {
+		if (stod(first->FsrScore) > stod(second->FsrScore)) {
 			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
@@ -533,13 +533,13 @@ class RankingList {
 		if (!first) return second;
 		if (!second) return first;
 
-		if (stod(first->ErScore) < stod(second->ErScore)) {
-			first->nextAddress = MergeByFsrScore(first->nextAddress, second);
+		if (stod(first->ErScore) > stod(second->ErScore)) {
+			first->nextAddress = MergeByErScore(first->nextAddress, second);
 			first->nextAddress->prevAddress = first;
 			first->prevAddress = NULL;
 			return first;
 		} else {
-			second->nextAddress = MergeByFsrScore(first, second->nextAddress);
+			second->nextAddress = MergeByErScore(first, second->nextAddress);
 			second->nextAddress->prevAddress = second;
 			second->prevAddress = NULL;
 			return second;
@@ -596,19 +596,19 @@ class RankingList {
 
 			switch (sortOption) {
 			case 1: // Sort by universityName
-				shouldSwap = (j->universityName <= pivot->universityName);
+				shouldSwap = (j->universityName >= pivot->universityName);
 				break;
 			case 2: // Sort by ArScore
-				shouldSwap = (stod(j->ArScore) <= stod(pivot->ArScore));
+				shouldSwap = (stod(j->ArScore) >= stod(pivot->ArScore));
 				break;
 			case 3: // Sort by FsrScore
-				shouldSwap = (stod(j->FsrScore) <= stod(pivot->FsrScore));
+				shouldSwap = (stod(j->FsrScore) >= stod(pivot->FsrScore));
 				break;
 			case 4: // Sort by ErScore
-				shouldSwap = (stod(j->ErScore) <= stod(pivot->ErScore));
+				shouldSwap = (stod(j->ErScore) >= stod(pivot->ErScore));
 				break;
 			default:
-				shouldSwap = (j->universityName <= pivot->universityName);
+				shouldSwap = (j->universityName >= pivot->universityName);
 				break;
 			}
 

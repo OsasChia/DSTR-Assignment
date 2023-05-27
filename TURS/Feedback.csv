@@ -1,5 +1,8 @@
-feedbackID,custEmail,universityID,feedback,reply
-1,cyling@gmail.com,U1,what is the popular course in this school,pending
-2,osas@gmail.com,U2,is this uni support study abroad,pending
-3,moni@gmail.com,U3,i want to know about oversea scholarship of this uni,pending
-4,custEmail,U1,testing,pending
+feedbackID,custEmail,universityID,feedback,feedbackDate,reply,replyDate
+7,milktea@gmail.com,U1,hello,26/05/2023,pending,26/05/2023
+6,milktea@gmail.com,U1,hi,26/5/2023,pending,26/5/2023
+5,milktea@gmail.com,U1,hello,26/5/2023,hello,26/5/2023
+4,custEmail,U1,testing,4/4/2022,pending,4/4/2022
+3,moni@gmail.com,U3,i want to know about oversea scholarship of this uni,4/4/2022,hello,26/5/2023
+2,osas@gmail.com,U2,is this uni support study abroad,4/4/2022,pending,4/4/2022
+1,cyling@gmail.com,U1,what is the popular course in this school,4/4/2022,pending,26/5/2023
