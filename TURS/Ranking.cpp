@@ -336,42 +336,42 @@ class RankingList {
 			}
 
 			getline(iss, token, ',');
-			file_ArScore = token.empty() ? "NULL" : token;
+			file_ArScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_ArRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_ErScore = token.empty() ? "NULL" : token;
+			file_ErScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_ErRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_FsrScore = token.empty() ? "NULL" : token;
+			file_FsrScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_FsrRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_CpfScore = token.empty() ? "NULL" : token;
+			file_CpfScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_CpfRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_IfrScore = token.empty() ? "NULL" : token;
+			file_IfrScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_IfrRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_IsrScore = token.empty() ? "NULL" : token;
+			file_IsrScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_IsrRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_IrnScore = token.empty() ? "NULL" : token;
+			file_IrnScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_IrnRank = token.empty() ? "NULL" : token;
 
 			getline(iss, token, ',');
-			file_GerScore = token.empty() ? "NULL" : token;
+			file_GerScore = token.empty() ? "0" : token;
 			getline(iss, token, ',');
 			file_GerRank = token.empty() ? "NULL" : token;
 
@@ -550,32 +550,109 @@ class RankingList {
 		RankingList rankingList;
 		rankingList.importRanking();
 		QuickSort(rankingList.head, rankingList.tail, sortOption);
-		//rankingList.DisplayRankingInfo();
+		rankingList.DisplayRankingInfo(1);
 	}
 
 	void Swap(Ranking* a, Ranking* b) { 
-		swap(a->universityID, b->universityID);
-		swap(a->ranking, b->ranking);
-		swap(a->universityName, b->universityName);
-		swap(a->locationCode, b->locationCode);
-		swap(a->location, b->location);
-		swap(a->ArScore, b->ArScore);
-		swap(a->ArRank, b->ArRank);
-		swap(a->ErScore, b->ErScore);
-		swap(a->ErRank, b->ErRank);
-		swap(a->FsrScore, b->FsrScore);
-		swap(a->FsrRank, b->FsrRank);
-		swap(a->CpfScore, b->CpfScore);
-		swap(a->CpfRank, b->CpfRank);
-		swap(a->IfrScore, b->IfrScore);
-		swap(a->IfrRank, b->IfrRank);
-		swap(a->IsrScore, b->IsrScore);
-		swap(a->IsrRank, b->IsrRank);
-		swap(a->IrnScore, b->IrnScore);
-		swap(a->IrnRank, b->IrnRank);
-		swap(a->GerScore, b->GerScore);
-		swap(a->GerRank, b->GerRank);
-		swap(a->ScoreScaled, b->ScoreScaled);
+		//Ranking* temp = NULL;
+
+		Ranking* temp = CreateNewNode(
+			a->universityID,
+			a->ranking,
+			a->universityName,
+			a->locationCode,
+			a->location,
+			a->ArScore,
+			a->ArRank,
+			a->ErScore,
+			a->ErRank,
+			a->FsrScore,
+			a->FsrRank,
+			a->CpfScore,
+			a->CpfRank,
+			a->IfrScore,
+			a->IfrRank,
+			a->IsrScore,
+			a->IsrRank,
+			a->IrnScore,
+			a->IrnRank,
+			a->GerScore,
+			a->GerRank,
+			a->ScoreScaled);
+
+		//temp store a
+		//temp->universityID = a->universityID;
+		//temp->ranking = a->ranking;
+		//temp->universityName = a->universityName;
+		//temp->locationCode = a->locationCode;
+		//temp->location = a->location;
+		//temp->ArScore = a->ArScore;
+		//temp->ArRank = a->ArRank;
+		//temp->ErScore = a->ErScore;
+		//temp->ErRank = a->ErRank;
+		//temp->FsrScore = a->FsrScore;
+		//temp->FsrRank = a->FsrRank;
+		//temp->CpfScore = a->CpfScore;
+		//temp->CpfRank = a->CpfRank;
+		//temp->IfrScore = a->IfrScore;
+		//temp->IfrRank = a->IfrRank;
+		//temp->IsrScore = a->IsrScore;
+		//temp->IsrRank = a->IsrRank;
+		//temp->IrnScore = a->IrnScore;
+		//temp->IrnRank = a->IrnRank;
+		//temp->GerScore = a->GerScore;
+		//temp->GerRank = a->GerRank;
+		//temp->ScoreScaled = a->ScoreScaled;
+
+		//a store b
+		a->universityID = b->universityID;
+		a->ranking = b->ranking;
+		a->universityName = b->universityName;
+		a->locationCode = b->locationCode;
+		a->location = b->location;
+		a->ArScore = b->ArScore;
+		a->ArRank = b->ArRank;
+		a->ErScore = b->ErScore;
+		a->ErRank = b->ErRank;
+		a->FsrScore = b->FsrScore;
+		a->FsrRank = b->FsrRank;
+		a->CpfScore = b->CpfScore;
+		a->CpfRank = b->CpfRank;
+		a->IfrScore = b->IfrScore;
+		a->IfrRank = b->IfrRank;
+		a->IsrScore = b->IsrScore;
+		a->IsrRank = b->IsrRank;
+		a->IrnScore = b->IrnScore;
+		a->IrnRank = b->IrnRank;
+		a->GerScore = b->GerScore;
+		a->GerRank = b->GerRank;
+		a->ScoreScaled = b->ScoreScaled;
+
+		// b store temp
+		b->universityID = temp->universityID;
+		b->ranking = temp->ranking;
+		b->universityName = temp->universityName;
+		b->locationCode = temp->locationCode;
+		b->location = temp->location;
+		b->ArScore = temp->ArScore;
+		b->ArRank = temp->ArRank;
+		b->ErScore = temp->ErScore;
+		b->ErRank = temp->ErRank;
+		b->FsrScore = temp->FsrScore;
+		b->FsrRank = temp->FsrRank;
+		b->CpfScore = temp->CpfScore;
+		b->CpfRank = temp->CpfRank;
+		b->IfrScore = temp->IfrScore;
+		b->IfrRank = temp->IfrRank;
+		b->IsrScore = temp->IsrScore;
+		b->IsrRank = temp->IsrRank;
+		b->IrnScore = temp->IrnScore;
+		b->IrnRank = temp->IrnRank;
+		b->GerScore = temp->GerScore;
+		b->GerRank = temp->GerRank;
+		b->ScoreScaled = temp->ScoreScaled;
+
+		delete temp;
 
 	}
 
@@ -596,7 +673,12 @@ class RankingList {
 
 			switch (sortOption) {
 			case 1: // Sort by universityName
-				shouldSwap = (j->universityName >= pivot->universityName);
+				// Convert both strings to lowercase for case-insensitive comparison
+				for (auto& c: j->universityName)
+					c = std::tolower(static_cast<unsigned char>(c));
+				for (auto& c: pivot->universityName)
+					c = std::tolower(static_cast<unsigned char>(c));
+				shouldSwap = (j->universityName <= pivot->universityName);
 				break;
 			case 2: // Sort by ArScore
 				shouldSwap = (stod(j->ArScore) >= stod(pivot->ArScore));
