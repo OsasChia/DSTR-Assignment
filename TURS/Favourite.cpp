@@ -45,15 +45,21 @@ class FavouriteList {
 
 	void DisplayAllFavInfo(Favourite* temp, string custEmail){ 
 		Favourite* current = temp;
-		while ((current != NULL) && (current->custEmail == custEmail)) {
-			cout << "Favourite ID: " << current->favID << endl;
-			cout << "Customer Email: " << current->custEmail << endl;
-			cout << "University ID: " << current->universityID << endl;			
+
+		if (current == NULL) {
+			cout << "List is empty! " << endl << endl;
+		} 
+
+		while (current != NULL) {
+			if (current->custEmail == custEmail) {
+				cout << "Favourite ID: " << current->favID << endl;
+				cout << "Customer Email: " << current->custEmail << endl;
+				cout << "University ID: " << current->universityID << endl  << endl;	
+			}
 			current = current->nextAddress;
 		}
-		if (current == NULL) {
-			cout << "End of the list! " << endl << endl;
-		} 
+
+		cout << "End of the list! " << endl << endl;
 	};
 
 	bool favouriteExists(Favourite* temp, string custEmail) {
@@ -149,21 +155,25 @@ class FavouriteList {
 		ExportFavouriteFile.close();
 	}
 
+	string favIdPlusOne(string favId) {
+		string stringId = favId.substr(1);
+		int numberId = stoi(stringId);
+		return "F" + to_string(numberId + 1);
+	}
+
 	void addFavourite(FavouriteList& favouriteList, string custEmail, string universityID) {
-		string favID;
-		int tail = stoi(favouriteList.tail->favID);
-		favID = to_string(tail + 1);
+		string favID = favIdPlusOne(favouriteList.tail->favID);
 
 		favouriteList.InsertToEndList(favID, custEmail, universityID);
 		exportFavourite(favouriteList);
 		cout << "Favourite saved successfully." << endl << endl;
 	}
 
-	bool SearchFavByID(string searchQuery) {
-		if (head == NULL) {
+	bool SearchFavByID(FavouriteList& favouriteList, string searchQuery) {
+		if (favouriteList.head == NULL) {
 			cout << "No Favourite Found" << endl << endl;
 		} else {
-			Favourite* current = head;
+			Favourite* current = favouriteList.head;
 			bool found = false;
 
 			while (current != NULL) {
