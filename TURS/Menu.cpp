@@ -49,8 +49,6 @@ class Menu {
 		switch (option) {
 		case 1:
 			// 1. View as guest
-			cout << rankingList.getHead() << endl;
-			cout << rankingData.getHead() << endl;
 			guestMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
 
