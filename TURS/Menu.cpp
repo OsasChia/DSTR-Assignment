@@ -334,13 +334,13 @@ class Menu {
 			// Quick Sort vs Merge Sort (Time Complexity)
 
 			auto start = high_resolution_clock::now();
-			//rankingList.QuickSortAndDisplayUni(1);
+			rankingList.QuickSortCompare(1);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
 			cout << "Time taken for Quick sort: " << duration.count() << " microseconds." << endl;
 
 			auto startt = high_resolution_clock::now();
-			//rankingList.MergeSortForCompare(1);
+			rankingList.MergeSortCompare(1);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Merge sort: " << durationn.count() << " microseconds." << endl << endl;
