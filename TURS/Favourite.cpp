@@ -13,12 +13,13 @@ struct Favourite {
 	Favourite* nextAddress;
 	Favourite* prevAddress;
 };
+
+
 class FavouriteList {
 	Favourite* head = NULL;
 	Favourite* tail = NULL;
 
 	public:
-	Favourite* getHead() { return this->head; }
 
 	Favourite* CreateNewNode(string favID, string custEmail, string universityID){
 		Favourite* newnode = new Favourite;
@@ -93,7 +94,6 @@ class FavouriteList {
 				Favourite* temp = current->nextAddress;
 				current->nextAddress = current->nextAddress->nextAddress;
 				delete temp;
-				exportFavourite(favouriteList);
 				cout << endl << "Favourite deleted successfully." << endl << endl;
 				return true;
 			}
@@ -184,7 +184,6 @@ class FavouriteList {
 
 		// Add the new favorite to the end of the list
 		favouriteList.InsertToEndList(favID, custEmail, universityID);
-		exportFavourite(favouriteList);
 		cout << "Favorite saved successfully." << endl << endl;
 	}
 
@@ -213,6 +212,60 @@ class FavouriteList {
 				cout << "No feedback found with ID: '" << searchQuery << "'." << endl << endl;
 			}
 			return found;
+		}
+	}
+	void countFavorites(FavouriteList& favouriteList) {
+		Favourite* current = favouriteList.head;
+
+		// Create a doubly linked list to store the top 10 favorites
+		const int MAX_COUNTS = 10; // Top 10 favorites
+		Favourite* topFavorites[MAX_COUNTS] = {nullptr};
+		int counts[MAX_COUNTS] = {0}; // Initialize all counts to 0
+
+		// Traverse the linked list and update the counts array
+		while (current != nullptr) {
+			string universityID = current->universityID;
+
+			// Check if the university ID is already in the doubly linked list
+			int index = -1;
+			for (int i = 0; i < MAX_COUNTS; i++) {
+				if (topFavorites[i] != nullptr && topFavorites[i]->universityID == universityID) {
+					index = i;
+					break;
+				}
+			}
+
+			if (index == -1) {
+				// University ID is not in the doubly linked list, check if it has a higher count than the current lowest count
+				int lowestCountIndex = 0;
+				for (int i = 1; i < MAX_COUNTS; i++) {
+					if (counts[i] < counts[lowestCountIndex]) {
+						lowestCountIndex = i;
+					}
+				}
+
+				if (counts[lowestCountIndex] == 0) {
+					// If the current lowest count is 0, replace it with the new university ID
+					Favourite* newNode = new Favourite;
+					newNode->universityID = universityID;
+					topFavorites[lowestCountIndex] = newNode;
+					counts[lowestCountIndex]++;
+				}
+			} else {
+				// University ID is already in the doubly linked list, increment its count
+				counts[index]++;
+			}
+
+			// Move to the next node
+			current = current->nextAddress;
+		}
+
+		// Print the count for each university ID
+		for (int i = 0; i < MAX_COUNTS; i++) {
+			if (topFavorites[i] != nullptr) {
+				cout << topFavorites[i]->universityID << ": " << counts[i] << endl;
+				delete topFavorites[i]; // Free the memory allocated for the node
+			}
 		}
 	}
 };
