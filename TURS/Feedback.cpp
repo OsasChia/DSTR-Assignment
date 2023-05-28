@@ -71,14 +71,7 @@ class FeedbackList {
 		}
 	}
 
-	void InsertToEndList(
-		string feedbackID,
-		string custEmail,
-		string universityID,
-		string feedback,
-		string feedbackDate,
-		string reply,
-		string replyDate) {
+	void InsertToEndList(string feedbackID,string custEmail,string universityID,string feedback,string feedbackDate,string reply,string replyDate) {
 		// call the create function to build a new single node first
 		Feedback* newnode = CreateNewNode(feedbackID, custEmail, universityID, feedback, feedbackDate, reply, replyDate);
 
@@ -91,7 +84,6 @@ class FeedbackList {
 			newnode->prevAddress = tail;
 			tail->nextAddress = newnode;
 			tail = newnode;
-			// cout << tail->feedback;
 		}
 	}
 
@@ -360,9 +352,7 @@ class FeedbackList {
 		int head = stoi(feedbackList.head->feedbackID);
 		feedbackID = to_string(head + 1);
 
-		feedbackList
-			.InsertToFrontList(feedbackID, custEmail, universityID, feedback, feedbackDate, "pending", feedbackDate);
-		exportFeedback(feedbackList);
+		feedbackList.InsertToFrontList(feedbackID, custEmail, universityID, feedback, feedbackDate, "pending", feedbackDate);
 		cout << "Feedback added successfully." << endl << endl;
 	}
 
@@ -381,7 +371,6 @@ class FeedbackList {
 			current = current->nextAddress;
 		}
 
-		exportFeedback(feedbackList);
 		cout << "Replied successfully." << endl << endl;
 	}
 

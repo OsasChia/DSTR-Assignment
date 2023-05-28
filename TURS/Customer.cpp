@@ -22,8 +22,7 @@ class CustomerList {
 	public:
 
 	// Methods
-	Customer*
-	CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
+	Customer* CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
 		// create a empty new node first
 		Customer* newnode = new Customer;
 		newnode->custEmail = custEmail;
@@ -203,26 +202,24 @@ class CustomerList {
 			}
 			current = current->nextAddress;
 		}
-
-		exportCustomer(customerList);
 	}
 
 	void registerAccount(CustomerList& customerList, string custEmail) {
 		string custName;
 		string custPassword;
 		string custContactNo;
-		string logoutTime;
+		string logoutTime = "null";
 
 		// Check if the customer email already exists
 		Customer* current = customerList.head;
-		while (current != NULL) {
+		while (current != nullptr) {
 			if (current->custEmail == custEmail) {
 				cout << endl << "Registration failed. Email already exists." << endl << endl;
 				return;
 			}
 			current = current->nextAddress;
 		}
-
+		
 		//enter register info
 		cout << "Customer Name: ";
 		cin >> custName;
@@ -230,11 +227,9 @@ class CustomerList {
 		cin >> custPassword;
 		cout << "Customer Contact Number: ";
 		cin >> custContactNo;
-
-		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, "null");
-
+		
+		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, logoutTime);
 		cout << endl << "Registration successfull. You can login now." << endl << endl;
-		return;
 	}
 
 	CustomerList importCustomer() {

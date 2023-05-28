@@ -180,6 +180,8 @@ class Menu {
 		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
+		FeedbackList feedbackList;
+		FavouriteList favouriteList;
 		RankingList rankingList;
 		
 		cout << "Welcome back!" << endl;
@@ -212,6 +214,9 @@ class Menu {
 		case 0:
 			//  Logout
 			customerList.logoutCustomer(custData, custSessionEmail);
+			customerList.exportCustomer(custData);
+			favouriteList.exportFavourite(favData);
+			feedbackList.exportFeedback(feedbackData);
 			custSessionEmail = "";
 			cout << "Successfully Logout!" << endl << endl;
 			startMenu();
@@ -232,10 +237,10 @@ class Menu {
 		RankingList& rankingData) {
 		CustomerList customerList;
 		FeedbackList feedbackList;
-
+		FavouriteList favouriteList;
 		// Display admin menu
 		cout << "Welcome to admin menu!\n\n";
-		cout << "1. Display all customer information\n2. Display all feedback\n0. Logout\n";
+		cout << "1. Display all customer information\n2. Display all feedback\n3. Top 10 favourite universities\n0. Logout\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
 		switch (option) {
@@ -249,8 +254,15 @@ class Menu {
 			feedbackList.feedbackExists(feedbackData);
 			feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
+		case 3:
+			favouriteList.countFavorites(favData);
+			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+			break;
 		case 0:
 			// 3. Logout
+			customerList.exportCustomer(custData);
+			favouriteList.exportFavourite(favData);
+			feedbackList.exportFeedback(feedbackData);
 			cout << "Successfully Logout!" << endl << endl;
 			startMenu();
 			break;
