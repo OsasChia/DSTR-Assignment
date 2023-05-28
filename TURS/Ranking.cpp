@@ -414,21 +414,19 @@ class RankingList {
 		return rankingList;
 	}
 
-	Ranking* MergeSortAndDisplayUniByOption(int sortOption) {
+	void MergeSortAndDisplayUniByOption(int sortOption) {
 		RankingList rankingList;
 		rankingList.importRanking();
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
 		rankingList.DisplayRankingInfo(1);
-		return sortedList;
 	}
 
-	void MergeSortForCompare(int sortOption) {
+	void MergeSortCompare(int sortOption) {
 		RankingList rankingList;
 		rankingList.importRanking();
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		return;
 	}
 
 	Ranking* Split(Ranking* head) {
@@ -551,6 +549,12 @@ class RankingList {
 		rankingList.importRanking();
 		QuickSort(rankingList.head, rankingList.tail, sortOption);
 		rankingList.DisplayRankingInfo(1);
+	}
+
+	void QuickSortCompare(int sortOption) {
+		RankingList rankingList;
+		rankingList.importRanking();
+		QuickSort(rankingList.head, rankingList.tail, sortOption);
 	}
 
 	void Swap(Ranking* a, Ranking* b) { 
