@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< Updated upstream
-      <FullPath>C:\Users\cylin\Documents\GitHub\DSTR\x64\Debug\TURS.exe</FullPath>
-=======
-      <FullPath>C:\Users\Admin\source\repos\DSTR-Assignment\x64\Debug\TURS.exe</FullPath>
->>>>>>> Stashed changes
+      <FullPath>C:\Users\Lim Li Ping\OneDrive - Asia Pacific University\Documents\GitHub\DSTR-Assignment\x64\Debug\TURS.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

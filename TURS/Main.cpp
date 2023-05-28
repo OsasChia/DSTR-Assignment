@@ -7,10 +7,10 @@ using namespace std;
 
 int main() {
 	Menu menu;
-	//menu.startMenu();
+	menu.startMenu();
 
-	RankingList rankingList;
-	rankingList.QuickSortAndDisplayUni(2);
+	/*RankingList rankingList;
+	rankingList.QuickSortAndDisplayUni(2);*/
 	/*
 	// import all csv files here
 	bool validOption = false;
