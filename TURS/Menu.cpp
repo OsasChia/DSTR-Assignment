@@ -30,18 +30,23 @@ class Menu {
 		//import customer data
 		CustomerList customerList;
 		CustomerList custData = customerList.importCustomer();
+
 		//import favourite data
 		FavouriteList favouriteList;
 		FavouriteList favData = favouriteList.importFavourite();
+
 		//import feedback data
 		FeedbackList feedbackList;
 		FeedbackList feedbackData = feedbackList.importFeedback();
+
 		//import university data
 		UniversityList universityList;
 		UniversityList uniData = universityList.importUniversity();
+
 		//import ranking data
 		RankingList rankingList;
 		RankingList rankingData = rankingList.importRanking();
+
 		cout << "1. View as Guest\n2. Login\n3. Register an account\n0. Exit\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
@@ -51,7 +56,6 @@ class Menu {
 			// 1. View as guest
 			guestMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
-
 		case 2:
 			// 2. Login
 			loginMenu(custData, favData, feedbackData, uniData, rankingData);
@@ -124,6 +128,7 @@ class Menu {
 		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
+
 		// login variables
 		string loginEmailTxt;
 		string passwordTxt;
@@ -140,9 +145,11 @@ class Menu {
 			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
 		}else if(loginEmailTxt != "admin" && passwordTxt != "admin") {
 			custSession = customerList.loginCustomer(custData, loginEmailTxt, passwordTxt);
+			
 			if (!custSession.empty()) {
 			cout << "Hello " + custSession << endl << endl;
 			custSessionEmail = loginEmailTxt;
+
 			customerMenu(custData, favData, feedbackData, uniData, rankingData);
 			} else {
 			startMenu();
@@ -217,7 +224,9 @@ class Menu {
 			customerList.exportCustomer(custData);
 			favouriteList.exportFavourite(favData);
 			feedbackList.exportFeedback(feedbackData);
+
 			custSessionEmail = "";
+			
 			cout << "Successfully Logout!" << endl << endl;
 			startMenu();
 			break;
@@ -238,11 +247,13 @@ class Menu {
 		CustomerList customerList;
 		FeedbackList feedbackList;
 		FavouriteList favouriteList;
+
 		// Display admin menu
 		cout << "Welcome to admin menu!\n\n";
 		cout << "1. Display all customer information\n2. Display all feedback\n3. Top 10 favourite universities\n0. Logout\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
+
 		switch (option) {
 		case 1:
 			// 1. Display all customer information
@@ -254,15 +265,18 @@ class Menu {
 			feedbackList.feedbackExists(feedbackData);
 			feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
-		case 3:
-			favouriteList.countFavorites(favData);
+		case 3: {
+			// 3. Top 10 favourite universities
+			favouriteList.countTopTenFavorites(favData);
 			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
 			break;
+		}
 		case 0:
 			// 3. Logout
 			customerList.exportCustomer(custData);
 			favouriteList.exportFavourite(favData);
 			feedbackList.exportFeedback(feedbackData);
+
 			cout << "Successfully Logout!" << endl << endl;
 			startMenu();
 			break;
@@ -520,7 +534,7 @@ class Menu {
 		UniversityList universityList;
 
 		string universityID, favID;
-
+		
 		cout << "1. View favorite university\n2. Add favorite university\n3. Remove favorite university\n0. Return to customer menu\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
@@ -536,8 +550,10 @@ class Menu {
 			cout << "Enter University ID: ";
 			cin.ignore();
 			getline(cin, universityID);
+
 			if (universityList.SearchUniByID(uniData,universityID)) {
-				favouriteList.addFavourite(favData, custSessionEmail, universityID);
+				favouriteList
+					.addFavourite(favData, custSessionEmail, universityID, universityList.getUniNameByID(uniData, universityID));
 			} else {
 				cout << "Invalid University ID. Cannot save favourite." << endl << endl;
 				favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
@@ -550,6 +566,7 @@ class Menu {
 			cout << "Enter University ID: ";
 			cin.ignore();
 			getline(cin, universityID);
+
 			if (universityList.SearchUniByID(uniData,universityID)) {
 				favouriteList.deleteFav(favData, custSessionEmail, universityID);
 			} else {
@@ -579,10 +596,12 @@ class Menu {
 		RankingList& rankingData) {
 		CustomerList customerList;
 		string custEmail;
+
 		// Display modify customer menu
 		cout << "1. Modify customer information\n2. Delete customer account\n0. Return to admin dashboard\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
+
 		switch (option) {
 		case 1:
 			// 1. Modify customer information

@@ -363,4 +363,21 @@ class UniversityList {
 			return second;
 		}
 	}
+
+	string getUniNameByID(UniversityList& universityList, string searchQuery) {
+		if (universityList.head == NULL) {
+			cout << "No University Found" << endl << endl;
+		} else {
+			University* current = universityList.head;
+
+			while (current != NULL) {
+				if (current->universityID == searchQuery) {
+					return current->universityName;
+				}
+				current = current->nextAddress;
+			}
+		}
+
+		return "University not found.";
+	}
 };

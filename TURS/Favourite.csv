@@ -1,19 +1,26 @@
 favID,custEmail,universityID
-F1,cyling@gmail.com,U1
-F2,osas@gmail.com,U2
-F4,milktea@gmail.com,U4
-F5,penguin@gmail.com,U5
-F7,osas@gmail.com,U2
-F8,milktea@gmail.com,U3
-F9,milktea@gmail.com,U10
-F10,milktea@gmail.com,U1000
-F11,milktea@gmail.com,U1300
-F12,osas@gmail.com,U10
-F13,osas@gmail.com,U12
-F14,osas@gmail.com,U9
-F15,moni@gmail.com,U10
-F16,moni@gmail.com,U45
-F17,moni@gmail.com,U1000
-F18,penguin@gmail.com,U10
-F19,penguin@gmail.com,U1329
-F20,milktea@gmail.com,U1329
+F1,cyling@gmail.com,U1,Massachusetts Institute of Technology (MIT)
+F2,osas@gmail.com,U2,University of Cambridge
+F4,milktea@gmail.com,U4,University of Oxford
+F5,penguin@gmail.com,U5,Harvard University
+F7,osas@gmail.com,U2,University of Cambridge
+F8,milktea@gmail.com,U3,Stanford University
+F9,milktea@gmail.com,U10,University of Chicago
+F10,milktea@gmail.com,U1000,"Vietnam National University
+F11,milktea@gmail.com,U1300,Universidad Autonoma de Yucatan
+F12,osas@gmail.com,U10,University of Chicago
+F13,osas@gmail.com,U12,Peking University
+F14,osas@gmail.com,U9,ETH Zurich - Swiss Federal Institute of Technology
+F15,moni@gmail.com,U10,University of Chicago
+F16,moni@gmail.com,U45,The University of New South Wales (UNSW Sydney)
+F17,moni@gmail.com,U1000,"Vietnam National University
+F18,penguin@gmail.com,U10,University of Chicago
+F19,penguin@gmail.com,U1329,Universidad del Salvador
+F20,milktea@gmail.com,U1329,Universidad del Salvador
+F21,penguin@gmail.com,U1000,"Vietnam National University
+F22,milktea@gmail.com,U10,University of Chicago
+F23,osas@gmail.com,U1000,"Vietnam National University
+F24,milktea@gmail.com,U1000,"Vietnam National University
+F25,milktea@gmail.com,U1000,"Vietnam National University
+F26,osas@gmail.com,U7,Imperial College London
+F27,moni@gmail.com,U7,Imperial College London

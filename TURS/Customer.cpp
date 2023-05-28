@@ -20,6 +20,7 @@ class CustomerList {
 	Customer* tail = NULL;
 
 	public:
+	Customer* getHead() { return this->head; }
 
 	// Methods
 	Customer* CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
@@ -229,6 +230,8 @@ class CustomerList {
 		cin >> custContactNo;
 		
 		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, logoutTime);
+		exportCustomer(customerList);
+
 		cout << endl << "Registration successfull. You can login now." << endl << endl;
 	}
 
