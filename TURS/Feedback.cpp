@@ -26,7 +26,14 @@ class FeedbackList {
 	Feedback* getHead() { return this->head; }
 
 	// Methods
-	Feedback* CreateNewNode(string feedbackID, string custEmail, string universityID, string feedback, string feedbackDate, string reply, string replyDate) {
+	Feedback* CreateNewNode(
+		string feedbackID,
+		string custEmail,
+		string universityID,
+		string feedback,
+		string feedbackDate,
+		string reply,
+		string replyDate) {
 		// create a empty new node first
 		Feedback* newnode = new Feedback;
 		newnode->feedbackID = feedbackID;
@@ -42,7 +49,14 @@ class FeedbackList {
 		return newnode;
 	}
 
-	void InsertToFrontList(string feedbackID, string custEmail, string universityID, string feedback, string feedbackDate, string reply, string replyDate) {
+	void InsertToFrontList(
+		string feedbackID,
+		string custEmail,
+		string universityID,
+		string feedback,
+		string feedbackDate,
+		string reply,
+		string replyDate) {
 		// call the create function to build a new single node first
 		Feedback* newnode = CreateNewNode(feedbackID, custEmail, universityID, feedback, feedbackDate, reply, replyDate);
 
@@ -90,7 +104,7 @@ class FeedbackList {
 		int count = 0;
 		while (current != NULL && count < endIndex) {
 			if (count >= startIndex) {
-				cout << "Favourtie ID: " << current->feedbackID << endl;
+				cout << "Feedback ID: " << current->feedbackID << endl;
 				cout << "Customer Email: " << current->custEmail << endl;
 				cout << "University ID: " << current->universityID << endl;
 				cout << "Feedback: " << current->feedback << endl;
@@ -132,7 +146,7 @@ class FeedbackList {
 		}
 	}
 
-	bool feedbackExists(Feedback* temp) { 
+	bool feedbackExists(Feedback* temp) {
 		if (temp != NULL) {
 			DisplayAllFeedbackInfo(1, temp);
 		} else {
@@ -141,9 +155,69 @@ class FeedbackList {
 		}
 	}
 
-	Feedback* Split(Feedback* head) {
-		Feedback* fast = head;
-		Feedback* slow = head;
+	bool endOfListReached = false; // Flag variable declared outside the function
+
+	void DisplayAllReplyInfo(int currentPage, Feedback* temp, string custEmail) {
+		Feedback* current = temp;
+		int pageSize = 1;
+		int startIndex = (currentPage - 1) * pageSize;
+		int endIndex = startIndex + pageSize;
+		int count = 0;
+
+		while (current != nullptr && count < endIndex) {
+			if (count >= startIndex && current->custEmail == custEmail) {
+				// Display feedback information
+				cout << "FeedbackID: " << current->feedbackID << endl;
+				cout << "Customer Email: " << current->custEmail << endl;
+				cout << "University ID: " << current->universityID << endl;
+				cout << "Feedback: " << current->feedback << endl;
+				cout << "Feedback Date: " << current->feedbackDate << endl;
+				cout << "Reply: " << current->reply << endl;
+				cout << "Reply Date: " << current->replyDate << endl << endl;
+
+				cout << "1. Next result" << endl;
+				cout << "2. Previous result" << endl;
+				cout << "3. Choose a feedback to be replied" << endl << endl;
+				cout << "Choose an option:";
+
+				int option;
+				cin >> option;
+				cout << endl;
+
+				switch (option) {
+				case 1:
+					DisplayAllReplyInfo(currentPage + 1, temp, custEmail);
+					break;
+				case 2:
+					if (currentPage > 1) {
+						DisplayAllReplyInfo(currentPage - 1, temp, custEmail);
+					} else {
+						DisplayAllReplyInfo(currentPage, temp, custEmail);
+					}
+					break;
+				case 3:
+					return;
+				default:
+					cout << "Invalid choice. Exiting..." << endl << endl;
+				}
+			} else if (count >= startIndex && current->custEmail != custEmail) {
+				DisplayAllReplyInfo(currentPage + 1, temp, custEmail);
+			}
+
+			current = current->nextAddress;
+			count++;
+		}
+
+		if (!endOfListReached && current == nullptr) {
+			cout << "End of the list! " << endl << endl;
+			endOfListReached = true; // Set the flag to true
+		}
+	}
+
+
+	Feedback* SplitDate(Feedback* temp) {
+		Feedback* fast = temp;
+		Feedback* slow = temp;
 		while (fast && fast->nextAddress && fast->nextAddress->nextAddress) {
 			slow = slow->nextAddress;
 			fast = fast->nextAddress->nextAddress;
@@ -157,43 +231,55 @@ class FeedbackList {
 
 		Feedback* result = nullptr;
 
-		if (first->replyDate < second->replyDate) {
+		if (first->replyDate > second->replyDate) {
 			result = first;
 			result->nextAddress = MergeByReplyDate(first->nextAddress, second);
 			result->nextAddress->prevAddress = result;
-		} else {
+		} else if (first->replyDate < second->replyDate) {
 			result = second;
 			result->nextAddress = MergeByReplyDate(first, second->nextAddress);
 			result->nextAddress->prevAddress = result;
+		} else {
+			// Same replyDate, compare by feedbackID in descending order
+			if (first->feedbackID > second->feedbackID) {
+				result = first;
+				result->nextAddress = MergeByReplyDate(first->nextAddress, second);
+				result->nextAddress->prevAddress = result;
+			} else {
+				result = second;
+				result->nextAddress = MergeByReplyDate(first, second->nextAddress);
+				result->nextAddress->prevAddress = result;
+			}
 		}
 		return result;
 	}
 
-	Feedback* mergeSortReply(Feedback* head) {
-		if (!head || !head->nextAddress) {
-			return head;
+
+	Feedback* mergeSortReply(Feedback* temp) {
+		if (!temp || !temp->nextAddress) {
+			return temp;
 		}
 
-		Feedback* middle = Split(head);
+		Feedback* middle = SplitDate(temp);
 		Feedback* nextToMiddle = middle->nextAddress;
 
 		middle->nextAddress = nullptr;
 		nextToMiddle->prevAddress = nullptr;
 
-		Feedback* left = mergeSortReply(head);
+		Feedback* left = mergeSortReply(temp);
 		Feedback* right = mergeSortReply(nextToMiddle);
 
 		return MergeByReplyDate(left, right);
 	}
 
-	Feedback* displayByReplyDate(Feedback* temp) {
+	Feedback* displayByReplyDate(Feedback* temp, string custEmail) {
 		Feedback* sortedList = mergeSortReply(temp);
 		temp = sortedList;
-		DisplayAllFeedbackInfo(1, temp);
+		DisplayAllReplyInfo(1, temp, custEmail);
 		return sortedList;
 	}
 
-	//void DisplayUniFeedbackInfo(string universityID) {
+	// void DisplayUniFeedbackInfo(string universityID) {
 	//	Feedback* current = head;
 
 	//	while (current != NULL) // means still not the end of the list
@@ -212,7 +298,7 @@ class FeedbackList {
 	//	cout << "List is ended here! " << endl;
 	//}
 
-	//void DisplaySingleFeedbackInfo(string feedbackID) {
+	// void DisplaySingleFeedbackInfo(string feedbackID) {
 	//	Feedback* current = head;
 
 	//	while (current != NULL) // means still not the end of the list
@@ -276,8 +362,14 @@ class FeedbackList {
 			if (file_feedbackID.empty()) {
 				break;
 			}
-			feedbackList.InsertToEndList(file_feedbackID, file_custEmail, file_universityID, file_feedback, 
-				file_feedbackDate, file_reply, file_replyDate);
+			feedbackList.InsertToEndList(
+				file_feedbackID,
+				file_custEmail,
+				file_universityID,
+				file_feedback,
+				file_feedbackDate,
+				file_reply,
+				file_replyDate);
 		}
 		return feedbackList;
 	}
@@ -303,18 +395,19 @@ class FeedbackList {
 		ExportFeedbackFile.close();
 	}
 
-	void addFeedback(FeedbackList& feedbackList, string custEmail, string universityID, string feedback, string feedbackDate) {
+	void
+	addFeedback(FeedbackList& feedbackList, string custEmail, string universityID, string feedback, string feedbackDate) {
 		string feedbackID;
 		int head = stoi(feedbackList.head->feedbackID);
 		feedbackID = to_string(head + 1);
 
-		feedbackList.InsertToFrontList(feedbackID, custEmail, universityID, feedback, feedbackDate, "pending", feedbackDate);
+		feedbackList
+			.InsertToFrontList(feedbackID, custEmail, universityID, feedback, feedbackDate, "pending", feedbackDate);
 		exportFeedback(feedbackList);
 		cout << "Feedback added successfully." << endl << endl;
 	}
 
 	void ReplyFeedback(FeedbackList& feedbackList, string feedbackID, string reply, string replyDate) {
-
 		if (feedbackList.head == NULL) {
 			return;
 		}
