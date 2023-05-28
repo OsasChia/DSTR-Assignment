@@ -20,6 +20,7 @@ class CustomerList {
 	Customer* tail = NULL;
 
 	public:
+
 	// Methods
 	Customer*
 	CreateNewNode(string custEmail, string custName, string custPassword, string custContactNo, string logoutTime) {
@@ -52,10 +53,9 @@ class CustomerList {
 		}
 	};
 	
-	void DisplayAllCustInfo() // Big O - O(n)
+	void DisplayAllCustInfo(CustomerList& customerList) // Big O - O(n)
 	{
-		Customer* current = head;
-		cout << current << endl;
+		Customer* current = customerList.head;
 
 		while (current != NULL) // means still not the end of the list
 		{
@@ -68,8 +68,35 @@ class CustomerList {
 		cout << "List is ended here! " << endl << endl;
 	};
 
-	void ModifyCustInfo(string custEmail) {
-		CustomerList customerList = importCustomer();
+	bool SearchCustomerByEmail(CustomerList& customerList, string searchQuery) {
+		if (customerList.head == NULL) {
+			cout << "No Customer Found" << endl << endl;
+		} else {
+			Customer* current = customerList.head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->custEmail == searchQuery) {
+					cout << "Customer Email: " << current->custEmail << endl;
+					cout << "Customer Name: " << current->custName << endl;
+					cout << "Customer Contact Number: " << current->custContactNo << endl;
+					cout << "Customer logoutTime: " << current->logoutTime << endl << endl;
+					
+					found = true;
+					break;
+				}
+
+				current = current->nextAddress;
+			}
+
+			if (!found) {
+				cout << "No customer found with Email: '" << searchQuery << "'." << endl << endl;
+			}
+			return found;
+		}
+	}
+
+	void ModifyCustInfo(CustomerList& customerList,string custEmail) {
 
 		Customer* current = customerList.head;
 		bool isFound = false;
@@ -90,16 +117,13 @@ class CustomerList {
 			cout << "Customer Contact Number: ";
 			cin >> newCustContactNo;
 			current->custContactNo = newCustContactNo;
-
-			exportCustomer(customerList);
-			cout << "Customer information updated successfully." << endl;
+			cout << endl << "Customer information updated successfully." << endl << endl;
 		} else {
 			cout << "Customer with email " << custEmail << " not found." << endl;
 		}
 	};
 
-	bool DeleteCust(string email) {
-		CustomerList customerList = importCustomer();
+	bool DeleteCust(CustomerList& customerList, string email) {
 		// check if list is empty
 		if (customerList.head == NULL) {
 			cout << "List is empty!" << endl;
@@ -121,7 +145,7 @@ class CustomerList {
 			if (current->custEmail == email) {
 				prev->nextAddress = current->nextAddress;
 				delete current;
-				exportCustomer(customerList);
+				cout << endl << "Customer account deleted successfully." << endl << endl;
 				return true;
 			}
 			prev = current;
@@ -133,9 +157,7 @@ class CustomerList {
 		return false;
 	};
 
-	string loginCustomer(string custEmail, string custPassword) {
-
-		CustomerList customerList = importCustomer();
+	string loginCustomer(CustomerList& customerList, string custEmail, string custPassword) {
 		Customer* current = customerList.head;
 
 		while (current != NULL) {
@@ -152,9 +174,7 @@ class CustomerList {
 		return "";
 	}
 
-	void logoutCustomer(string custEmail) {
-
-		CustomerList customerList = importCustomer();
+	void logoutCustomer(CustomerList& customerList, string custEmail) {
 
 		// Get the current time
 		time_t currentTime;
@@ -187,14 +207,11 @@ class CustomerList {
 		exportCustomer(customerList);
 	}
 
-	void registerAccount(
-		string custEmail) {
+	void registerAccount(CustomerList& customerList, string custEmail) {
 		string custName;
 		string custPassword;
 		string custContactNo;
 		string logoutTime;
-
-		CustomerList customerList = importCustomer();
 
 		// Check if the customer email already exists
 		Customer* current = customerList.head;
@@ -215,7 +232,6 @@ class CustomerList {
 		cin >> custContactNo;
 
 		customerList.InsertToEndList(custEmail, custName, custPassword, custContactNo, "null");
-		exportCustomer(customerList);
 
 		cout << endl << "Registration successfull. You can login now." << endl << endl;
 		return;
