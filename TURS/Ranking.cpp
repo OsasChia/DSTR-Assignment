@@ -39,8 +39,8 @@ class RankingList {
 	Ranking* tail = NULL;
 
 	public:
-	Ranking* getHead() { return this->head;
-	}
+	Ranking* getHead() { return this->head; }
+
 	// Methods
 	Ranking* CreateNewNode(
 		string universityID,
