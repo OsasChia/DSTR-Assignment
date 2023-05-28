@@ -62,45 +62,49 @@ class FavouriteList {
 		cout << "End of the list! " << endl << endl;
 	};
 
-	bool favouriteExists(Favourite* temp, string custEmail) {
-		if (temp != NULL) {
-			DisplayAllFavInfo(temp, custEmail);
+	bool favouriteExists(FavouriteList& favouriteList, string custEmail) {
+		if (favouriteList.head != NULL) {
+			DisplayAllFavInfo(favouriteList.head, custEmail);
 		} else {
 			cout << "No favourite university yet." << endl << endl;
 			return true;
 		}
 	}
 
-	bool DeleteFav(string favID) {
+	bool deleteFav(FavouriteList& favouriteList, string email, string uniID) {
 		// check if list is empty
-		if (head == NULL) {
+		if (favouriteList.head == NULL) {
 			cout << "List is empty!" << endl;
 			return false;
 		}
 
 		// check if head node needs to be deleted
-		if (head->favID == favID) {
-			Favourite* temp = head;
-			head = head->nextAddress;
+		if (favouriteList.head->custEmail == email && favouriteList.head->universityID == uniID) {
+			Favourite* temp = favouriteList.head;
+			favouriteList.head = favouriteList.head->nextAddress;
 			delete temp;
 			return true;
 		}
 
 		// find node to delete
-		Favourite* current = head->nextAddress;
-		Favourite* prev = head;
-		while (current != NULL && current->favID == favID) {
-			prev->nextAddress = current->nextAddress;
-			delete current;
-			return true;
-			prev = current;
+		Favourite* current = favouriteList.head;
+		while (current->nextAddress != NULL) {
+			if (current->nextAddress->custEmail == email && current->nextAddress->universityID == uniID) {
+				Favourite* temp = current->nextAddress;
+				current->nextAddress = current->nextAddress->nextAddress;
+				delete temp;
+				exportFavourite(favouriteList);
+				cout << endl << "Favourite deleted successfully." << endl << endl;
+				return true;
+			}
 			current = current->nextAddress;
 		}
 
 		// node not found
-		cout << "Favourite ID with " << favID << " not found in list." << endl;
+		cout << "Favourite with University ID " << uniID << " not found in list." << endl;
 		return false;
 	}
+
 
 	FavouriteList importFavourite() {
 		FavouriteList favouriteList;
@@ -162,12 +166,28 @@ class FavouriteList {
 	}
 
 	void addFavourite(FavouriteList& favouriteList, string custEmail, string universityID) {
+		// Check if the combination of custEmail and universityID already exists in the list
+		Favourite* current = favouriteList.head;
+		while (current != nullptr) {
+			if (current->custEmail == custEmail && current->universityID == universityID) {
+				cout << "Favorite already exists." << endl << endl;
+				cout << "Favourite ID: " << current->favID << endl;
+				cout << "Customer Email: " << current->custEmail << endl;
+				cout << "University ID: " << current->universityID << endl << endl;
+				return; // Exit the function if the favorite already exists
+			}
+			current = current->nextAddress;
+		}
+
+		// Generate a new favID
 		string favID = favIdPlusOne(favouriteList.tail->favID);
 
+		// Add the new favorite to the end of the list
 		favouriteList.InsertToEndList(favID, custEmail, universityID);
 		exportFavourite(favouriteList);
-		cout << "Favourite saved successfully." << endl << endl;
+		cout << "Favorite saved successfully." << endl << endl;
 	}
+
 
 	bool SearchFavByID(FavouriteList& favouriteList, string searchQuery) {
 		if (favouriteList.head == NULL) {

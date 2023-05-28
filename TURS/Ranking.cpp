@@ -39,6 +39,8 @@ class RankingList {
 	Ranking* tail = NULL;
 
 	public:
+	Ranking* getHead() { return this->head;
+	}
 	// Methods
 	Ranking* CreateNewNode(
 		string universityID,
@@ -155,17 +157,17 @@ class RankingList {
 		}
 	}
 
-	int getUniversityListLenght() {
+	int getUniversityListLenght(RankingList& rankingList) {
 		int length = 0;
-		for (Ranking* ptr = head; ptr != NULL; ptr = ptr->nextAddress) {
+		for (Ranking* ptr = rankingList.head; ptr != NULL; ptr = ptr->nextAddress) {
 			length++;
 		}
 
 		return length;
 	}
 
-	Ranking* getUniversityAtIndex(int index) {
-		Ranking* current = head;
+	Ranking* getUniversityAtIndex(RankingList& rankingList,int index) {
+		Ranking* current = rankingList.head;
 		int currentIndex = 1;
 
 		while (current != NULL && currentIndex < index) {
@@ -193,12 +195,13 @@ class RankingList {
 		return str.substr(start, length);
 	}
 
-	void DisplayRankingInfo(int currentPage) {
+	void DisplayRankingInfo(RankingList& rankingList,int currentPage) {
 		int pageSize = 20;
 		int startIndex = (currentPage - 1) * pageSize;
 		int endIndex = startIndex + pageSize;
-		
-		Ranking* current = head;
+
+		Ranking* current = rankingList.head;
+
 		int count = 0;
 		while (current != NULL && count < endIndex) {
 			if (count >= startIndex) {
@@ -246,13 +249,13 @@ class RankingList {
 
 			switch (option) {
 			case 1:
-				DisplayRankingInfo(currentPage + 1);
+				DisplayRankingInfo(rankingList,currentPage + 1);
 				break;
 			case 2:
 				if (currentPage > 1) {
-					DisplayRankingInfo(currentPage - 1);
+					DisplayRankingInfo(rankingList,currentPage - 1);
 				} else {
-					DisplayRankingInfo(currentPage);
+					DisplayRankingInfo(rankingList,currentPage);
 				}
 				break;
 			case 3:
@@ -264,7 +267,7 @@ class RankingList {
 	}
 
 	RankingList importRanking() {
-		RankingList rankingList;
+		RankingList allrankingList;
 		string file_ranking;
 		string file_universityName;
 		string file_locationCode;
@@ -387,7 +390,7 @@ class RankingList {
 			IDcounter = IDcounter + 1;
 
 			// Insert the extracted values into the RankingList
-			InsertToEndList(
+			allrankingList.InsertToEndList(
 				file_universityID, 
 				file_ranking,
 				file_universityName,
@@ -411,20 +414,16 @@ class RankingList {
 				file_GerRank,
 				file_ScoreScaled);
 		}
-		return rankingList;
+		return allrankingList;
 	}
 
-	void MergeSortAndDisplayUniByOption(int sortOption) {
-		RankingList rankingList;
-		rankingList.importRanking();
+	void MergeSortAndDisplayUniByOption(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		rankingList.DisplayRankingInfo(1);
+		rankingList.DisplayRankingInfo(rankingList,1);
 	}
 
-	void MergeSortCompare(int sortOption) {
-		RankingList rankingList;
-		rankingList.importRanking();
+	void MergeSortCompare(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
 	}
@@ -544,16 +543,12 @@ class RankingList {
 		}
 	}
 
-	void QuickSortAndDisplayUni(int sortOption) {
-		RankingList rankingList;
-		rankingList.importRanking();
+	void QuickSortAndDisplayUni(RankingList& rankingList,int sortOption) {
 		QuickSort(rankingList.head, rankingList.tail, sortOption);
-		rankingList.DisplayRankingInfo(1);
+		rankingList.DisplayRankingInfo(rankingList,1);
 	}
 
-	void QuickSortCompare(int sortOption) {
-		RankingList rankingList;
-		rankingList.importRanking();
+	void QuickSortCompare(RankingList& rankingList,int sortOption) {
 		QuickSort(rankingList.head, rankingList.tail, sortOption);
 	}
 
@@ -583,30 +578,6 @@ class RankingList {
 			a->GerScore,
 			a->GerRank,
 			a->ScoreScaled);
-
-		//temp store a
-		//temp->universityID = a->universityID;
-		//temp->ranking = a->ranking;
-		//temp->universityName = a->universityName;
-		//temp->locationCode = a->locationCode;
-		//temp->location = a->location;
-		//temp->ArScore = a->ArScore;
-		//temp->ArRank = a->ArRank;
-		//temp->ErScore = a->ErScore;
-		//temp->ErRank = a->ErRank;
-		//temp->FsrScore = a->FsrScore;
-		//temp->FsrRank = a->FsrRank;
-		//temp->CpfScore = a->CpfScore;
-		//temp->CpfRank = a->CpfRank;
-		//temp->IfrScore = a->IfrScore;
-		//temp->IfrRank = a->IfrRank;
-		//temp->IsrScore = a->IsrScore;
-		//temp->IsrRank = a->IsrRank;
-		//temp->IrnScore = a->IrnScore;
-		//temp->IrnRank = a->IrnRank;
-		//temp->GerScore = a->GerScore;
-		//temp->GerRank = a->GerRank;
-		//temp->ScoreScaled = a->ScoreScaled;
 
 		//a store b
 		a->universityID = b->universityID;
@@ -709,17 +680,17 @@ class RankingList {
 		return i;
 	}
 
-	void binarySearchUniByName(string searchQuery) {
+	void binarySearchUniByName(RankingList& rankingList,string searchQuery) {
 		int firstIndex = 1;
-		int lastIndex = getUniversityListLenght();
+		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
 
-		Ranking* temp = head;
+		Ranking* temp = rankingList.head;
 		MergeSort(temp, 1);
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
-			Ranking* mid = getUniversityAtIndex(midIndex);
+			Ranking* mid = getUniversityAtIndex(rankingList,midIndex);
 
 			if (mid->universityName.find(searchQuery) != string::npos) {
 				cout << "University ID: " << mid->universityID << endl;
@@ -743,7 +714,7 @@ class RankingList {
 		}
 	}
 
-	void binarySearchUniByRanking() {
+	void binarySearchUniByRanking(RankingList& rankingList) {
 		string searchQuery;
 
 		cout << "Binary Search University Ranking: ";
@@ -752,14 +723,14 @@ class RankingList {
 		cout << endl;
 
 		int firstIndex = 1;
-		int lastIndex = getUniversityListLenght();
+		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
 
-		Ranking* temp = head;
+		Ranking* temp = rankingList.head;
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
-			Ranking* mid = getUniversityAtIndex(midIndex);
+			Ranking* mid = getUniversityAtIndex(rankingList,midIndex);
 
 			if (stod(mid->ranking) == stod(searchQuery)) {
 				cout << "University ID: " << mid->universityID << endl;

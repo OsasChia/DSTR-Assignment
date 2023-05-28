@@ -23,7 +23,6 @@ class FeedbackList {
 	Feedback* tail = NULL;
 
 	public:
-	Feedback* getHead() { return this->head; }
 
 	// Methods
 	Feedback* CreateNewNode(
@@ -146,9 +145,9 @@ class FeedbackList {
 		}
 	}
 
-	bool feedbackExists(Feedback* temp) {
-		if (temp != NULL) {
-			DisplayAllFeedbackInfo(1, temp);
+	bool feedbackExists(FeedbackList& feedbackList) {
+		if (feedbackList.head != NULL) {
+			DisplayAllFeedbackInfo(1, feedbackList.head);
 		} else {
 			cout << "No feedback yet." << endl << endl;
 			return true;
@@ -272,50 +271,11 @@ class FeedbackList {
 		return MergeByReplyDate(left, right);
 	}
 
-	Feedback* displayByReplyDate(Feedback* temp, string custEmail) {
-		Feedback* sortedList = mergeSortReply(temp);
-		temp = sortedList;
-		DisplayAllReplyInfo(1, temp, custEmail);
+	Feedback* displayByReplyDate(FeedbackList& feedbackList, string custEmail) {
+		Feedback* sortedList = mergeSortReply(feedbackList.head);
+		DisplayAllReplyInfo(1, sortedList, custEmail);
 		return sortedList;
 	}
-
-	// void DisplayUniFeedbackInfo(string universityID) {
-	//	Feedback* current = head;
-
-	//	while (current != NULL) // means still not the end of the list
-	//	{
-	//		if (current->universityID == universityID) {
-	//			cout << "Favourtie ID: " << current->feedbackID << endl;
-	//			cout << "Customer Email: " << current->custEmail << endl;
-	//			cout << "University ID: " << current->universityID << endl;
-	//			cout << "Feedback: " << current->feedback << endl;
-	//			cout << "Feedback Date: " << current->feedbackDate << endl;
-	//			cout << "Reply: " << current->reply << endl;
-	//			cout << "Reply Date: " << current->replyDate << endl << endl;
-	//			current = current->nextAddress; // if you forgot this, will become a infinity loop
-	//		}
-	//	}
-	//	cout << "List is ended here! " << endl;
-	//}
-
-	// void DisplaySingleFeedbackInfo(string feedbackID) {
-	//	Feedback* current = head;
-
-	//	while (current != NULL) // means still not the end of the list
-	//	{
-	//		if (current->feedbackID == feedbackID) {
-	//			cout << "Favourtie ID: " << current->feedbackID << endl;
-	//			cout << "Customer Email: " << current->custEmail << endl;
-	//			cout << "University ID: " << current->universityID << endl;
-	//			cout << "Feedback: " << current->feedback << endl;
-	//			cout << "Feedback Date: " << current->feedbackDate << endl;
-	//			cout << "Reply: " << current->reply << endl;
-	//			cout << "Reply Date: " << current->replyDate << endl << endl;
-	//			current = current->nextAddress; // if you forgot this, will become a infinity loop
-	//		}
-	//	}
-	//	cout << "List is ended here! " << endl;
-	//}
 
 	FeedbackList importFeedback() {
 		FeedbackList feedbackList;
@@ -395,8 +355,7 @@ class FeedbackList {
 		ExportFeedbackFile.close();
 	}
 
-	void
-	addFeedback(FeedbackList& feedbackList, string custEmail, string universityID, string feedback, string feedbackDate) {
+	void addFeedback(FeedbackList& feedbackList, string custEmail, string universityID, string feedback, string feedbackDate) {
 		string feedbackID;
 		int head = stoi(feedbackList.head->feedbackID);
 		feedbackID = to_string(head + 1);
@@ -456,21 +415,4 @@ class FeedbackList {
 			return found;
 		}
 	}
-
-	/*bool ExistFeedback(string feedbackID) {
-		FeedbackList feedbackList = importFeedback();
-
-		if (feedbackList.head == NULL) {
-			return false;
-		}
-
-		Feedback* current = feedbackList.head;
-
-		while (current != NULL) {
-			if (current->feedbackID == feedbackID) {
-				return true;
-			}
-			current = current->nextAddress;
-		}
-	}*/
 };
