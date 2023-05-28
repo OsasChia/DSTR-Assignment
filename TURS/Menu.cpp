@@ -27,22 +27,30 @@ class Menu {
 	}
 
 	void startMenu() {
+		//import customer data
 		CustomerList customerList;
 		CustomerList custData = customerList.importCustomer();
+		//import favourite data
 		FavouriteList favouriteList;
 		FavouriteList favData = favouriteList.importFavourite();
+		//import feedback data
 		FeedbackList feedbackList;
 		FeedbackList feedbackData = feedbackList.importFeedback();
+		//import university data
 		UniversityList universityList;
 		UniversityList uniData = universityList.importUniversity();
+		//import ranking data
 		RankingList rankingList;
 		RankingList rankingData = rankingList.importRanking();
 		cout << "1. View as Guest\n2. Login\n3. Register an account\n0. Exit\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
+		
 		switch (option) {
 		case 1:
 			// 1. View as guest
+			cout << rankingList.getHead() << endl;
+			cout << rankingData.getHead() << endl;
 			guestMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
 

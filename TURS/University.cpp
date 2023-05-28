@@ -50,8 +50,8 @@ class UniversityList {
 		}
 	};
 
-	void DisplayAllUniversityInfo() {
-		University* current = head;
+	void DisplayAllUniversityInfo(UniversityList& universityList) {
+		University* current = universityList.head;
 		//RankingList rankingList;
 		SetConsoleOutputCP(CP_UTF8);
 		while (current != NULL) {
@@ -133,7 +133,8 @@ class UniversityList {
 			IDcounter = IDcounter + 1;
 
 			//Insert the extracted values into the UniversityList
-			InsertToEndList(file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
+			universityList.InsertToEndList(
+				file_universityID, file_ranking, file_universityName, file_locationCode, file_location);
 		}
 
 		//deal with garbage data
@@ -148,12 +149,12 @@ class UniversityList {
 		return universityList;
 	};
 
-	void SearchUniByCountry(string searchQuery) {
-		if (head == NULL) {
+	void SearchUniByCountry(UniversityList& universityList,string searchQuery) {
+		if (universityList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
 		} else {
-			University* firstPtr = head;
-			University* secondPtr = tail;
+			University* firstPtr = universityList.head;
+			University* secondPtr = universityList.tail;
 			bool found = false;
 
 			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
@@ -195,11 +196,11 @@ class UniversityList {
 		}
 	};
 
-	bool SearchUniByID(string searchQuery) {
-		if (head == NULL) {
+	bool SearchUniByID(UniversityList& universityList,string searchQuery) {
+		if (universityList.head == NULL) {
 			cout << "No University Found" << endl << endl;
 		} else {
-			University* current = head;
+			University* current = universityList.head;
 			bool found = false;
 
 			while (current != NULL) {
@@ -223,12 +224,12 @@ class UniversityList {
 		}
 	}
 
-	void SearchUniByName(string searchQuery) { 
-		if (head == NULL) {
+	void SearchUniByName(UniversityList& universityList,string searchQuery) { 
+		if (universityList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
 		} else {
-			University* firstPtr = head;
-			University* secondPtr = tail;
+			University* firstPtr = universityList.head;
+			University* secondPtr = universityList.tail;
 			bool found = false;
 
 			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
@@ -271,12 +272,10 @@ class UniversityList {
 		}
 	}
 
-	University* MergeSortAndDisplayUniByOption(int sortOption) {
-		UniversityList universityList;
-		universityList.importUniversity();
+	University* MergeSortAndDisplayUniByOption(UniversityList& universityList,int sortOption) {
 		University* sortedList = MergeSort(universityList.head, sortOption);
 		universityList.head = sortedList;
-		universityList.DisplayAllUniversityInfo();
+		universityList.DisplayAllUniversityInfo(universityList);
 		return sortedList;
 	}
 
@@ -364,7 +363,4 @@ class UniversityList {
 			return second;
 		}
 	}
-
-
-
 };
