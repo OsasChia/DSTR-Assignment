@@ -199,7 +199,6 @@ class CustomerList {
 		while (current != NULL) {
 			if (current->custEmail == custEmail) {
 				current->logoutTime = timeString;
-				cout << "Successfully logout!";
 			}
 			current = current->nextAddress;
 		}
