@@ -311,8 +311,8 @@ class Menu {
 			getline(cin, searchQuery);
 			cout << endl;
 
-			universityList.SearchUniByName(uniData,searchQuery);
-			//rankingList.binarySearchUniByName(searchQuery);
+			rankingList.searchUniByName(rankingData, searchQuery);
+			// rankingList.binarySearchUniByName(rankingData, searchQuery);
 			searchMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
 		case 2:
@@ -321,19 +321,20 @@ class Menu {
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
-			universityList.SearchUniByCountry(uniData,searchQuery);
-			//rankingList.binarySearchUniByName(searchQuery);
+
+			rankingList.searchUniByCountry(rankingData,searchQuery);
+			// rankingList.binarySearchUniByName(searchQuery);
 			searchMenu(custData, favData, feedbackData, uniData, rankingData);
 			break;
 		case 3: {
 			// Two Pointer vs Binary Search (Time Complexity)
-			cout << "Search University Name: ";
+			cout << "Search University Country: ";
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
 
 			auto start = high_resolution_clock::now();
-			universityList.SearchUniByName(uniData,searchQuery);
+			rankingList.searchUniByCountryForCompare(rankingData, searchQuery);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
 			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
@@ -532,6 +533,7 @@ class Menu {
 		RankingList& rankingData) {
 		FavouriteList favouriteList;
 		UniversityList universityList;
+		RankingList rankingList;
 
 		string universityID, favID;
 		
@@ -553,7 +555,7 @@ class Menu {
 
 			if (universityList.SearchUniByID(uniData,universityID)) {
 				favouriteList
-					.addFavourite(favData, custSessionEmail, universityID, universityList.getUniNameByID(uniData, universityID));
+					.addFavourite(favData, custSessionEmail, universityID, rankingList.getUniNameByID(rankingData, universityID));
 			} else {
 				cout << "Invalid University ID. Cannot save favourite." << endl << endl;
 				favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
