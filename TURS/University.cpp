@@ -149,53 +149,6 @@ class UniversityList {
 		return universityList;
 	};
 
-	void SearchUniByCountry(UniversityList& universityList,string searchQuery) {
-		if (universityList.head == NULL) {
-			cout << "Empty University List" << endl << endl;
-		} else {
-			University* firstPtr = universityList.head;
-			University* secondPtr = universityList.tail;
-			bool found = false;
-
-			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
-				if (firstPtr->location.find(searchQuery) != string::npos) {
-					cout << "Univerisity ID: " << firstPtr->universityID << endl;
-					cout << "Univerisity Name: " << firstPtr->universityName << endl;
-					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
-					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
-
-					found = true;
-				}
-
-				if (secondPtr->location.find(searchQuery) != string::npos) {
-					cout << "University ID: " << secondPtr->universityID << endl;
-					cout << "University Name: " << secondPtr->universityName << endl;
-					cout << "University Country Code: " << secondPtr->locationCode << endl;
-					cout << "University Country: " << secondPtr->location << endl << endl;
-
-					found = true;
-				}
-
-				firstPtr = firstPtr->nextAddress;
-				secondPtr = secondPtr->prevAddress;
-			}
-
-			if (
-				!found && firstPtr != NULL && firstPtr == secondPtr && firstPtr->location.find(searchQuery) != string::npos) {
-				cout << "University ID: " << firstPtr->universityID << endl;
-				cout << "University Name: " << firstPtr->universityName << endl;
-				cout << "University Country Code: " << firstPtr->locationCode << endl;
-				cout << "University Country: " << firstPtr->location << endl << endl;
-
-				found = true;
-			}
-
-			if (!found) {
-				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
-			}
-		}
-	};
-
 	bool SearchUniByID(UniversityList& universityList,string searchQuery) {
 		if (universityList.head == NULL) {
 			cout << "No University Found" << endl << endl;
@@ -221,54 +174,6 @@ class UniversityList {
 				cout << "No university found with ID: '" << searchQuery << "'." << endl << endl;
 			}
 			return found;
-		}
-	}
-
-	void SearchUniByName(UniversityList& universityList,string searchQuery) { 
-		if (universityList.head == NULL) {
-			cout << "Empty University List" << endl << endl;
-		} else {
-			University* firstPtr = universityList.head;
-			University* secondPtr = universityList.tail;
-			bool found = false;
-
-			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
-				if (firstPtr->universityName.find(searchQuery) != string::npos) {
-					cout << "Univerisity ID: " << firstPtr->universityID << endl;
-					cout << "Univerisity Name: " << firstPtr->universityName << endl;
-					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
-					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
-
-					found = true;
-				}
-
-				if (secondPtr->universityName.find(searchQuery) != string::npos) {
-					cout << "University ID: " << secondPtr->universityID << endl;
-					cout << "University Name: " << secondPtr->universityName << endl;
-					cout << "University Country Code: " << secondPtr->locationCode << endl;
-					cout << "University Country: " << secondPtr->location << endl << endl;
-
-					found = true;
-				}
-
-				firstPtr = firstPtr->nextAddress;
-				secondPtr = secondPtr->prevAddress;
-			}
-
-			if (
-				!found && firstPtr != NULL && firstPtr == secondPtr
-				&& firstPtr->universityName.find(searchQuery) != string::npos) {
-				cout << "University ID: " << firstPtr->universityID << endl;
-				cout << "University Name: " << firstPtr->universityName << endl;
-				cout << "University Country Code: " << firstPtr->locationCode << endl;
-				cout << "University Country: " << firstPtr->location << endl << endl;
-
-				found = true;
-			}
-
-			if (!found) {
-				cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
-			}
 		}
 	}
 
@@ -362,22 +267,5 @@ class UniversityList {
 			second->prevAddress = NULL;
 			return second;
 		}
-	}
-
-	string getUniNameByID(UniversityList& universityList, string searchQuery) {
-		if (universityList.head == NULL) {
-			cout << "No University Found" << endl << endl;
-		} else {
-			University* current = universityList.head;
-
-			while (current != NULL) {
-				if (current->universityID == searchQuery) {
-					return current->universityName;
-				}
-				current = current->nextAddress;
-			}
-		}
-
-		return "University not found.";
 	}
 };
