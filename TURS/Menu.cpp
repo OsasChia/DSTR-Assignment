@@ -8,7 +8,6 @@
 #include "Customer.cpp"
 #include "Ranking.cpp"
 #include "Feedback.cpp"
-#include "Guest.cpp"
 #include "Favourite.cpp"
 #include "InputHandler.cpp"
 
