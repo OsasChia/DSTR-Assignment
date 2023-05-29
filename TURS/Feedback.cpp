@@ -110,8 +110,10 @@ class FeedbackList {
 			cout << "End of the list! " << endl << endl;
 		} else {
 			cout << "1. Next result" << endl;
-			cout << "2. Previous result" << endl;
-			cout << "3. Choose a feedback to be replied" << endl << endl;
+			if (currentPage > 1) {
+				cout << "2. Previous result" << endl;
+			}
+			cout << "0. Exit" << endl << endl;
 			cout << "Choose an option:";
 
 			int option;
@@ -129,10 +131,11 @@ class FeedbackList {
 					DisplayAllFeedbackInfo(currentPage, temp);
 				}
 				break;
-			case 3:
+			case 0:
 				return;
 			default:
 				cout << "Invalid choice. Exiting..." << endl << endl;
+				return;
 			}
 		}
 	}
@@ -145,66 +148,6 @@ class FeedbackList {
 			return true;
 		}
 	}
-
-	bool endOfListReached = false; // Flag variable declared outside the function
-
-	void DisplayAllReplyInfo(int currentPage, Feedback* temp, string custEmail) {
-		Feedback* current = temp;
-		int pageSize = 1;
-		int startIndex = (currentPage - 1) * pageSize;
-		int endIndex = startIndex + pageSize;
-		int count = 0;
-
-		while (current != nullptr && count < endIndex) {
-			if (count >= startIndex && current->custEmail == custEmail) {
-				// Display feedback information
-				cout << "FeedbackID: " << current->feedbackID << endl;
-				cout << "Customer Email: " << current->custEmail << endl;
-				cout << "University ID: " << current->universityID << endl;
-				cout << "Feedback: " << current->feedback << endl;
-				cout << "Feedback Date: " << current->feedbackDate << endl;
-				cout << "Reply: " << current->reply << endl;
-				cout << "Reply Date: " << current->replyDate << endl << endl;
-
-				cout << "1. Next result" << endl;
-				cout << "2. Previous result" << endl;
-				cout << "3. Choose a feedback to be replied" << endl << endl;
-				cout << "Choose an option:";
-
-				int option;
-				cin >> option;
-				cout << endl;
-
-				switch (option) {
-				case 1:
-					DisplayAllReplyInfo(currentPage + 1, temp, custEmail);
-					break;
-				case 2:
-					if (currentPage > 1) {
-						DisplayAllReplyInfo(currentPage - 1, temp, custEmail);
-					} else {
-						DisplayAllReplyInfo(currentPage, temp, custEmail);
-					}
-					break;
-				case 3:
-					return;
-				default:
-					cout << "Invalid choice. Exiting..." << endl << endl;
-				}
-			} else if (count >= startIndex && current->custEmail != custEmail) {
-				DisplayAllReplyInfo(currentPage + 1, temp, custEmail);
-			}
-
-			current = current->nextAddress;
-			count++;
-		}
-
-		if (!endOfListReached && current == nullptr) {
-			cout << "End of the list! " << endl << endl;
-			endOfListReached = true; // Set the flag to true
-		}
-	}
-
 
 	Feedback* SplitDate(Feedback* temp) {
 		Feedback* fast = temp;
@@ -246,27 +189,43 @@ class FeedbackList {
 	}
 
 
-	Feedback* mergeSortReply(Feedback* temp) {
-		if (!temp || !temp->nextAddress) {
-			return temp;
+	Feedback* mergeSortReply(Feedback* temp, string custEmail) {
+		// Filter out nodes with non-matching custEmail
+		Feedback* filteredList = nullptr;
+		Feedback* current = temp;
+		while (current != nullptr) {
+			if (current->custEmail == custEmail) {
+				Feedback* newNode = new Feedback(*current);
+				newNode->nextAddress = filteredList;
+				if (filteredList != nullptr) {
+					filteredList->prevAddress = newNode;
+				}
+				filteredList = newNode;
+			}
+			current = current->nextAddress;
 		}
 
-		Feedback* middle = SplitDate(temp);
+		// Perform merge sort on the filtered list
+		if (!filteredList || !filteredList->nextAddress) {
+			return filteredList;
+		}
+
+		Feedback* middle = SplitDate(filteredList);
 		Feedback* nextToMiddle = middle->nextAddress;
 
 		middle->nextAddress = nullptr;
 		nextToMiddle->prevAddress = nullptr;
 
-		Feedback* left = mergeSortReply(temp);
-		Feedback* right = mergeSortReply(nextToMiddle);
+		Feedback* left = mergeSortReply(filteredList, custEmail);
+		Feedback* right = mergeSortReply(nextToMiddle, custEmail);
 
 		return MergeByReplyDate(left, right);
 	}
 
 	Feedback* displayByReplyDate(FeedbackList& feedbackList, string custEmail) {
-		Feedback* sortedList = mergeSortReply(feedbackList.head);
-		DisplayAllReplyInfo(1, sortedList, custEmail);
-		return sortedList;
+		Feedback* sortedList = mergeSortReply(feedbackList.head, custEmail);
+		DisplayAllFeedbackInfo(1, sortedList);
+		return feedbackList.head;
 	}
 
 	FeedbackList importFeedback() {

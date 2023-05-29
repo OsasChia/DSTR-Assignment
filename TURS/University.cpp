@@ -149,33 +149,7 @@ class UniversityList {
 		return universityList;
 	};
 
-	bool SearchUniByID(UniversityList& universityList,string searchQuery) {
-		if (universityList.head == NULL) {
-			cout << "No University Found" << endl << endl;
-		} else {
-			University* current = universityList.head;
-			bool found = false;
-
-			while (current != NULL) {
-				if (current->universityID == searchQuery) {
-					cout << "University ID: " << current->universityID << endl;
-					cout << "University Name: " << current->universityName << endl;
-					cout << "University Country Code: " << current->locationCode << endl;
-					cout << "University Country: " << current->location << endl << endl;
-
-					found = true;
-					break;
-				}
-
-				current = current->nextAddress;
-			}
-
-			if (!found) {
-				cout << "No university found with ID: '" << searchQuery << "'." << endl << endl;
-			}
-			return found;
-		}
-	}
+	
 
 	University* MergeSortAndDisplayUniByOption(UniversityList& universityList,int sortOption) {
 		University* sortedList = MergeSort(universityList.head, sortOption);

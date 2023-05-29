@@ -855,4 +855,32 @@ class RankingList {
 
 		return "University not found.";
 	}
+
+	bool SearchUniByID(RankingList& rankingList, string searchQuery) {
+		if (rankingList.head == NULL) {
+			cout << "No University Found" << endl << endl;
+		} else {
+			Ranking* current = rankingList.head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->universityID == searchQuery) {
+					cout << "University ID: " << current->universityID << endl;
+					cout << "University Name: " << current->universityName << endl;
+					cout << "University Country Code: " << current->locationCode << endl;
+					cout << "University Country: " << current->location << endl << endl;
+
+					found = true;
+					break;
+				}
+
+				current = current->nextAddress;
+			}
+
+			if (!found) {
+				cout << "No university found with ID: '" << searchQuery << "'." << endl << endl;
+			}
+			return found;
+		}
+	}
 };

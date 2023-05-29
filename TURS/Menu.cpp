@@ -39,10 +39,6 @@ class Menu {
 		FeedbackList feedbackList;
 		FeedbackList feedbackData = feedbackList.importFeedback();
 
-		//import university data
-		UniversityList universityList;
-		UniversityList uniData = universityList.importUniversity();
-
 		//import ranking data
 		RankingList rankingList;
 		RankingList rankingData = rankingList.importRanking();
@@ -54,15 +50,15 @@ class Menu {
 		switch (option) {
 		case 1:
 			// 1. View as guest
-			guestMenu(custData, favData, feedbackData, uniData, rankingData);
+			guestMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// 2. Login
-			loginMenu(custData, favData, feedbackData, uniData, rankingData);
+			loginMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// 3. Register an account
-			registerMenu(custData, favData, feedbackData, uniData, rankingData);
+			registerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 0:
 			// 4. Exit
@@ -81,7 +77,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) { 
 		RankingList rankingList;
 
@@ -94,19 +89,19 @@ class Menu {
 			// Display all university information sorting by ranking
 			// Start with the first page
 			rankingList.DisplayRankingInfo(rankingData,1);
-			guestMenu(custData, favData, feedbackData, uniData, rankingData);
+			guestMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Search university
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// Sort university
-			sortMenu(custData, favData, feedbackData, uniData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 4:
 			//Register an account
-			registerMenu(custData, favData, feedbackData, uniData, rankingData);
+			registerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 0:
 			// Return to start menu
@@ -115,7 +110,7 @@ class Menu {
 		default:
 			// handle invalid option
 			cout << "Error! Please enter a valid option!\n";
-			guestMenu(custData, favData, feedbackData, uniData, rankingData);
+			guestMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -125,7 +120,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
 
@@ -142,7 +136,7 @@ class Menu {
 		cout << endl << endl;
 
 		if (loginEmailTxt == "admin" && passwordTxt == "admin") {
-			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+			adminDashboard(custData, favData, feedbackData, rankingData);
 		}else if(loginEmailTxt != "admin" && passwordTxt != "admin") {
 			custSession = customerList.loginCustomer(custData, loginEmailTxt, passwordTxt);
 			
@@ -150,7 +144,7 @@ class Menu {
 			cout << "Hello " + custSession << endl << endl;
 			custSessionEmail = loginEmailTxt;
 
-			customerMenu(custData, favData, feedbackData, uniData, rankingData);
+			customerMenu(custData, favData, feedbackData, rankingData);
 			} else {
 			startMenu();
 			}
@@ -161,7 +155,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) { 
 		CustomerList customerList;
 		
@@ -184,7 +177,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
 		FeedbackList feedbackList;
@@ -200,23 +192,23 @@ class Menu {
 		case 1:
 			// Start with the first page
 			rankingList.DisplayRankingInfo(rankingData,1);
-			customerMenu(custData, favData, feedbackData, uniData, rankingData);
+			customerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Search university
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// Sort university
-			sortMenu(custData, favData, feedbackData, uniData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 4:
 			// Save favorite universities
-			favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+			favoriteMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 5:
 			// View feedbacks
-			feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+			feedbackMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 0:
 			//  Logout
@@ -233,7 +225,7 @@ class Menu {
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			customerMenu(custData, favData, feedbackData, uniData, rankingData);
+			customerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -242,7 +234,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
 		FeedbackList feedbackList;
@@ -258,17 +249,17 @@ class Menu {
 		case 1:
 			// 1. Display all customer information
 			customerList.DisplayAllCustInfo(custData);
-			modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+			modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// 2. Display all feedback
 			feedbackList.feedbackExists(feedbackData);
-			feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+			feedbackMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3: {
 			// 3. Top 10 favourite universities
 			favouriteList.countTopTenFavorites(favData);
-			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+			adminDashboard(custData, favData, feedbackData, rankingData);
 			break;
 		}
 		case 0:
@@ -283,7 +274,7 @@ class Menu {
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+			adminDashboard(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -292,9 +283,7 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
-		UniversityList universityList;
 		RankingList rankingList;
 		
 		string searchQuery;
@@ -313,7 +302,7 @@ class Menu {
 
 			rankingList.searchUniByName(rankingData, searchQuery);
 			// rankingList.binarySearchUniByName(rankingData, searchQuery);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Search university by country
@@ -324,7 +313,7 @@ class Menu {
 
 			rankingList.searchUniByCountry(rankingData,searchQuery);
 			// rankingList.binarySearchUniByName(searchQuery);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3: {
 			// Two Pointer vs Binary Search (Time Complexity)
@@ -345,23 +334,23 @@ class Menu {
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
 
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 		case 0:
 			if (custSessionEmail.empty()) {
 				// Return to guest menu
-				guestMenu(custData, favData, feedbackData, uniData, rankingData);
+				guestMenu(custData, favData, feedbackData, rankingData);
 			} else if (!custSessionEmail.empty()) {
-				customerMenu(custData, favData, feedbackData, uniData, rankingData);
+				customerMenu(custData, favData, feedbackData, rankingData);
 			} else {
-				adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+				adminDashboard(custData, favData, feedbackData, rankingData);
 			}
 			break;
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -370,10 +359,8 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		RankingList rankingList;
-		UniversityList universityList;
 
 		cout << "1. Sort university by name\n2. Sort university by ArScore\n3. Sort university by FsrScore\n4. Sort university by ErScore\n5. Quick Sort vs Merge Sort (Time Complexity)\n0. Return to start menu\n";
 		int option = inputhandler.handleUserInput();
@@ -383,22 +370,22 @@ class Menu {
 		case 1:
 			// Sort university by name
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,1);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Sort university by ArScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,2);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// Sort university by FsrScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,3);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 4:
 			// Sort university by ErScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,4);
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 5: {
 			// Quick Sort vs Merge Sort (Time Complexity)
@@ -415,17 +402,17 @@ class Menu {
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Merge sort: " << durationn.count() << " microseconds." << endl << endl;
 
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 		case 0:
 			// Return 
-			guestMenu(custData, favData, feedbackData, uniData, rankingData);
+			guestMenu(custData, favData, feedbackData, rankingData);
 			break;
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			searchMenu(custData, favData, feedbackData, uniData, rankingData);
+			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -434,10 +421,9 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		FeedbackList feedbackList; 
-		UniversityList universityList;
+		RankingList rankingList;
 
 		string universityID, feedback, feedbackID, reply;
 		time_t t = time(nullptr);
@@ -455,7 +441,7 @@ class Menu {
 				cout << "Enter University ID: ";
 				cin.ignore();
 				getline(cin,universityID);
-				if (universityList.SearchUniByID(uniData,universityID)) {
+				if (rankingList.SearchUniByID(rankingData,universityID)) {
 					cout << "Enter your feedback: ";
 					getline(cin, feedback);
 					cout << endl;
@@ -464,24 +450,24 @@ class Menu {
 					feedbackList.addFeedback(feedbackData, custSessionEmail, universityID, feedback, buffer);
 				} else {
 					cout << "Invalid University ID. Cannot send feedback." << endl << endl;
-					searchMenu(custData, favData, feedbackData, uniData, rankingData);
+					feedbackMenu(custData, favData, feedbackData, rankingData);
 					break;
 				}
-				searchMenu(custData, favData, feedbackData, uniData, rankingData);
+				feedbackMenu(custData, favData, feedbackData, rankingData);
 				break;
 			case 2:
 				// Reply feedback
 				feedbackList.displayByReplyDate(feedbackData, custSessionEmail);
-				searchMenu(custData, favData, feedbackData, uniData, rankingData);
+				feedbackMenu(custData, favData, feedbackData, rankingData);
 				break;
 			case 0:
 				// Return to customer menu
-				customerMenu(custData, favData, feedbackData, uniData, rankingData);
+				customerMenu(custData, favData, feedbackData, rankingData);
 				break;
 			default:
 				// Error
 				cout << "Error! Please enter a valid option!\n";
-				feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+				feedbackMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
 		} 
@@ -507,19 +493,19 @@ class Menu {
 					feedbackList.ReplyFeedback(feedbackData, feedbackID, reply, buffer);
 				} else {
 					cout << "Invalid Feedback ID." << endl << endl;
-					feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+					feedbackMenu(custData, favData, feedbackData, rankingData);
 					break;
 				}
-				feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+				feedbackMenu(custData, favData, feedbackData, rankingData);
 				break;
 			case 0:
 				// Return to admin dashboard
-				adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+				adminDashboard(custData, favData, feedbackData, rankingData);
 				break;
 			default:
 				// Error
 				cout << "Error! Please enter a valid option!\n";
-				feedbackMenu(custData, favData, feedbackData, uniData, rankingData);
+				feedbackMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
 		}
@@ -529,10 +515,8 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		FavouriteList favouriteList;
-		UniversityList universityList;
 		RankingList rankingList;
 
 		string universityID, favID;
@@ -545,7 +529,7 @@ class Menu {
 		case 1:
 			// View favorite university
 			favouriteList.favouriteExists(favData, custSessionEmail);
-			favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+			favoriteMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Add favorite university
@@ -553,15 +537,15 @@ class Menu {
 			cin.ignore();
 			getline(cin, universityID);
 
-			if (universityList.SearchUniByID(uniData,universityID)) {
+			if (rankingList.SearchUniByID(rankingData,universityID)) {
 				favouriteList
 					.addFavourite(favData, custSessionEmail, universityID, rankingList.getUniNameByID(rankingData, universityID));
 			} else {
 				cout << "Invalid University ID. Cannot save favourite." << endl << endl;
-				favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+				favoriteMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
-			favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+			favoriteMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// Remove favorite university
@@ -569,23 +553,23 @@ class Menu {
 			cin.ignore();
 			getline(cin, universityID);
 
-			if (universityList.SearchUniByID(uniData,universityID)) {
+			if (rankingList.SearchUniByID(rankingData,universityID)) {
 				favouriteList.deleteFav(favData, custSessionEmail, universityID);
 			} else {
 				cout << "Invalid University ID. Cannot delete favourite." << endl << endl;
-				favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+				favoriteMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
-			favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+			favoriteMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 0:
 			// Return to customer menu
-			customerMenu(custData, favData, feedbackData, uniData, rankingData);
+			customerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			favoriteMenu(custData, favData, feedbackData, uniData, rankingData);
+			favoriteMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
@@ -594,7 +578,6 @@ class Menu {
 		CustomerList& custData,
 		FavouriteList& favData,
 		FeedbackList& feedbackData,
-		UniversityList& uniData,
 		RankingList& rankingData) {
 		CustomerList customerList;
 		string custEmail;
@@ -615,10 +598,10 @@ class Menu {
 				customerList.ModifyCustInfo(custData, custEmail);
 			} else {
 				cout << "Invalid Customer Email." << endl << endl;
-				modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+				modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
-			modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+			modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// 2. Delete customer account
@@ -630,19 +613,19 @@ class Menu {
 				customerList.DeleteCust(custData, custEmail);
 			} else {
 				cout << "Invalid Customer Email." << endl << endl;
-				modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+				modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 				break;
 			}
-			modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+			modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 0:
 			//0. Return to admin dashboard
-			adminDashboard(custData, favData, feedbackData, uniData, rankingData);
+			adminDashboard(custData, favData, feedbackData, rankingData);
 			break;
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
-			modifyCustomerMenu(custData, favData, feedbackData, uniData, rankingData);
+			modifyCustomerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 	}
