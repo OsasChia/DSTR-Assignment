@@ -112,7 +112,7 @@ class FavouriteList {
 		}
 
 		// node not found
-		cout << "Favourite with University ID " << uniID << " not found in list." << endl << endl;
+		cout << "Favourite with University ID " << uniID << " not found in list." << endl;
 		return false;
 	}
 

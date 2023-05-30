@@ -406,8 +406,6 @@ class RankingList {
 
 	void MergeSortCompare(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
-
-		cout << "sdadsd" << endl;
 		rankingList.head = sortedList;
 	}
 
@@ -424,7 +422,6 @@ class RankingList {
 
 	Ranking* MergeSort(Ranking* head, int sortOption) {
 		if (!head || !head->nextAddress) return head;
-		cout << "htth" << endl;
 
 		// Split the list into two halves
 		Ranking* second = Split(head);
@@ -511,10 +508,6 @@ class RankingList {
 		for (auto& c: upperSecond)
 			c = std::tolower(static_cast<unsigned char>(c));
 
-		cout << first->location << endl;
-		cout << first->universityName << endl;
-		cout << second->location << endl;
-		cout << second->universityName << endl;
 
 		if (upperFirst < upperSecond) {
 			first->nextAddress = MergeByCountry(first->nextAddress, second);
@@ -776,10 +769,20 @@ class RankingList {
 
 			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
 				if (stoi(firstPtr->ranking) == stoi(searchQuery)) {
+					cout << "Univerisity ID: " << firstPtr->universityID << endl;
+					cout << "Univerisity Name: " << firstPtr->universityName << endl;
+					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
+					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
+
 					found = true;
 				}
 
 				if (stoi(secondPtr->ranking) == stoi(searchQuery)) {
+					cout << "University ID: " << secondPtr->universityID << endl;
+					cout << "University Name: " << secondPtr->universityName << endl;
+					cout << "University Country Code: " << secondPtr->locationCode << endl;
+					cout << "University Country: " << secondPtr->location << endl << endl;
+
 					found = true;
 				}
 
@@ -789,6 +792,11 @@ class RankingList {
 
 			if (
 				!found && firstPtr != NULL && firstPtr == secondPtr && stoi(firstPtr->ranking) == stoi(searchQuery)) {
+				cout << "University ID: " << firstPtr->universityID << endl;
+				cout << "University Name: " << firstPtr->universityName << endl;
+				cout << "University Country Code: " << firstPtr->locationCode << endl;
+				cout << "University Country: " << firstPtr->location << endl << endl;
+
 				found = true;
 			}
 
@@ -851,6 +859,8 @@ class RankingList {
 		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
 
+		MergeSortCompare(rankingList, 5);
+
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
 			Ranking* mid = getUniversityAtIndex(rankingList,midIndex);
@@ -876,14 +886,11 @@ class RankingList {
 	}
 
 	void binarySearchUniByRankingForCompare(RankingList& rankingList, string searchQuery) {
-		if (rankingList.head == NULL) {
-			cout << "Empty University List" << endl << endl;
-			return;
-		}
-		
 		int firstIndex = 1;
 		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
+
+		MergeSortCompare(rankingList, 5);
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
@@ -994,6 +1001,7 @@ class RankingList {
 	// ======================================================== //
 	// ===== BINARY SEARCH BY COUNTRY NOT PERFECT BUT IDK ===== //
 	
+	/*
 	void searchUniByCountryForCompare(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
@@ -1019,35 +1027,5 @@ class RankingList {
 			}
 		}
 	}
-
-	void binarySearchUniByCountry(RankingList& rankingList, string searchQuery) {
-		int firstIndex = 1;
-		int lastIndex = getUniversityListLenght(rankingList);
-		bool found = false;
-
-		while (firstIndex <= lastIndex) {
-			int midIndex = (firstIndex + lastIndex) / 2;
-			Ranking* mid = getUniversityAtIndex(rankingList, midIndex);
-			cout << mid->location << endl;
-
-			if (mid->location.find(searchQuery) != string::npos) {
-				cout << "University ID: " << mid->universityID << endl;
-				cout << "University Name: " << mid->universityName << endl;
-				cout << "University Country Code: " << mid->locationCode << endl;
-				cout << "University Country: " << mid->location << endl << endl;
-				found = true;
-			}
-
-			int compareResult = searchQuery.compare(mid->location);
-
-			if (compareResult <= 0) {
-				lastIndex = midIndex - 1;
-			} else {
-				firstIndex = midIndex + 1;
-			}
-		}
-		if (!found) {
-			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
-		}
-	}
+	*/
 };
