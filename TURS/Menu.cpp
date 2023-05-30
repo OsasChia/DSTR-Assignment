@@ -419,7 +419,14 @@ class Menu {
 		}
 		case 0:
 			// Return 
-			guestMenu(custData, favData, feedbackData, rankingData);
+			if (custSessionEmail.empty()) {
+				// Return to guest menu
+				guestMenu(custData, favData, feedbackData, rankingData);
+			} else if (!custSessionEmail.empty()) {
+				customerMenu(custData, favData, feedbackData, rankingData);
+			} else {
+				adminDashboard(custData, favData, feedbackData, rankingData);
+			}
 			break;
 		default:
 			// Error
