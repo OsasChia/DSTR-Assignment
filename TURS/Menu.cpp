@@ -86,7 +86,7 @@ class Menu {
 		case 1:
 			// Display all university information sorting by ranking
 			// Start with the first page
-			rankingList.DisplayRankingInfo(rankingData,1);
+			rankingList.MergeSortAndDisplayUniByOption(rankingData, 5);
 			guestMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
@@ -133,9 +133,9 @@ class Menu {
 		cin >> passwordTxt;
 		cout << endl << endl;
 
-		if (loginEmailTxt == "admin" && passwordTxt == "admin") {
+		if (loginEmailTxt == "admin@gmail.com" && passwordTxt == "admin") {
 			adminDashboard(custData, favData, feedbackData, rankingData);
-		}else if(loginEmailTxt != "admin" && passwordTxt != "admin") {
+		}else if(loginEmailTxt != "admin@gmail.com" && passwordTxt != "admin") {
 			custSession = customerList.loginCustomer(custData, loginEmailTxt, passwordTxt);
 			
 			if (!custSession.empty()) {
@@ -144,8 +144,11 @@ class Menu {
 
 			customerMenu(custData, favData, feedbackData, rankingData);
 			} else {
-			startMenu();
+				startMenu();
 			}
+		} else {
+			cout << "Incorrect email or password." << endl << endl;
+			startMenu();
 		}
 	}
 
@@ -189,7 +192,7 @@ class Menu {
 		switch (option) {
 		case 1:
 			// Start with the first page
-			rankingList.DisplayRankingInfo(rankingData,1);
+			rankingList.MergeSortAndDisplayUniByOption(rankingData, 5);
 			customerMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:

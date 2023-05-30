@@ -464,8 +464,27 @@ class RankingList {
 			return MergeByFsrScore(head, second);
 		case 4:
 			return MergeByErScore(head, second);
+		case 5:
+			return MergeByRank(head, second); 
 		default:
 			return MergeByName(head, second); // Default to sort by name
+		}
+	}
+
+	Ranking* MergeByRank(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		if (stod(first->ranking) < stod(second->ranking)) {
+			first->nextAddress = MergeByRank(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByRank(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
 		}
 	}
 
