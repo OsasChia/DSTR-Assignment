@@ -285,7 +285,7 @@ class Menu {
 		
 		string searchQuery;
 
-		cout << "1. Search university by ranking\n2. Search university by name\n3. Search university by country\n4. Two Pointer vs Binary Search (Time Complexity)\n5. Two Pointer by Country (Time Complexity)\n6. Binary Search by Country (Time Complexity)\n0. Return to user menu\n";
+		cout << "1. Search university by ranking\n2. Search university by name\n3. Search university by country\n4. Two Pointer vs Binary Search (Time Complexity)\n0. Return to user menu\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
 
@@ -345,46 +345,6 @@ class Menu {
 
 			auto startt = high_resolution_clock::now();
 			rankingList.binarySearchUniByRankingForCompare(rankingData, searchQuery);
-			auto stopp = high_resolution_clock::now();
-			auto durationn = duration_cast<microseconds>(stopp - startt);
-			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
-
-			searchMenu(custData, favData, feedbackData, rankingData);
-			break;
-		}
-		case 5: {
-			// Two Pointer by Country (Time Complexity)
-			cout << "Search University Country: ";
-
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
-			cin.ignore();
-			getline(cin, searchQuery);
-			cout << endl;
-
-			rankingList.MergeSortCompare(rankingList, 5);
-
-			auto start = high_resolution_clock::now();
-			rankingList.searchUniByCountry(rankingData, searchQuery);
-			auto stop = high_resolution_clock::now();
-			auto duration = duration_cast<microseconds>(stop - start);
-			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
-
-			searchMenu(custData, favData, feedbackData, rankingData);
-			break;
-		}
-		case 6: {
-			// Binary Search by Country (Time Complexity)
-			cout << "Search University Country: ";
-
-			cin.ignore();
-			getline(cin, searchQuery);
-			cout << endl;
-
-			rankingList.MergeSortCompare(rankingList, 6);
-
-			auto startt = high_resolution_clock::now();
-			rankingList.binarySearchUniByCountry(rankingData, searchQuery);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
