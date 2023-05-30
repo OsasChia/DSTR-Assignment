@@ -425,7 +425,7 @@ class RankingList {
 	void MergeSortAndDisplayUniByOption(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
-		rankingList.DisplayRankingInfo(rankingList,1);
+		DisplayRankingInfo(rankingList,1);
 	}
 
 	void MergeSortCompare(RankingList& rankingList,int sortOption) {
@@ -810,8 +810,7 @@ class RankingList {
 		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
 
-		Ranking* temp = rankingList.head;
-		MergeSort(temp, 1);
+		MergeSortCompare(rankingList, 1);
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
@@ -822,7 +821,6 @@ class RankingList {
 				cout << "University Name: " << mid->universityName << endl;
 				cout << "University Country Code: " << mid->locationCode << endl;
 				cout << "University Country: " << mid->location << endl << endl;
-
 				found = true;
 			}
 
@@ -854,5 +852,45 @@ class RankingList {
 		}
 
 		return "University not found.";
+	}
+
+	bool SearchUniByID(RankingList& rankingList, string searchQuery) {
+		if (rankingList.head == NULL) {
+			cout << "No University Found" << endl << endl;
+		} else {
+			Ranking* current = rankingList.head;
+			bool found = false;
+
+			while (current != NULL) {
+				if (current->universityID == searchQuery) {
+					cout << "University ID: " << current->universityID << endl;
+					cout << "University Name: " << current->universityName << endl;
+					cout << "University Country Code: " << current->locationCode << endl;
+					cout << "University Country: " << current->location << endl << endl;
+
+					found = true;
+					break;
+				}
+
+				current = current->nextAddress;
+			}
+
+			if (!found) {
+				cout << "No university found with ID: '" << searchQuery << "'." << endl << endl;
+			}
+			return found;
+		}
+	}
+
+	  void size(RankingList& rankingList) {
+			int count = 0;
+		Ranking* current = rankingList.head;
+
+			while (current != nullptr) {
+				count++;
+				current = current->nextAddress;
+			}
+
+			cout << count;
 	}
 };

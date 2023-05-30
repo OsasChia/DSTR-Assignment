@@ -54,29 +54,29 @@ class FavouriteList {
 		}
 	};
 
-	void DisplayAllFavInfo(Favourite* temp, string custEmail){ 
+	void DisplayAllFavInfo(Favourite* temp){ 
 		Favourite* current = temp;
 
 		if (current == NULL) {
-			cout << "List is empty! " << endl << endl;
-		} 
-
-		while (current != NULL) {
-			if (current->custEmail == custEmail) {
-				cout << "Favourite ID: " << current->favID << endl;
-				cout << "Customer Email: " << current->custEmail << endl;
-				cout << "University ID: " << current->universityID << endl;
-				cout << "University ID: " << current->universityName << endl << endl;
-			}
-			current = current->nextAddress;
+			cout << "List is empty." << endl << endl;
+			return;
 		}
 
+		while (current != NULL) {
+			cout << "Favourite ID: " << current->favID << endl;
+			cout << "Customer Email: " << current->custEmail << endl;
+			cout << "University ID: " << current->universityID << endl;
+			cout << "University Name: " << current->universityName << endl << endl;
+			current = current->nextAddress;
+		}
+		
 		cout << "End of the list! " << endl << endl;
+
 	};
 
 	bool favouriteExists(FavouriteList& favouriteList, string custEmail) {
 		if (favouriteList.head != NULL) {
-			DisplayAllFavInfo(favouriteList.head, custEmail);
+			displayFavByCustEmail(favouriteList, custEmail);
 		} else {
 			cout << "No favourite university yet." << endl << endl;
 			return true;
@@ -116,6 +116,72 @@ class FavouriteList {
 		return false;
 	}
 
+	Favourite* SplitFav(Favourite* temp) {
+		Favourite* fast = temp;
+		Favourite* slow = temp;
+		while (fast && fast->nextAddress && fast->nextAddress->nextAddress) {
+			slow = slow->nextAddress;
+			fast = fast->nextAddress->nextAddress;
+		}
+		return slow;
+	}
+
+	Favourite* MergeByFavID(Favourite* first, Favourite* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		Favourite* result = nullptr;
+
+		if (first->favID > second->favID) {
+			result = first;
+			result->nextAddress = MergeByFavID(first->nextAddress, second);
+			result->nextAddress->prevAddress = result;
+		} else if (first->favID < second->favID) {
+			result = second;
+			result->nextAddress = MergeByFavID(first, second->nextAddress);
+			result->nextAddress->prevAddress = result;
+		}
+		return result;
+	}
+
+	Favourite* mergeSort(Favourite* temp, string custEmail) {
+		// Filter out nodes with non-matching custEmail
+		Favourite* filteredList = nullptr;
+		Favourite* current = temp;
+		while (current != nullptr) {
+			if (current->custEmail == custEmail) {
+				Favourite* newNode = new Favourite(*current);
+				newNode->nextAddress = filteredList;
+				if (filteredList != nullptr) {
+					filteredList->prevAddress = newNode;
+				}
+				filteredList = newNode;
+			}
+			current = current->nextAddress;
+		}
+
+		// Perform merge sort on the filtered list
+		if (!filteredList || !filteredList->nextAddress) {
+			return filteredList;
+		}
+
+		Favourite* middle = SplitFav(filteredList);
+		Favourite* nextToMiddle = middle->nextAddress;
+
+		middle->nextAddress = nullptr;
+		nextToMiddle->prevAddress = nullptr;
+
+		Favourite* left = mergeSort(filteredList, custEmail);
+		Favourite* right = mergeSort(nextToMiddle, custEmail);
+
+		return MergeByFavID(left, right);
+	}
+
+	Favourite* displayFavByCustEmail(FavouriteList& favouriteList, string custEmail) {
+		Favourite* sortedList = mergeSort(favouriteList.head, custEmail);
+		DisplayAllFavInfo(sortedList);
+		return favouriteList.head;
+	}
 
 	FavouriteList importFavourite() {
 		FavouriteList favouriteList;
@@ -162,7 +228,7 @@ class FavouriteList {
 		if (head == NULL) {
 			return;
 		}
-		ExportFavouriteFile << "favID,custEmail,universityID" << endl;
+		ExportFavouriteFile << "favID,custEmail,universityID,universityName" << endl;
 
 		Favourite* current = head;
 
@@ -189,7 +255,7 @@ class FavouriteList {
 				cout << "Favourite ID: " << current->favID << endl;
 				cout << "Customer Email: " << current->custEmail << endl;
 				cout << "University ID: " << current->universityID << endl;
-				cout << "University ID: " << current->universityName << endl << endl;
+				cout << "University Name: " << current->universityName << endl << endl;
 				return; // Exit the function if the favorite already exists
 			}
 			current = current->nextAddress;
@@ -203,7 +269,6 @@ class FavouriteList {
 		cout << "Favorite saved successfully." << endl << endl;
 	}
 
-
 	bool SearchFavByID(FavouriteList& favouriteList, string searchQuery) {
 		if (favouriteList.head == NULL) {
 			cout << "No Favourite Found" << endl << endl;
@@ -213,10 +278,10 @@ class FavouriteList {
 
 			while (current != NULL) {
 				if (current->favID == searchQuery) {
-					cout << "Feedback ID: " << current->favID << endl;
+					cout << "Favourite ID: " << current->favID << endl;
 					cout << "Customer Email: " << current->custEmail << endl;
 					cout << "University ID: " << current->universityID << endl;
-					cout << "University ID: " << current->universityName << endl << endl;
+					cout << "University Name: " << current->universityName << endl << endl;
 
 					found = true;
 					break;
@@ -226,7 +291,7 @@ class FavouriteList {
 			}
 
 			if (!found) {
-				cout << "No feedback found with ID: '" << searchQuery << "'." << endl << endl;
+				cout << "No favourite found with ID: '" << searchQuery << "'." << endl << endl;
 			}
 			return found;
 		}

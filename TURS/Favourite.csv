@@ -1,4 +1,4 @@
-favID,custEmail,universityID
+favID,custEmail,universityID,universityName
 F1,cyling@gmail.com,U1,Massachusetts Institute of Technology (MIT)
 F2,osas@gmail.com,U2,University of Cambridge
 F4,milktea@gmail.com,U4,University of Oxford
