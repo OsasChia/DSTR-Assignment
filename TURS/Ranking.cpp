@@ -39,9 +39,14 @@ class RankingList {
 	Ranking* tail = NULL;
 
 	public:
+	// ============================ //
+	// ===== GETTER FUNCTIONS ===== //
+
 	Ranking* getHead() { return this->head; }
 
-	// Methods
+	// =================================== //
+	// ===== NODE CREATION FUNCTIONS ===== //
+
 	Ranking* CreateNewNode(
 		string universityID,
 		string ranking,
@@ -157,43 +162,8 @@ class RankingList {
 		}
 	}
 
-	int getUniversityListLenght(RankingList& rankingList) {
-		int length = 0;
-		for (Ranking* ptr = rankingList.head; ptr != NULL; ptr = ptr->nextAddress) {
-			length++;
-		}
-
-		return length;
-	}
-
-	Ranking* getUniversityAtIndex(RankingList& rankingList,int index) {
-		Ranking* current = rankingList.head;
-		int currentIndex = 1;
-
-		while (current != NULL && currentIndex < index) {
-			current = current->nextAddress;
-			currentIndex++;
-		}
-
-		return current;
-	}
-
-	string trim(const string& str) {
-		// Find the first non-whitespace character
-		auto start = str.find_first_not_of(" \t\n\r\f\v");
-		
-		// If the string is all whitespace, return an empty string
-		if (start == std::string::npos) return "";
-
-		// Find the last non-whitespace character
-		auto end = str.find_last_not_of(" \t\n\r\f\v");
-
-		// Calculate the length of the trimmed string
-		auto length = end - start + 1;
-
-		// Return the trimmed substring
-		return str.substr(start, length);
-	}
+	// ============================================ //
+	// ===== DISPLAY FUNCTION WITH PAGINATION ===== //
 
 	void DisplayRankingInfo(RankingList& rankingList,int currentPage) {
 		int pageSize = 20;
@@ -270,6 +240,9 @@ class RankingList {
 			}
 		}
 	}
+
+	// ============================== //
+	// ===== FILE I/O FUNCTIONS ===== //
 
 	RankingList importRanking() {
 		RankingList allrankingList;
@@ -422,6 +395,9 @@ class RankingList {
 		return allrankingList;
 	}
 
+	// ======================== //
+	// ===== SORTING ALGO ===== //
+
 	void MergeSortAndDisplayUniByOption(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
 		rankingList.head = sortedList;
@@ -430,6 +406,8 @@ class RankingList {
 
 	void MergeSortCompare(RankingList& rankingList,int sortOption) {
 		Ranking* sortedList = MergeSort(rankingList.head, sortOption);
+
+		cout << "sdadsd" << endl;
 		rankingList.head = sortedList;
 	}
 
@@ -446,6 +424,7 @@ class RankingList {
 
 	Ranking* MergeSort(Ranking* head, int sortOption) {
 		if (!head || !head->nextAddress) return head;
+		cout << "htth" << endl;
 
 		// Split the list into two halves
 		Ranking* second = Split(head);
@@ -465,7 +444,9 @@ class RankingList {
 		case 4:
 			return MergeByErScore(head, second);
 		case 5:
-			return MergeByRank(head, second); 
+			return MergeByRank(head, second);
+		case 6:
+			return MergeByCountry(head, second); 
 		default:
 			return MergeByName(head, second); // Default to sort by name
 		}
@@ -510,6 +491,38 @@ class RankingList {
 			return first;
 		} else {
 			second->nextAddress = MergeByName(first, second->nextAddress);
+			second->nextAddress->prevAddress = second;
+			second->prevAddress = NULL;
+			return second;
+		}
+	}
+
+	Ranking* MergeByCountry(Ranking* first, Ranking* second) {
+		if (!first) return second;
+		if (!second) return first;
+
+		string upperFirst, upperSecond;
+		upperFirst = first->location;
+		upperSecond = second->location;
+
+		// Convert both strings to lowercase for case-insensitive comparison
+		for (auto& c: upperFirst)
+			c = std::tolower(static_cast<unsigned char>(c));
+		for (auto& c: upperSecond)
+			c = std::tolower(static_cast<unsigned char>(c));
+
+		cout << first->location << endl;
+		cout << first->universityName << endl;
+		cout << second->location << endl;
+		cout << second->universityName << endl;
+
+		if (upperFirst < upperSecond) {
+			first->nextAddress = MergeByCountry(first->nextAddress, second);
+			first->nextAddress->prevAddress = first;
+			first->prevAddress = NULL;
+			return first;
+		} else {
+			second->nextAddress = MergeByCountry(first, second->nextAddress);
 			second->nextAddress->prevAddress = second;
 			second->prevAddress = NULL;
 			return second;
@@ -569,7 +582,7 @@ class RankingList {
 
 	void QuickSortAndDisplayUni(RankingList& rankingList,int sortOption) {
 		QuickSort(rankingList.head, rankingList.tail, sortOption);
-		rankingList.DisplayRankingInfo(rankingList,1);
+		DisplayRankingInfo(rankingList,1);
 	}
 
 	void QuickSortCompare(RankingList& rankingList,int sortOption) {
@@ -704,6 +717,9 @@ class RankingList {
 		return i;
 	}
 
+	// ========================== //
+	// ===== SEARCHING ALGO ===== //
+
 	void searchUniByCountry(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
@@ -750,7 +766,7 @@ class RankingList {
 		}
 	}
 
-	void searchUniByCountryForCompare(RankingList& rankingList, string searchQuery) {
+	void searchUniByRankingForCompare(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
 		} else {
@@ -759,19 +775,25 @@ class RankingList {
 			bool found = false;
 
 			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
-				if (firstPtr->location.find(searchQuery) != string::npos) { found = true; }
-				if (secondPtr->location.find(searchQuery) != string::npos) { found = true; }
+				if (stoi(firstPtr->ranking) == stoi(searchQuery)) {
+					found = true;
+				}
+
+				if (stoi(secondPtr->ranking) == stoi(searchQuery)) {
+					found = true;
+				}
 
 				firstPtr = firstPtr->nextAddress;
 				secondPtr = secondPtr->prevAddress;
 			}
 
-			if (!found && firstPtr != NULL && firstPtr == secondPtr && firstPtr->location.find(searchQuery) != string::npos) {
+			if (
+				!found && firstPtr != NULL && firstPtr == secondPtr && stoi(firstPtr->ranking) == stoi(searchQuery)) {
 				found = true;
 			}
 
 			if (!found) {
-				cout << "No universities found with country containing '" << searchQuery << "'." << endl << endl;
+				cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
 			}
 		}
 	}
@@ -824,36 +846,104 @@ class RankingList {
 		}
 	}
 
-	void binarySearchUniByName(RankingList& rankingList,string searchQuery) {
+	void binarySearchUniByRanking(RankingList& rankingList,string searchQuery) {
 		int firstIndex = 1;
 		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
-
-		MergeSortCompare(rankingList, 1);
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
 			Ranking* mid = getUniversityAtIndex(rankingList,midIndex);
 
-			if (mid->universityName.find(searchQuery) != string::npos) {
+			if (stoi(mid->ranking) == stoi(searchQuery)) {
 				cout << "University ID: " << mid->universityID << endl;
 				cout << "University Name: " << mid->universityName << endl;
 				cout << "University Country Code: " << mid->locationCode << endl;
 				cout << "University Country: " << mid->location << endl << endl;
 				found = true;
+				return;
 			}
 
-			int compareResult = searchQuery.compare(mid->universityName);
-
-			if (compareResult < 0) {
-				lastIndex = midIndex - 1;
-			} else {
+			if (stoi(mid->ranking) < stoi(searchQuery)) {
 				firstIndex = midIndex + 1;
+			} else {
+				lastIndex = midIndex - 1;
 			}
 		}
 		if (!found) {
-			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+			cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
 		}
+	}
+
+	void binarySearchUniByRankingForCompare(RankingList& rankingList, string searchQuery) {
+		if (rankingList.head == NULL) {
+			cout << "Empty University List" << endl << endl;
+			return;
+		}
+		
+		int firstIndex = 1;
+		int lastIndex = getUniversityListLenght(rankingList);
+		bool found = false;
+
+		while (firstIndex <= lastIndex) {
+			int midIndex = (firstIndex + lastIndex) / 2;
+			Ranking* mid = getUniversityAtIndex(rankingList, midIndex);
+
+			if (stoi(mid->ranking) == stoi(searchQuery)) {
+				found = true;
+				return;
+			}
+
+			if (stoi(mid->ranking) < stoi(searchQuery)) {
+				firstIndex = midIndex + 1;
+			} else {
+				lastIndex = midIndex - 1;
+			}
+		}
+		if (!found) {
+			cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
+		}
+	}
+
+	// ============================= //
+	// ===== UTILITY FUNCTIONS ===== //
+
+	int getUniversityListLenght(RankingList& rankingList) {
+		int length = 0;
+		for (Ranking* ptr = rankingList.head; ptr != NULL; ptr = ptr->nextAddress) {
+			length++;
+		}
+
+		return length;
+	}
+
+	Ranking* getUniversityAtIndex(RankingList& rankingList, int index) {
+		Ranking* current = rankingList.head;
+		int currentIndex = 1;
+
+		while (current != NULL && currentIndex < index) {
+			current = current->nextAddress;
+			currentIndex++;
+		}
+
+		return current;
+	}
+
+	string trim(const string& str) {
+		// Find the first non-whitespace character
+		auto start = str.find_first_not_of(" \t\n\r\f\v");
+
+		// If the string is all whitespace, return an empty string
+		if (start == std::string::npos) return "";
+
+		// Find the last non-whitespace character
+		auto end = str.find_last_not_of(" \t\n\r\f\v");
+
+		// Calculate the length of the trimmed string
+		auto length = end - start + 1;
+
+		// Return the trimmed substring
+		return str.substr(start, length);
 	}
 
 	string getUniNameByID(RankingList& rankingList, string searchQuery) {
@@ -901,15 +991,63 @@ class RankingList {
 		}
 	}
 
-	  void size(RankingList& rankingList) {
-			int count = 0;
-		Ranking* current = rankingList.head;
+	// ======================================================== //
+	// ===== BINARY SEARCH BY COUNTRY NOT PERFECT BUT IDK ===== //
+	
+	void searchUniByCountryForCompare(RankingList& rankingList, string searchQuery) {
+		if (rankingList.head == NULL) {
+			cout << "Empty University List" << endl << endl;
+		} else {
+			Ranking* firstPtr = rankingList.head;
+			Ranking* secondPtr = rankingList.tail;
+			bool found = false;
 
-			while (current != nullptr) {
-				count++;
-				current = current->nextAddress;
+			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
+				if (firstPtr->location.find(searchQuery) != string::npos) { found = true; }
+				if (secondPtr->location.find(searchQuery) != string::npos) { found = true; }
+
+				firstPtr = firstPtr->nextAddress;
+				secondPtr = secondPtr->prevAddress;
 			}
 
-			cout << count;
+			if (!found && firstPtr != NULL && firstPtr == secondPtr && firstPtr->location.find(searchQuery) != string::npos) {
+				found = true;
+			}
+
+			if (!found) {
+				cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
+			}
+		}
+	}
+
+	void binarySearchUniByCountry(RankingList& rankingList, string searchQuery) {
+		int firstIndex = 1;
+		int lastIndex = getUniversityListLenght(rankingList);
+		bool found = false;
+
+		while (firstIndex <= lastIndex) {
+			int midIndex = (firstIndex + lastIndex) / 2;
+			Ranking* mid = getUniversityAtIndex(rankingList, midIndex);
+			cout << mid->location << endl;
+
+			if (mid->location.find(searchQuery) != string::npos) {
+				cout << "University ID: " << mid->universityID << endl;
+				cout << "University Name: " << mid->universityName << endl;
+				cout << "University Country Code: " << mid->locationCode << endl;
+				cout << "University Country: " << mid->location << endl << endl;
+				found = true;
+			}
+
+			int compareResult = searchQuery.compare(mid->location);
+
+			if (compareResult <= 0) {
+				lastIndex = midIndex - 1;
+			} else {
+				firstIndex = midIndex + 1;
+			}
+		}
+		if (!found) {
+			cout << "No universities found with names containing '" << searchQuery << "'." << endl << endl;
+		}
 	}
 };
