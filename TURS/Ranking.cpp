@@ -1001,7 +1001,6 @@ class RankingList {
 	// ======================================================== //
 	// ===== BINARY SEARCH BY COUNTRY NOT PERFECT BUT IDK ===== //
 	
-	/*
 	void searchUniByCountryForCompare(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
@@ -1027,5 +1026,4 @@ class RankingList {
 			}
 		}
 	}
-	*/
 };
