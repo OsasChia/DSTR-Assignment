@@ -131,7 +131,6 @@
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Favourite.cpp" />
     <ClCompile Include="Feedback.cpp" />
-    <ClCompile Include="Guest.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Ranking.cpp" />
