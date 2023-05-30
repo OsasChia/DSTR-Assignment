@@ -351,8 +351,6 @@ class Menu {
 			// Two Pointer by Country (Time Complexity)
 			cout << "Search University Country: ";
 
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
