@@ -300,8 +300,6 @@ class Menu {
 			getline(cin, searchQuery);
 			cout << endl;
 
-			rankingList.MergeSortCompare(rankingList, 5);
-
 			rankingList.binarySearchUniByRanking(rankingData, searchQuery);
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
@@ -334,17 +332,15 @@ class Menu {
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
-			
-			rankingList.MergeSortCompare(rankingList, 5);
 
 			auto start = high_resolution_clock::now();
 			rankingList.searchUniByRankingForCompare(rankingData, searchQuery);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
-			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl;
+			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
 
 			auto startt = high_resolution_clock::now();
-			rankingList.binarySearchUniByRankingForCompare(rankingData, searchQuery);
+			rankingList.binarySearchUniByRanking(rankingData, searchQuery);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
