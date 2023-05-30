@@ -285,7 +285,7 @@ class Menu {
 		
 		string searchQuery;
 
-		cout << "1. Search university by ranking\n2. Search university by name\n3. Search university by country\n4. Two Pointer vs Binary Search (Time Complexity)\n5. Two Pointer by Country (Time Complexity)\n6. Binary Search by Country (Time Complexity)\n0. Return to user menu\n";
+		cout << "1. Search university by ranking\n2. Search university by name\n3. Search university by country\n4. Two Pointer vs Binary Search (Time Complexity)\n0. Return to user menu\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
 
@@ -294,8 +294,6 @@ class Menu {
 			// Search university by ranking
 			cout << "Search University Ranking: ";
 			
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK THE binarySearchUniByRanking FUNCTION INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
@@ -329,8 +327,6 @@ class Menu {
 			// Two Pointer vs Binary Search (Time Complexity)
 			cout << "Search University Ranking: ";
 			
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
@@ -352,12 +348,11 @@ class Menu {
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
+		/*
 		case 5: {
 			// Two Pointer by Country (Time Complexity)
 			cout << "Search University Country: ";
 
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
@@ -392,6 +387,7 @@ class Menu {
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
+		*/
 		case 0:
 			if (custSessionEmail.empty()) {
 				// Return to guest menu
