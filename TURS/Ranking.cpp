@@ -769,20 +769,10 @@ class RankingList {
 
 			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
 				if (stoi(firstPtr->ranking) == stoi(searchQuery)) {
-					cout << "Univerisity ID: " << firstPtr->universityID << endl;
-					cout << "Univerisity Name: " << firstPtr->universityName << endl;
-					cout << "Univerisity Country Code: " << firstPtr->locationCode << endl;
-					cout << "Univerisity Country: " << firstPtr->location << endl << endl;
-
 					found = true;
 				}
 
 				if (stoi(secondPtr->ranking) == stoi(searchQuery)) {
-					cout << "University ID: " << secondPtr->universityID << endl;
-					cout << "University Name: " << secondPtr->universityName << endl;
-					cout << "University Country Code: " << secondPtr->locationCode << endl;
-					cout << "University Country: " << secondPtr->location << endl << endl;
-
 					found = true;
 				}
 
@@ -792,11 +782,6 @@ class RankingList {
 
 			if (
 				!found && firstPtr != NULL && firstPtr == secondPtr && stoi(firstPtr->ranking) == stoi(searchQuery)) {
-				cout << "University ID: " << firstPtr->universityID << endl;
-				cout << "University Name: " << firstPtr->universityName << endl;
-				cout << "University Country Code: " << firstPtr->locationCode << endl;
-				cout << "University Country: " << firstPtr->location << endl << endl;
-
 				found = true;
 			}
 
@@ -889,8 +874,6 @@ class RankingList {
 		int firstIndex = 1;
 		int lastIndex = getUniversityListLenght(rankingList);
 		bool found = false;
-
-		MergeSortCompare(rankingList, 5);
 
 		while (firstIndex <= lastIndex) {
 			int midIndex = (firstIndex + lastIndex) / 2;
@@ -1001,7 +984,6 @@ class RankingList {
 	// ======================================================== //
 	// ===== BINARY SEARCH BY COUNTRY NOT PERFECT BUT IDK ===== //
 	
-	/*
 	void searchUniByCountryForCompare(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
@@ -1027,5 +1009,4 @@ class RankingList {
 			}
 		}
 	}
-	*/
 };
