@@ -412,8 +412,6 @@ class Menu {
 		FeedbackList& feedbackData,
 		RankingList& rankingData) {
 		RankingList rankingList;
-		RankingList rankingList1;
-		RankingList rankingList2;
 
 		cout << "1. Sort university by name\n2. Sort university by ArScore\n3. Sort university by FsrScore\n4. Sort university by ErScore\n5. Quick Sort vs Merge Sort (Time Complexity)\n0. Return to start menu\n";
 		int option = inputhandler.handleUserInput();
@@ -442,17 +440,16 @@ class Menu {
 			break;
 		case 5: {
 			// Quick Sort vs Merge Sort (Time Complexity)
-			rankingList1.MergeSortCompare(rankingData, 3);
-			rankingList2.MergeSortCompare(rankingData, 3);
+			rankingList.MergeSortCompare(rankingData, 3);
 
 			auto start = high_resolution_clock::now();
-			rankingList1.QuickSortCompare(rankingData,1);
+			rankingList.QuickSortCompare(rankingData,1);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
 			cout << "Time taken for Quick sort: " << duration.count() << " microseconds." << endl;
 
 			auto startt = high_resolution_clock::now();
-			rankingList2.MergeSortCompare(rankingData,1);
+			rankingList.MergeSortCompare(rankingData,1);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Merge sort: " << durationn.count() << " microseconds." << endl << endl;
