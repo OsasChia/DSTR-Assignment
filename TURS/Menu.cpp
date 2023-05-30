@@ -419,8 +419,13 @@ class Menu {
 		}
 		case 0:
 			// Return 
-			guestMenu(custData, favData, feedbackData, rankingData);
-			break;
+			if (custSessionEmail == "") {
+				guestMenu(custData, favData, feedbackData, rankingData);
+				break;
+			} else if(custSessionEmail!=""){
+				customerMenu(custData, favData, feedbackData, rankingData);
+				break;
+			}
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
