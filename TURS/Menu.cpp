@@ -419,13 +419,15 @@ class Menu {
 		}
 		case 0:
 			// Return 
-			if (custSessionEmail == "") {
+			if (custSessionEmail.empty()) {
+				// Return to guest menu
 				guestMenu(custData, favData, feedbackData, rankingData);
-				break;
-			} else if(custSessionEmail!=""){
+			} else if (!custSessionEmail.empty()) {
 				customerMenu(custData, favData, feedbackData, rankingData);
-				break;
+			} else {
+				adminDashboard(custData, favData, feedbackData, rankingData);
 			}
+			break;
 		default:
 			// Error
 			cout << "Error! Please enter a valid option!\n";
