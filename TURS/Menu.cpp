@@ -56,7 +56,7 @@ class Menu {
 			break;
 		case 3:
 			// 3. Register an account
-			registerMenu(custData, favData, feedbackData, rankingData);
+			registerMenu(custData);
 			break;
 		case 0:
 			// 4. Exit
@@ -99,7 +99,7 @@ class Menu {
 			break;
 		case 4:
 			//Register an account
-			registerMenu(custData, favData, feedbackData, rankingData);
+			registerMenu(custData);
 			break;
 		case 0:
 			// Return to start menu
@@ -152,11 +152,7 @@ class Menu {
 		}
 	}
 
-	void registerMenu(
-		CustomerList& custData,
-		FavouriteList& favData,
-		FeedbackList& feedbackData,
-		RankingList& rankingData) { 
+	void registerMenu(CustomerList& custData) { 
 		CustomerList customerList;
 		
 		string regisEmailTxt;
@@ -289,12 +285,25 @@ class Menu {
 		
 		string searchQuery;
 
-		cout << "1. Search university by name\n2. Search university by country\n3. Two Pointer vs Binary Search (Time Complexity)\n0. Return to user menu\n";
+		cout << "1. Search university by ranking\n2. Search university by name\n3. Search university by country\n4. Two Pointer vs Binary Search (Time Complexity)\n0. Return to user menu\n";
 		int option = inputhandler.handleUserInput();
 		cout << endl;
 
 		switch (option) {
 		case 1:
+			// Search university by ranking
+			cout << "Search University Ranking: ";
+			
+			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
+			// !!!! CAN CHECK THE binarySearchUniByRanking FUNCTION INSIDE !!!! //
+			cin.ignore();
+			getline(cin, searchQuery);
+			cout << endl;
+
+			rankingList.binarySearchUniByRanking(rankingData, searchQuery);
+			searchMenu(custData, favData, feedbackData, rankingData);
+			break;
+		case 2:
 			// Search university by name
 			cout << "Search University Name: ";
 			cin.ignore();
@@ -302,10 +311,9 @@ class Menu {
 			cout << endl;
 
 			rankingList.searchUniByName(rankingData, searchQuery);
-			// rankingList.binarySearchUniByName(rankingData, searchQuery);
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
-		case 2:
+		case 3:
 			// Search university by country
 			cout << "Search University Country: ";
 			cin.ignore();
@@ -313,24 +321,26 @@ class Menu {
 			cout << endl;
 
 			rankingList.searchUniByCountry(rankingData,searchQuery);
-			// rankingList.binarySearchUniByName(searchQuery);
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
-		case 3: {
+		case 4: {
 			// Two Pointer vs Binary Search (Time Complexity)
-			cout << "Search University Country: ";
+			cout << "Search University Ranking: ";
+			
+			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
+			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
 
 			auto start = high_resolution_clock::now();
-			rankingList.searchUniByCountryForCompare(rankingData, searchQuery);
+			rankingList.searchUniByRankingForCompare(rankingData, searchQuery);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
 			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
 
 			auto startt = high_resolution_clock::now();
-			rankingList.binarySearchUniByName(rankingData,searchQuery);
+			rankingList.binarySearchUniByRanking(rankingData, searchQuery);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
@@ -371,25 +381,26 @@ class Menu {
 		case 1:
 			// Sort university by name
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,1);
-			searchMenu(custData, favData, feedbackData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 2:
 			// Sort university by ArScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,2);
-			searchMenu(custData, favData, feedbackData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 3:
 			// Sort university by FsrScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,3);
-			searchMenu(custData, favData, feedbackData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 4:
 			// Sort university by ErScore
 			rankingList.MergeSortAndDisplayUniByOption(rankingData,4);
-			searchMenu(custData, favData, feedbackData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		case 5: {
 			// Quick Sort vs Merge Sort (Time Complexity)
+			rankingList.MergeSortCompare(rankingData, 3);
 
 			auto start = high_resolution_clock::now();
 			rankingList.QuickSortCompare(rankingData,1);
@@ -403,7 +414,7 @@ class Menu {
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Merge sort: " << durationn.count() << " microseconds." << endl << endl;
 
-			searchMenu(custData, favData, feedbackData, rankingData);
+			sortMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
 		case 0:
