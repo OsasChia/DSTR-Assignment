@@ -294,8 +294,6 @@ class Menu {
 			// Search university by ranking
 			cout << "Search University Ranking: ";
 			
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK THE binarySearchUniByRanking FUNCTION INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
@@ -327,20 +325,20 @@ class Menu {
 			// Two Pointer vs Binary Search (Time Complexity)
 			cout << "Search University Ranking: ";
 			
-			// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-			// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
 			cin.ignore();
 			getline(cin, searchQuery);
 			cout << endl;
+
+			rankingList.MergeSortCompare(rankingData, 5);
 
 			auto start = high_resolution_clock::now();
 			rankingList.searchUniByRankingForCompare(rankingData, searchQuery);
 			auto stop = high_resolution_clock::now();
 			auto duration = duration_cast<microseconds>(stop - start);
-			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
+			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl;
 
 			auto startt = high_resolution_clock::now();
-			rankingList.binarySearchUniByRanking(rankingData, searchQuery);
+			rankingList.binarySearchUniByRankingForCompare(rankingData, searchQuery);
 			auto stopp = high_resolution_clock::now();
 			auto durationn = duration_cast<microseconds>(stopp - startt);
 			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
@@ -348,46 +346,60 @@ class Menu {
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
-		//case 5: {
-		//	// Two Pointer by Country (Time Complexity)
-		//	cout << "Search University Country: ";
+		case 5: {
+			// Binary Search By Country
+			cout << "Search University Country: ";
 
-		//	// !!!! THIS ONE MUST INPUT AN INTEGER BUT I LAZY PUT VALIDATION !!!! //
-		//	// !!!! CAN CHECK BOTH FUNCTIONS INSIDE !!!! //
-		//	cin.ignore();
-		//	getline(cin, searchQuery);
-		//	cout << endl;
+			cin.ignore();
+			getline(cin, searchQuery);
+			cout << endl;
 
-		//	rankingList.MergeSortCompare(rankingList, 5);
+			rankingList.MergeSortCompare(rankingData, 6);
+			rankingList.binarySearchUniByCountryForCompare(rankingData, searchQuery);
+			
+			searchMenu(custData, favData, feedbackData, rankingData);
+			break;
+		}
+		/*
+		case 5: {
+			// Two Pointer by Country (Time Complexity)
+			cout << "Search University Country: ";
 
-		//	auto start = high_resolution_clock::now();
-		//	rankingList.searchUniByCountry(rankingData, searchQuery);
-		//	auto stop = high_resolution_clock::now();
-		//	auto duration = duration_cast<microseconds>(stop - start);
-		//	cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
+			cin.ignore();
+			getline(cin, searchQuery);
+			cout << endl;
 
-		//	searchMenu(custData, favData, feedbackData, rankingData);
-		//	break;
-		//}
-		//case 6: {
-		//	// Binary Search by Country (Time Complexity)
-		//	cout << "Search University Country: ";
+			rankingList.MergeSortCompare(rankingList, 5);
 
-		//	cin.ignore();
-		//	getline(cin, searchQuery);
-		//	cout << endl;
+			auto start = high_resolution_clock::now();
+			rankingList.searchUniByCountry(rankingData, searchQuery);
+			auto stop = high_resolution_clock::now();
+			auto duration = duration_cast<microseconds>(stop - start);
+			cout << "Time taken for Two Pointer Search: " << duration.count() << " microseconds." << endl << endl;
 
-		//	rankingList.MergeSortCompare(rankingList, 6);
+			searchMenu(custData, favData, feedbackData, rankingData);
+			break;
+		}
+		case 6: {
+			// Binary Search by Country (Time Complexity)
+			cout << "Search University Country: ";
 
-		//	auto startt = high_resolution_clock::now();
-		//	rankingList.binarySearchUniByCountry(rankingData, searchQuery);
-		//	auto stopp = high_resolution_clock::now();
-		//	auto durationn = duration_cast<microseconds>(stopp - startt);
-		//	cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
+			cin.ignore();
+			getline(cin, searchQuery);
+			cout << endl;
 
-		//	searchMenu(custData, favData, feedbackData, rankingData);
-		//	break;
-		//}
+			rankingList.MergeSortCompare(rankingList, 6);
+
+			auto startt = high_resolution_clock::now();
+			rankingList.binarySearchUniByCountry(rankingData, searchQuery);
+			auto stopp = high_resolution_clock::now();
+			auto durationn = duration_cast<microseconds>(stopp - startt);
+			cout << "Time taken for Binary Search: " << durationn.count() << " microseconds." << endl << endl;
+
+			searchMenu(custData, favData, feedbackData, rankingData);
+			break;
+		}
+		*/
 		case 0:
 			if (custSessionEmail.empty()) {
 				// Return to guest menu
