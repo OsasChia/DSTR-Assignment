@@ -346,6 +346,20 @@ class Menu {
 			searchMenu(custData, favData, feedbackData, rankingData);
 			break;
 		}
+		case 5: {
+			// Binary Search By Country
+			cout << "Search University Country: ";
+
+			cin.ignore();
+			getline(cin, searchQuery);
+			cout << endl;
+
+			rankingList.MergeSortCompare(rankingData, 6);
+			rankingList.binarySearchUniByCountryForCompare(rankingData, searchQuery);
+			
+			searchMenu(custData, favData, feedbackData, rankingData);
+			break;
+		}
 		/*
 		case 5: {
 			// Two Pointer by Country (Time Complexity)
