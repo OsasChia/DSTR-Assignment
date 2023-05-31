@@ -762,33 +762,38 @@ class RankingList {
 	void searchUniByRankingForCompare(RankingList& rankingList, string searchQuery) {
 		if (rankingList.head == NULL) {
 			cout << "Empty University List" << endl << endl;
-		} else {
-			Ranking* firstPtr = rankingList.head;
-			Ranking* secondPtr = rankingList.tail;
-			bool found = false;
-
-			while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
-				if (stoi(firstPtr->ranking) == stoi(searchQuery)) {
-					found = true;
-				}
-
-				if (stoi(secondPtr->ranking) == stoi(searchQuery)) {
-					found = true;
-				}
-
-				firstPtr = firstPtr->nextAddress;
-				secondPtr = secondPtr->prevAddress;
-			}
-
-			if (
-				!found && firstPtr != NULL && firstPtr == secondPtr && stoi(firstPtr->ranking) == stoi(searchQuery)) {
-				found = true;
-			}
-
-			if (!found) {
-				cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
-			}
+			return;
 		}
+		Ranking* firstPtr = rankingList.head;
+		Ranking* secondPtr = rankingList.tail;
+		bool found = false;
+
+		while (firstPtr != NULL && secondPtr != NULL && firstPtr != secondPtr && firstPtr->prevAddress != secondPtr) {
+			if (stoi(firstPtr->ranking) == stoi(searchQuery)) {
+				found = true;
+				return;
+			}
+
+			if (stoi(secondPtr->ranking) == stoi(searchQuery)) {
+				found = true;
+				return;
+			}
+
+			firstPtr = firstPtr->nextAddress;
+			secondPtr = secondPtr->prevAddress;
+		}
+
+		if (
+			!found && firstPtr != NULL && firstPtr == secondPtr && stoi(firstPtr->ranking) == stoi(searchQuery)) {
+			found = true;
+			return;
+		}
+
+		if (!found) {
+			cout << "No universities found with ranking '" << searchQuery << "'." << endl << endl;
+			return;
+		}
+		
 	}
 
 	void searchUniByName(RankingList& rankingList, string searchQuery) {
